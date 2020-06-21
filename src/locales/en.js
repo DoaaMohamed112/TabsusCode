@@ -28,5 +28,16 @@ export default {
    TotalSummation:"total summation",
    COLOR:"COLOR",
    SIZE:'SIZE',
-   Resend:'Resend'
+   Resend:'Resend',
+   Search: 'Search for the product',
+   AddressBook:'Address Book',
+   FirstName:'First name',
+    LastName:'Last name',
+    Mobile:'Mobile',
+    Company:'Company',
+    City:'City',
+    StreetAddress:'Street address',
+    Zip:'Zip/Postal Code',
+    SaveAddress:'Save Address',
+    NewAddress:'+ New Address'
 };

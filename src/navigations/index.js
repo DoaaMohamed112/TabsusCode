@@ -8,6 +8,9 @@ import LoginScreen from '../screens/LoginScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import VerificationCodeScreen from '../screens/VerificationCodeScreen';
 import HomeScreen from '../screens/Home';
+import SearchScreen from '../screens/SearchScreen';
+import AddressBookScreen from '../screens/ِAddressBookScreen';
+import CheckoutScreen from '../screens/CheckoutScreen';
 const Stack = createStackNavigator();
 
 
@@ -28,6 +31,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Notifications" component={Notifications}/>
             <Stack.Screen name="CartScreen" component={CartScreen}/>
+            <Stack.Screen name="SearchScreen" component={SearchScreen}/>
         </Stack.Navigator>
     );
 }
@@ -35,6 +39,8 @@ const HomeStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="CheckoutScreen" component={CheckoutScreen}/>
+            <Stack.Screen name="AddressBookScreen" component={AddressBookScreen}/>
             <Stack.Screen name="Splash" component={Splash} />
       
              <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />

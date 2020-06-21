@@ -121,6 +121,7 @@ const HomeScreen = props => {
             <Header style={{ height: 70 }} title='Home' leftIcon='back' rightIcon='general' 
             HandleBack={() => props.navigation.pop()}
             onPressNotification={()=> props.navigation.navigate('Notifications')}
+            onPressSearch={()=> props.navigation.navigate('SearchScreen')}
             onPressCart={()=> props.navigation.navigate('CartScreen')}
             ></Header>
 

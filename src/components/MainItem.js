@@ -21,7 +21,7 @@ const MainItem = props => {
 
   
     return (
-        <TouchableOpacity style={[Styles.container, props.itemStyle, props.IsLeft ? Styles.margRight : Styles.margLeft]} activeOpacity={1}>
+        <TouchableOpacity style={[Styles.container, props.itemStyle, props.IsLeft ? Styles.margRight : null]} activeOpacity={1}>
             <View style={Styles.imgContainer}>
                 <View style={{ flexDirection: 'row', width: '100%' }}>
                     <View style={{ flex: 0.5, alignItems: 'flex-start' }}>
@@ -90,7 +90,7 @@ const Styles = StyleSheet.create({
     },
     itemDetailsContainer: {
         alignItems: 'center',
-        marginHorizontal: '15%',
+        marginHorizontal: '10%',
         marginVertical: '5%'
     },
     title: {
@@ -107,7 +107,7 @@ const Styles = StyleSheet.create({
         marginLeft: 10
     },
     margRight: {
-        marginRight: 10
+        marginRight: 20
     }
 
 });

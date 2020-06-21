@@ -26,5 +26,16 @@
     TotalSummation:"المجموع الكلي",
     COLOR:"اللون",
     SIZE:"الحجم",
-    Resend:"اعادة ارسال الرمز"
+    Resend:"اعادة ارسال الرمز",
+    Search: 'أبحث عن المنتج',
+    AddressBook:'العنوان',
+    FirstName:'الإسم الاول',
+    LastName:'الإسم الاخير',
+    Mobile:'رقم الموبيل',
+    Company:'الشركة',
+    City:'المدينة',
+    StreetAddress:'عنوان الشارع',
+    Zip:'رقم البريد',
+    SaveAddress:'تسجيل العنوان',
+    NewAddress:'اضافة عنوان'
   };

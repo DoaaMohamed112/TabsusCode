@@ -4,6 +4,7 @@ import Color from '../constants/Colors';
 import FontSizes from '../constants/FontSizes';
 import { Icon } from 'react-native-elements';
 import I18n from '../i18n'
+import { IconButton } from 'react-native-paper';
 const Styles = StyleSheet.create({
     Container: {
         flex: 0,
@@ -11,8 +12,8 @@ const Styles = StyleSheet.create({
         borderRadius: 5,
         paddingVertical: 5,
         // width: '100%',
-        borderWidth:2,
-        borderColor:Color.primary,
+        borderWidth: 2,
+        borderColor: Color.primary,
         alignSelf: 'center'
     },
 
@@ -27,19 +28,14 @@ const Styles = StyleSheet.create({
 
 const BlockButton = props => {
     return (
-        <View style={[Styles.Container, props.style,{backgroundColor: props.backColor} ]}>
+        <View style={[Styles.Container, props.style, { backgroundColor: props.backColor }]}>
             {/* <TouchableOpacity onPress={props.handleClick}> */}
-               { props.iconName!=undefined? <Icon
-                    reverse
-                    name={props.iconName}
-                    type={props.iconType}
-                    size={props.size}
-                    color={Color.secondary}
-                    style={{ ...props.btnStyle }}
-                    onPress={props.Clicked}
-                    disabled={!props.IsValid}
-                />:<></>}
-                <Text style={[Styles.title,props.fontStyle]}>{I18n.t(props.value)}</Text>
+            {props.iconName != undefined ?
+                <IconButton 
+                icon={props.iconName}
+                 style={props.iconStyle} size={props.iconSize} color={props.iconColor} />
+                : <></>}
+            <Text style={[Styles.title, props.fontStyle]}>{I18n.t(props.value)}</Text>
             {/* </TouchableOpacity> */}
         </View>
     );
