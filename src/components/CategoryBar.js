@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
 import Colors from '../constants/Colors';
 import { IconButton } from 'react-native-paper';
-
+import I18n from '../i18n'
 
 const CategoryBar = (props) => {
     return (
@@ -11,7 +11,7 @@ const CategoryBar = (props) => {
                 <Text style={Styles.text}>{props.title}</Text>
             </View>
             <TouchableOpacity style={Styles.btnStyle} activeOpacity={0.8}>
-                <Text style={Styles.text}>View All</Text>
+    <Text style={Styles.text}>{I18n.t('ViewAll')}</Text>
             </TouchableOpacity>
         </View>
     );

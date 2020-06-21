@@ -7,7 +7,7 @@ import Colors from '../../constants/Colors'
 import FontSizes from '../../constants/FontSizes'
 import ImagesPaths from '../../constants/ImagesPaths'
 import InputText from '../../components/InputText'
-
+import I18n from '../../i18n'
 const LoginForm = props => {
     const [email, setEmail] = React.useState('');
     const [passowrd, setPassword] = React.useState('');
@@ -24,7 +24,7 @@ const LoginForm = props => {
     return (
         <View style={styles.container}>
             {/* Email Part */}
-            <Text style={styles.title}>Email or User name</Text>
+            <Text style={styles.title}>{I18n.t("EmailOrUser")}</Text>
             <InputText inputType='TextInput'
                 value={email} HandleChange={changeEmail}
                 style={styles.inputTextStyle}
@@ -32,7 +32,7 @@ const LoginForm = props => {
             ></InputText>
 
             {/* Password Part */}
-            <Text style={styles.title}>Password</Text>
+    <Text style={styles.title}>{I18n.t("Password")}</Text>
             <InputText inputType='TextInput'
                 value={passowrd} HandleChange={changePasswod}
                 style={styles.inputTextStyle}
@@ -40,20 +40,20 @@ const LoginForm = props => {
             ></InputText>
 
             {/* forgot password */}
-            <TouchableOpacity style={styles.forgotContainer}>
-                <Text >Forgot your password?</Text>
+            <TouchableOpacity style={styles.forgotContainer} onPress={()=>props.nav.navigate("ForgotPasswordScreen")}>
+                <Text >{I18n.t("ForgotYourPassword")}</Text>
             </TouchableOpacity>
 
             {/* Login button */}
-            <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
+            <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={()=>props.nav.navigate("HomeStackNavigator")}>
                 <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Login'></BlockButton>
             </TouchableOpacity>
 
             {/* Sign Up part */}
-            <View style={{ flexDirection: 'row', justifyContent: 'center',marginTop:120,marginBottom:30 }}>
-                <Text style={{ color: Colors.secondary }}>Don't Have An Account? </Text>
+            <View style={{ flexDirection: I18n.locale=='ar'?'row-reverse':'row', justifyContent: 'center',marginTop:120,marginBottom:30 }}>
+                <Text style={{ color: Colors.secondary }}>{I18n.t("DontHaveAccount")} </Text>
                 <TouchableOpacity>
-                    <Text >Register Now</Text>
+    <Text >{I18n.t("RegisterNow")}</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
         paddingTop: 50
     },
     title: {
-        color: Colors.textGray
+        color: Colors.textGray,
+        marginBottom:10
     },
     inputTextStyle: {
         width: '100%',

@@ -1,6 +1,9 @@
 
 
 export default {
+   Arabic:'عربي',
+   Save:'Save',
+   English:"English",
    chooseLanguage: "Choose the language",
    chooseCountry: "Choose the country",
    chooseCurrency: "Choose the Currency",
@@ -9,5 +12,20 @@ export default {
    Login: "Login",
    ForgotPassword: "Forgot Password",
    VerificationCode: "Verification Code",
-   Home: "Home"
+   Home: "Home",
+   SignInWith:"Sign with your social account",
+   OR:"OR",
+   EmailOrUser:"Email or User name",
+   Password:"Password",
+   ForgotYourPassword:"Forgot your password?",
+   DontHaveAccount:"Don't Have An Account?",
+   RegisterNow:"Register Now",
+   Email:"Email",
+   Send:"Send",
+   SeeMore:"SEE MORE",
+   ViewAll:"View All",
+   Checkout:"Checkout",
+   TotalSummation:"total summation",
+   COLOR:"COLOR",
+   SIZE:'SIZE'
 };

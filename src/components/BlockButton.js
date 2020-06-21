@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Color from '../constants/Colors';
 import FontSizes from '../constants/FontSizes';
 import { Icon } from 'react-native-elements';
-
+import I18n from '../i18n'
 const Styles = StyleSheet.create({
     Container: {
         flex: 0,
@@ -39,7 +39,7 @@ const BlockButton = props => {
                     onPress={props.Clicked}
                     disabled={!props.IsValid}
                 />:<></>}
-                <Text style={[Styles.title,props.fontStyle]}>{props.value}</Text>
+                <Text style={[Styles.title,props.fontStyle]}>{I18n.t(props.value)}</Text>
             {/* </TouchableOpacity> */}
         </View>
     );

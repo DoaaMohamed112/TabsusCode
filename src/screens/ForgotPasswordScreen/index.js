@@ -8,6 +8,7 @@ import InputText from '../../components/InputText';
 import BlockButton from '../../components/BlockButton';
 import FontSizes from '../../constants/FontSizes';
 import Colors from '../../constants/Colors';
+import I18n from '../../i18n'
 const { height, width } = Dimensions.get('window');
 
 const ForgotPasswordScreen = props => {
@@ -34,7 +35,7 @@ const ForgotPasswordScreen = props => {
       <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ForgotPassword' leftIcon='close' HandleBack={() => props.navigation.pop()}></Header>
       <View style={Style.bodyContainer}>
         {/* Email Part */}
-        <Text style={Style.title}>Email</Text>
+  <Text style={Style.title}>{I18n.t('Email')}</Text>
         <InputText inputType='TextInput'
           value={email} HandleChange={changeEmail}
           style={Style.inputTextStyle}

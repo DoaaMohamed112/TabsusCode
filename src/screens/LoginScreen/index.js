@@ -7,7 +7,7 @@ import Colors from '../../constants/Colors'
 import FontSizes from '../../constants/FontSizes'
 import ImagesPaths from '../../constants/ImagesPaths'
 import LoginForm from './LoginForm'
-
+import I18n from '../../i18n'
 const LoginScreen = props => {
 
     return (
@@ -16,7 +16,7 @@ const LoginScreen = props => {
 
             {/* Social Account */}
             <View >
-                <Text style={{ textAlign: 'center', paddingTop: 50 }}>Sign with your social account</Text>
+                <Text style={{ textAlign: 'center', paddingTop: 50 }}>{I18n.t("SignInWith")}</Text>
                 <View style={Style.SocialContainer}>
                     <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
                         <TouchableOpacity style={[Style.SocialIconContainer]}>
@@ -32,10 +32,10 @@ const LoginScreen = props => {
 
 
                 <View style={Style.OrStyle}>
-                    <Text>OR</Text>
+                    <Text>{I18n.t("OR")}</Text>
                 </View>
             </View>
-        <LoginForm></LoginForm>
+        <LoginForm nav={props.navigation}></LoginForm>
 
         </ScrollView>
     )

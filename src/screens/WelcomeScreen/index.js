@@ -46,7 +46,7 @@ const WelcomeScreen = props => {
                     <BlockButton backColor={language == 'en' ? Colors.primary : Colors.light} style={{width:'100%'}} value='English'></BlockButton>
                 </TouchableOpacity>
                 <TouchableOpacity style={Style.LangButton} onPress={() => changeLang('ar')}>
-                    <BlockButton backColor={language == 'en' ? Colors.light : Colors.primary} style={{width:'100%'}} value='عربي'></BlockButton>
+                    <BlockButton backColor={language == 'en' ? Colors.light : Colors.primary} style={{width:'100%'}} value='Arabic'></BlockButton>
                 </TouchableOpacity>               
             </View>
              {/* Country Part */}
@@ -62,8 +62,8 @@ const WelcomeScreen = props => {
   
        <CountryCurrencyPicker type='currency'></CountryCurrencyPicker>
       </View>
-      <TouchableOpacity style={{width:'100%',paddingHorizontal:10,marginTop:60}} onPress={() => props.navigation.navigate("Notifications")}>
-                    <BlockButton backColor={Colors.primary} style={{width:'100%'}}  value='Save'></BlockButton>
+      <TouchableOpacity style={{width:'100%',paddingHorizontal:10,marginTop:60}} onPress={() => props.navigation.navigate("LoginScreen")}>
+                    <BlockButton backColor={Colors.primary} style={{width:'100%'}}   value='Save'></BlockButton>
                 </TouchableOpacity>
       </View>
       </ScrollView>

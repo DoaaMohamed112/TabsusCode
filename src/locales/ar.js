@@ -1,5 +1,7 @@
 
   export default {
+    Arabic:'عربي',
+    Save:'تسجيل',
     chooseLanguage:"اختر اللغة ",
     chooseCountry:"اختر البلد",
     chooseCurrency:"اختر العملة",
@@ -8,5 +10,20 @@
     Login:'تسجيل دخول',
     ForgotPassword:'نسيت كلمة السر',
     VerificationCode:'كود التأكيد',
-    Home: 'الرئيسية'
+    Home: 'الرئيسية',
+    SignInWith:"سجل دخول بواسطة الحساب الاجتماعي",
+    OR:'أو',
+    EmailOrUser:"البريد الالكتروني أو اسم المستخدم",
+    Password:"رمز المرور",
+    ForgotYourPassword:"نسيت كلمة السر؟",
+    DontHaveAccount:"لا تملك حساب؟",
+    RegisterNow:"سجل الان",
+    Email:"البريد الالكتروني",
+    Send:"ارسال",
+    SeeMore:"شاهد المزيد",
+    ViewAll:"شاهد الجميع",
+    Checkout:"الذهاب للدفع",
+    TotalSummation:"المجموع الكلي",
+    COLOR:"اللون",
+    SIZE:"الحجم"
   };

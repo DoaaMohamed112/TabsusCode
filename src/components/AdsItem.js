@@ -9,7 +9,7 @@ const AdsItem = (props) => {
     return (
         <ImageBackground style={Styles.Container} imageStyle={Styles.ImageStyle} source={{ uri: props.item.img }}>
             <Text style={Styles.text}>{props.item.description}</Text>
-            <BlockButton value="SEE MORE"  style={Styles.btnStyle} fontStyle={Styles.fontStyle} backColor={Colors.primary}/>
+            <BlockButton value="SeeMore"  style={Styles.btnStyle} fontStyle={Styles.fontStyle} backColor={Colors.primary}/>
         </ImageBackground>
     );
 }

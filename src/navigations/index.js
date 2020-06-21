@@ -35,11 +35,12 @@ const HomeStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="Splash" component={Splash} />
+      
              <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
             <Stack.Screen name='VerificationCodeScreen' component={VerificationCodeScreen}/>
             <Stack.Screen name='ForgotPasswordScreen' component={ForgotPasswordScreen}/>
             <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-            <Stack.Screen name="Splash" component={Splash} />
             <Stack.Screen name="Welcome" component={Welcome}/>
            {/* <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} /> */}
         </Stack.Navigator>

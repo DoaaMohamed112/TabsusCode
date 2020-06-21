@@ -56,8 +56,9 @@ const CountryCurrencyPicker = props => {
       </TouchableOpacity>
     {/* List of countries */}
       <Modal
-        animationType="slide"
-        transparent={true}
+        style={{backgroundColor:Colors.light}}
+        // animationType="slide"
+        // transparent={true}
         visible={visibleList}>
         <FlatList
           showsVerticalScrollIndicator={false}

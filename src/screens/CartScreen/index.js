@@ -6,6 +6,7 @@ import CartItem from './CartItem'
 import BlockButton from '../../components/BlockButton'
 import Colors from '../../constants/Colors'
 import FontSizes from '../../constants/FontSizes'
+import I18n from '../../i18n'
 
 const CartScreen = props => {
     const dummyList = [1, 2, 4, 1, 2, 6,8];
@@ -27,8 +28,8 @@ const CartScreen = props => {
 </SafeAreaView>
             {/* footer */}
             <View style={Style.footerStyle}>
-                <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ fontWeight: 'bold', flex: 0.5 }}>total summation</Text>
+                <View style={{ flexDirection: I18n.locale=='ar'?'row-reverse': 'row' }}>
+                <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
                     {/* price */}
 
                     <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
