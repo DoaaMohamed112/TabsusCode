@@ -25,5 +25,6 @@
     Checkout:"الذهاب للدفع",
     TotalSummation:"المجموع الكلي",
     COLOR:"اللون",
-    SIZE:"الحجم"
+    SIZE:"الحجم",
+    Resend:"اعادة ارسال الرمز"
   };

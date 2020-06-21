@@ -71,7 +71,7 @@ const VerificationCodeScreen = props => {
                 <BlockButton fontStyle={{ fontSize: FontSizes.pragraph, fontWeight: 'bold' }} backColor={Colors.light} style={{borderWidth:0}} value='Resend'></BlockButton>
             </TouchableOpacity>
         {/* button part */}
-        <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
+        <TouchableOpacity onPress={()=>props.navigation.navigate('HomeStackNavigator')} style={{ width: '100%', marginTop: 20 }} >
                 <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Send'></BlockButton>
             </TouchableOpacity>
       </View>

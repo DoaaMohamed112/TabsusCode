@@ -45,7 +45,7 @@ const LoginForm = props => {
             </TouchableOpacity>
 
             {/* Login button */}
-            <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={()=>props.nav.navigate("HomeStackNavigator")}>
+            <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={()=>props.nav.navigate("VerificationCodeScreen")}>
                 <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Login'></BlockButton>
             </TouchableOpacity>
 

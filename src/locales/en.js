@@ -27,5 +27,6 @@ export default {
    Checkout:"Checkout",
    TotalSummation:"total summation",
    COLOR:"COLOR",
-   SIZE:'SIZE'
+   SIZE:'SIZE',
+   Resend:'Resend'
 };

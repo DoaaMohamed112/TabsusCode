@@ -12,8 +12,8 @@ const MainItem = props => {
     const [itemData , setItem] = useState(item);
 
     const updateItem = () => {
-        let temp = {...item};
-        temp.IsFav = !item.IsFav;
+        let temp = {...itemData};
+        temp.IsFav = !itemData.IsFav;
         setItem({...temp})
     }
     
