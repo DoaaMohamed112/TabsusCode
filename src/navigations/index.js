@@ -11,6 +11,7 @@ import HomeScreen from '../screens/Home';
 import SearchScreen from '../screens/SearchScreen';
 import AddressBookScreen from '../screens/ِAddressBookScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
+import PlaceOrderScreen from '../screens/PlaceOrderScreen';
 const Stack = createStackNavigator();
 
 
@@ -39,6 +40,8 @@ const HomeStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
+
             <Stack.Screen name="CheckoutScreen" component={CheckoutScreen}/>
             <Stack.Screen name="AddressBookScreen" component={AddressBookScreen}/>
             <Stack.Screen name="Splash" component={Splash} />

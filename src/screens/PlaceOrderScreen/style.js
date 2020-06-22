@@ -25,7 +25,10 @@ const Style = StyleSheet.create({
   },
   inputTextStyle: {
       width: '100%',
-      marginBottom: 20
+      marginBottom: 20,
+      flex:0.7,
+      borderTopEndRadius:0,
+      borderBottomEndRadius:0
   },
   radioStyle:{
     flexDirection:'row',

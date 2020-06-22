@@ -37,5 +37,8 @@
     StreetAddress:'عنوان الشارع',
     Zip:'رقم البريد',
     SaveAddress:'تسجيل العنوان',
-    NewAddress:'اضافة عنوان'
+    NewAddress:'اضافة عنوان',
+    Next:'التالي',
+    Apply:'أضف',
+    PlaceOrder:'تأكيد الطلب'
   };

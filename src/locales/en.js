@@ -39,5 +39,8 @@ export default {
     StreetAddress:'Street address',
     Zip:'Zip/Postal Code',
     SaveAddress:'Save Address',
-    NewAddress:'+ New Address'
+    NewAddress:'+ New Address',
+    Next:'Next',
+    Apply:'Apply',
+    PlaceOrder:'Place Order'
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, ScrollView ,Image} from 'react-native';
 import Style from './style'
 import ImagesPaths from '../../constants/ImagesPaths';
 // import *as AuthAction from '../../store/Actions/Auth'
@@ -11,6 +11,7 @@ import Colors from '../../constants/Colors';
 import I18n from '../../i18n'
 import AdressItem from '../../components/AddressItem'
 import { RadioButton } from 'react-native-paper';
+import RadioButtonGroup from '../../components/RadioButtonGroup';
 const { height, width } = Dimensions.get('window');
 
 const CheckoutScreen = props => {
@@ -28,40 +29,56 @@ const CheckoutScreen = props => {
         //     Dimensions.removeEventListener('change', updateDimensions);
         // }
     });
+
+    const onChange = (item) => {
+        console.log(item)
+    }
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView >
+            <ScrollView contentContainerStyle={{height:'100%'}} >
                 <View style={Style.bodyContainer}>
-                {/* Shipping Address */}
-                <Text style={Style.title}>Shipping Address</Text>
-                <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
+                    {/* Shipping Address */}
+                    <Text style={Style.title}>Shipping Address</Text>
+                    <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
 
-                {/* button part */}
-                <TouchableOpacity style={{ width: '100%', marginTop: 20, marginBottom: '20%' }} >
-                    <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} iconSize={25} backColor={Colors.light} style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} value='NewAddress'></BlockButton>
-                </TouchableOpacity>
-              
-                {/* Delivery Method */}
-                <Text style={{ fontWeight: 'bold' }}>Delivery Method</Text>
-                {/* Radio group  */}
-                <RadioButton.Group
-                    onValueChange={value => setDeliveryMethod(value)}
-                    value={deliveryMethod}
-                >
-                    <View style={Style.radioStyle}>
-                        <RadioButton color={Colors.primary} value="Free" />
-                        <Text style={Style.radioText}>Free Delivery</Text>
-                    </View>
-                    <View style={Style.radioStyle}>
-                        <RadioButton style={{backgroundColor:Colors.textGray}} color={Colors.primary} value="Express" />
-                        <Text style={Style.radioText}>Express Delivery</Text>
-                    </View>
-                </RadioButton.Group>
-                
+                    {/* button part */}
+                    <TouchableOpacity style={{ width: '100%', marginTop: 20, marginBottom: '10%' }} >
+                        <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} iconSize={25} backColor={Colors.light} style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} value='NewAddress'></BlockButton>
+                    </TouchableOpacity>
+
+                    {/* Delivery Method */}
+                    <Text style={{ fontWeight: 'bold' }}>Delivery Method</Text>
+                    {/* Radio group  */}
+                    <RadioButtonGroup handleChange={(selected) => onChange(selected)} labels={['Free Delivery', 'Express Delivery']}></RadioButtonGroup>
+
+
                 </View>
-                
-                <View></View>
+
+                <View style={Style.timeBlock}>
+                    <View style={Style.imgContainerStyle}>
+                        <Image source={require('../../assets/images/Delivery-time.png')} style={Style.imgStyle} />
+                    </View>
+                    <View> 
+                        <Text style={Style.titleText}>Delivery time</Text>
+                    <Text style={Style.pragText}>The order will be delivered after three days from this day</Text> 
+                    </View>
+                </View>
+
+             {/* footer */}
+             <View style={Style.footerStyle}>
+                <View style={{ flexDirection: I18n.locale=='ar'?'row-reverse': 'row' }}>
+                <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
+                    {/* price */}
+
+                    <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
+                        <Text style={Style.priceStyle}>EG 20</Text>
+                    </View>
+                </View>
+                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
+                    <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Next'></BlockButton>
+                </TouchableOpacity>
+            </View>
             </ScrollView>
         </View>
     );
