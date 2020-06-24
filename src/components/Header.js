@@ -41,7 +41,13 @@ const MainHeader = props => {
               </IconButton>
 
             ) :
-              null
+            props.leftIcon == 'menu' ? (
+              <IconButton icon="menu" size={25} color={Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
+              </IconButton>
+  
+            )
+            :
+            null
         }
       </Left>
       {/* content */}
