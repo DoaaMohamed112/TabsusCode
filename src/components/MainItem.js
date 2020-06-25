@@ -21,7 +21,7 @@ const MainItem = props => {
 
   
     return (
-        <TouchableOpacity style={[Styles.container, props.itemStyle, props.IsLeft ? Styles.margRight : null]} activeOpacity={1}>
+        <TouchableOpacity style={[Styles.container, props.itemStyle, props.IsLeft ? Styles.margRight : null]} activeOpacity={1} onPress={props.onPress}>
             <View style={Styles.imgContainer}>
                 <View style={{ flexDirection: 'row', width: '100%' }}>
                     <View style={{ flex: 0.5, alignItems: 'flex-start' }}>

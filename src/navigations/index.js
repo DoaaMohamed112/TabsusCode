@@ -20,6 +20,7 @@ import SideBar from '../components/SideBar';
 import { IconButton } from 'react-native-paper';
 import ImagesPaths from '../constants/ImagesPaths';
 import Colors from '../constants/Colors';
+import ProductScreen from '../screens/ProductScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -86,9 +87,7 @@ function TabsNavigator() {
 const AuthStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-
             <Stack.Screen name="Splash" component={Splash} />
-
             <Stack.Screen name='VerificationCodeScreen' component={VerificationCodeScreen} />
             <Stack.Screen name='ForgotPasswordScreen' component={ForgotPasswordScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
@@ -104,6 +103,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="Notifications" component={Notifications} />
             <Stack.Screen name="CartScreen" component={CartScreen} />
             <Stack.Screen name="SearchScreen" component={SearchScreen} />
+            <Stack.Screen name="ProductStackNavigator" component={ProductStackNavigator} />
         </Stack.Navigator>
     );
 }
@@ -117,6 +117,14 @@ const PaymentStackNavigator = () => {
             <Stack.Screen name="AddressBookScreen" component={AddressBookScreen}/>
         </Stack.Navigator>
     );
+}
+
+const ProductStackNavigator = () => {
+  return (
+      <Stack.Navigator headerMode="none" >
+          <Stack.Screen name="ProductScreen" component={ProductScreen} />
+      </Stack.Navigator>
+  );
 }
 
 const MainStackNavigator = () => {

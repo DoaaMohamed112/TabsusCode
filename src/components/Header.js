@@ -66,15 +66,12 @@ const MainHeader = props => {
         </View>
         {/* Right */}
         {props.rightIcon && <View style={{ alignSelf: 'center', width: '50%', alignItems: i18n.locale == 'ar' ? 'flex-start' : 'flex-end' }}>
-          {props.rightIcon == 'general' ? (
+          
             <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity onPress={props.onPressNotification}><IconButton icon='bell-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity>
-              <TouchableOpacity onPress={props.onPressSearch}><IconButton icon='magnify' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity>
-              <TouchableOpacity onPress={props.onPressCart}><IconButton icon='cart-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity>
+              {(props.rightIcon == 'general' || props.rightIcon.includes('notification')) &&  <TouchableOpacity onPress={props.onPressNotification}><IconButton icon='bell-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
+              {(props.rightIcon == 'general' || props.rightIcon.includes('search'))       &&  <TouchableOpacity onPress={props.onPressSearch}><IconButton icon='magnify' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
+              {(props.rightIcon == 'general' || props.rightIcon.includes('cart'))         &&  <TouchableOpacity onPress={props.onPressCart}><IconButton icon='cart-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
             </View>
-          ) :
-            props.children
-          }
         </View>}
          
       </Body>

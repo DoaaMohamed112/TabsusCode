@@ -116,6 +116,10 @@ const HomeScreen = props => {
     ])
 
 
+    const handlePressItem = (item) => {
+        props.navigation.navigate('ProductStackNavigator');
+    }
+
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} title='Home' leftIcon='menu' rightIcon='general' 
@@ -136,7 +140,7 @@ const HomeScreen = props => {
 
                             <View style={Style.bodyContent}>
                                 {List.Data.slice(0, 4).map((item, index) => {
-                                    return (<MainItem  key={index} IsLeft={index%2 == 0} item={item} itemStyle={Style.itemContainer} handleClick={()=>updateItem(item, List.category)}></MainItem>)
+                                    return (<MainItem  key={index} IsLeft={index%2 == 0} item={item} itemStyle={Style.itemContainer} handleClick={()=>updateItem(item, List.category)} onPress={() => handlePressItem(item)}></MainItem>)
                                 })}
                             </View>
 
