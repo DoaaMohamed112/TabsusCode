@@ -12,5 +12,7 @@ export default {
     shadow:'rgba(0, 0, 0, 0.08)',
     backgroundColor:'#FFFFFF',
     backGray: '#f4f5f8',
-    greenSuccess:'#38c567'
+    greenSuccess:'#38c567',
+    tabsBack: '#ebebeb',
+    tabsBackground: '#dbdcde'
 }

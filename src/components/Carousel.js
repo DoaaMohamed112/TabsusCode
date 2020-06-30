@@ -25,15 +25,16 @@ const Carousel = props => {
   })
 
   return (
-    <View  style={{width: width, minHeight: height*0.4}}>
+    <View style={{alignItems:'center',backgroundColor:Colors.backGray}}>
       <SliderBox
         images={props.images}
         sliderBoxHeight={props.height}
-        ImageComponentStyle={{borderRadius: 0, width: '100%',resizeMode: 'contain',backgroundColor: Colors.lightgray}}
+        ImageComponentStyle={{borderRadius: 0, resizeMode: 'contain',backgroundColor:Colors.backGray}}
         circleLoop
         resizeMode='contain'
-        parentWidth={width}
-        autoplay
+        parentWidth={width*0.7}
+        dotColor={Colors.darkgray}
+        inactiveDotColor={Colors.lightgray}
         dotStyle={{
             width: 12,
             height: 12,
@@ -41,6 +42,7 @@ const Carousel = props => {
             marginHorizontal: 0
           }}
           disableOnPress={true}
+          imageLoadingColor={Colors.primary}
       />
       </View>
   );

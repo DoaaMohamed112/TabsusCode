@@ -133,7 +133,7 @@ const SearchScreen = props => {
                         numColumns={2}
                         // horizontal={false}
                         renderItem={({ item, index }) => (
-                           <MainItem  key={item.id} IsLeft={index % 2 == 0} item={item} itemStyle={Style.itemContainer} handleClick={() => updateItem(item, List.category)}></MainItem>
+                           <MainItem  key={item.id} IsLeft={index % 2 == 0} item={item} itemStyle={Style.itemContainer} ></MainItem>
                         )}
                         keyExtractor={item => item.id}
                       />

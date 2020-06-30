@@ -140,7 +140,7 @@ const HomeScreen = props => {
 
                             <View style={Style.bodyContent}>
                                 {List.Data.slice(0, 4).map((item, index) => {
-                                    return (<MainItem  key={index} IsLeft={index%2 == 0} item={item} itemStyle={Style.itemContainer} handleClick={()=>updateItem(item, List.category)} onPress={() => handlePressItem(item)}></MainItem>)
+                                    return (<MainItem  key={index} IsLeft={index%2 == 0} item={item} itemStyle={Style.itemContainer}  onPress={() => handlePressItem(item)}></MainItem>)
                                 })}
                             </View>
 

@@ -1,6 +1,9 @@
 export default {
     // Images paths
     Logo:require('../assets/images/Tabsus.png'),
+    DeliveryTime:require('../assets/images/Delivery-time.png'),
+    ReturnPolicy:require('../assets/images/Return-Policy.png'),
+    SoldBy:require('../assets/images/Sold-by.png'),
     
 
 

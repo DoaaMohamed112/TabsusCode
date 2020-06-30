@@ -78,9 +78,13 @@ const SideBar = (props) => {
         let index2 = menuItems.findIndex(i => i.active == true);
         let list = [...menuItems];
         console.log('index',index);
-        list[index].active = true;
-        list[index2].active = false;
-        setMenuItems([...list])
+        if(index != index2)
+        {
+            list[index].active = true;
+            list[index2].active = false;
+            setMenuItems([...list])
+        }
+
     };
 
     return (

@@ -24,7 +24,7 @@ const MainHeader = props => {
 
   return (
     <Header
-      style={{ ...{ backgroundColor: Color.dark, flexDirection: i18n.locale == 'ar' ? 'row-reverse' : 'row' }, ...props.style }}
+      style={{ ...{ backgroundColor: Color.dark, alignItems: 'center' , flexDirection: i18n.locale == 'ar' ? 'row-reverse' : 'row' }, ...props.style }}
       androidStatusBarColor={Color.dark}
       noShadow={props.noshadow}
       transparent={props.transparent}>
@@ -32,17 +32,17 @@ const MainHeader = props => {
       <Left style={{ flex: 0.15, alignItems: i18n.locale == 'ar' ? 'flex-start' : 'flex-start' }}>
         {
           props.leftIcon == 'back' ? (
-            <IconButton icon="chevron-left" size={25} color={Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
+            <IconButton icon="chevron-left" size={35} color={props.IconColor != undefined ? props.IconColor : Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
             </IconButton>
 
           )
             : props.leftIcon == 'close' ? (
-              <IconButton icon="close" size={25} color={Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
+              <IconButton icon="close" size={25} color={props.IconColor != undefined ? props.IconColor : Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
               </IconButton>
 
             ) :
             props.leftIcon == 'menu' ? (
-              <IconButton icon="menu" size={25} color={Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
+              <IconButton icon="menu" size={25} color={props.IconColor != undefined ? props.IconColor : Colors.light} onPress={props.HandleBack} style={[i18n.locale == 'ar' ? Styles.iconInverse : null]} >
               </IconButton>
   
             )
@@ -55,7 +55,7 @@ const MainHeader = props => {
         {props.SearchBar && 
             <View style={[Styles.SearchContainer,{flexDirection: i18n.locale == 'ar' ? 'row-reverse' : 'row'}]}>
               <InputText value={props.searchValue} HandleChange={(e) => props.onChange(e)} style={Styles.inputStyle} inputType="TextInput"  placeholder={i18n.t('Search')}/>
-              <IconButton icon='magnify' color={Colors.lightgray} size={25} style={Styles.iconStyle} />
+              <IconButton icon='magnify' color={props.IconColor != undefined ? props.IconColor : Colors.lightgray} size={25} style={Styles.iconStyle} />
 
             </View>
           }
@@ -68,9 +68,9 @@ const MainHeader = props => {
         {props.rightIcon && <View style={{ alignSelf: 'center', width: '50%', alignItems: i18n.locale == 'ar' ? 'flex-start' : 'flex-end' }}>
           
             <View style={{ flexDirection: 'row' }}>
-              {(props.rightIcon == 'general' || props.rightIcon.includes('notification')) &&  <TouchableOpacity onPress={props.onPressNotification}><IconButton icon='bell-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
-              {(props.rightIcon == 'general' || props.rightIcon.includes('search'))       &&  <TouchableOpacity onPress={props.onPressSearch}><IconButton icon='magnify' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
-              {(props.rightIcon == 'general' || props.rightIcon.includes('cart'))         &&  <TouchableOpacity onPress={props.onPressCart}><IconButton icon='cart-outline' color={Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
+              {(props.rightIcon == 'general' || props.rightIcon.includes('notification')) &&  <TouchableOpacity onPress={props.onPressNotification}><IconButton icon='bell-outline' color={props.IconColor != undefined ? props.IconColor : Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
+              {(props.rightIcon == 'general' || props.rightIcon.includes('search'))       &&  <TouchableOpacity onPress={props.onPressSearch}><IconButton icon='magnify' color={props.IconColor != undefined ? props.IconColor : Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
+              {(props.rightIcon == 'general' || props.rightIcon.includes('cart'))         &&  <TouchableOpacity onPress={props.onPressCart}><IconButton icon='cart-outline' color={props.IconColor != undefined ? props.IconColor : Colors.light} style={Styles.iconStyle} /></TouchableOpacity> }
             </View>
         </View>}
          

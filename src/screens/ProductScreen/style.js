@@ -7,15 +7,15 @@ const { height, width } = Dimensions.get('window');
 const Style = StyleSheet.create({
     container:{
         flex: 1,
+        backgroundColor: Colors.light
     },
     headerStyle:{
-        height: 70,
-        backgroundColor: 'transparent',
         position: 'absolute',
+        top: 0,
+        right: 0,
+        left: 0,
         zIndex: 2,
-        elevation:1,
-        alignItems: 'center'
-
+        elevation:1000,
     }
 });
 
