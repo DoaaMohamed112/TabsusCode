@@ -14,5 +14,6 @@ export default {
     backGray: '#f4f5f8',
     greenSuccess:'#38c567',
     tabsBack: '#ebebeb',
-    tabsBackground: '#dbdcde'
+    tabsBackground: '#dbdcde',
+    facebookColor: '#385997'
 }

@@ -30,6 +30,8 @@ const Style = StyleSheet.create({
       margin:10
   },
   socialIconStyle:{
+    width: '50%',
+    height: '50%',
       resizeMode:'contain'
   },  
 

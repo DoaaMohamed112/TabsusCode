@@ -21,6 +21,7 @@ import { IconButton } from 'react-native-paper';
 import ImagesPaths from '../constants/ImagesPaths';
 import Colors from '../constants/Colors';
 import ProductScreen from '../screens/ProductScreen';
+import SignupScreen from '../screens/SignupScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -92,6 +93,7 @@ const AuthStackNavigator = () => {
             <Stack.Screen name='ForgotPasswordScreen' component={ForgotPasswordScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="Welcome" component={Welcome} />
+            <Stack.Screen name="SigupScreen" component={SignupScreen} />
         </Stack.Navigator>
     );
 }
@@ -112,7 +114,6 @@ const PaymentStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
             <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
-
             <Stack.Screen name="CheckoutScreen" component={CheckoutScreen}/>
             <Stack.Screen name="AddressBookScreen" component={AddressBookScreen}/>
         </Stack.Navigator>
@@ -130,10 +131,8 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-        
-            <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
-
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
+            <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>
     );
 }

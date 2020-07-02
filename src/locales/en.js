@@ -42,5 +42,7 @@ export default {
     NewAddress:'+ New Address',
     Next:'Next',
     Apply:'Apply',
-    PlaceOrder:'Place Order'
+    PlaceOrder:'Place Order',
+    SignUP : 'Sign UP',
+    termsAndConditions: 'term'
 };

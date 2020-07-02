@@ -49,6 +49,11 @@ const Styles = StyleSheet.create({
   },
   pickerColor:{
     color: Colors.placeholder
+  },
+  title: {
+    color: Colors.textGray,
+    fontSize: 15,
+    marginBottom: 10
   }
 });
 
@@ -79,9 +84,11 @@ const InputText = props => {
 // console.log(i18n.locale)
   return (
     props.inputType == 'TextInput' ?
+    <View>
+      { props.title && <Text style={[Styles.title ,props.TextStyle]}>{props.title}</Text>}
+
      <View style={[Styles.InputText, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
       { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}
-     
         <TextInput
           placeholder={props.placeholder}
           value={props.value}
@@ -92,6 +99,8 @@ const InputText = props => {
           style={[ {width: '100%',height:'100%',textAlignVertical:'top'}]}
         /> 
         </View>
+    </View>
+
          :  
       <View style={[Styles.InputPicker, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
       { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}

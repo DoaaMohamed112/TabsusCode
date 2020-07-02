@@ -40,5 +40,6 @@
     NewAddress:'اضافة عنوان',
     Next:'التالي',
     Apply:'أضف',
-    PlaceOrder:'تأكيد الطلب'
+    PlaceOrder:'تأكيد الطلب',
+    SignUP : 'تسجيل دخول'
   };
