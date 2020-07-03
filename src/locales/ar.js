@@ -52,5 +52,9 @@
     Name:'الإسم',
     ExpireDate:'تاريخ انتهاء البطاقة',
     CCV:'رقم التحقق',
-    Payment:"الدفع"
+    Payment:"الدفع",
+    ContinueShopping:'استكمل الشراء',
+    ViewOrderDetails:'اظهر تفاصيل الطلب',
+    YourOrderNumber:'رقم طلبك: ',
+    ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي'
   };

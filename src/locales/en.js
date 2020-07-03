@@ -54,5 +54,9 @@ export default {
     ExpireDate:'Expire date',
     Name:'Name',
     CCV:'CCV',
-    Payment:'Payment'
+    Payment:'Payment',
+    ContinueShopping:'Continue Shopping',
+    ViewOrderDetails:"View Order Details",
+    YourOrderNumber:'Your order number is: ',
+    ConfirmationMessageIsSent:'A confirmation message is sent to'
 };
