@@ -13,7 +13,7 @@ import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import VerificationCodeScreen from '../screens/VerificationCodeScreen';
 import HomeScreen from '../screens/Home';
 import SearchScreen from '../screens/SearchScreen';
-import AddressBookScreen from '../screens/ِAddressBookScreen';
+import AddressBookScreen from '../screens/AddressBookScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import PlaceOrderScreen from '../screens/PlaceOrderScreen';
 import SideBar from '../components/SideBar';
@@ -22,6 +22,9 @@ import ImagesPaths from '../constants/ImagesPaths';
 import Colors from '../constants/Colors';
 import ProductScreen from '../screens/ProductScreen';
 import SignupScreen from '../screens/SignupScreen';
+import NewPasswordScreen from '../screens/NewPasswordScreen';
+import TermsConditionsScreen from '../screens/TermsConditionsScreen';
+import PaymentScreen from '../screens/PaymentScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -94,6 +97,10 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="Welcome" component={Welcome} />
             <Stack.Screen name="SigupScreen" component={SignupScreen} />
+            <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+            <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} />
+
+
         </Stack.Navigator>
     );
 }
@@ -131,6 +138,7 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="PaymentScreen" component={PaymentScreen}/>
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>

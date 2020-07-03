@@ -12,7 +12,7 @@ const Styles = StyleSheet.create({
     borderRadius: 5,
     width: '80%',
     // marginTop: 10,
-    height: 40,
+    height: 50,
     borderWidth:1,
     borderColor: Colors.textGray,
     
@@ -35,7 +35,7 @@ const Styles = StyleSheet.create({
     fontFamily: 'barmeno-regular',
   },
   SuccessInput: {
-    borderColor: Colors.primary,
+    borderColor: Colors.greenSuccess,
     borderBottomWidth: 1
   },
   ErrorInput: {

@@ -44,5 +44,13 @@ export default {
     Apply:'Apply',
     PlaceOrder:'Place Order',
     SignUP : 'Sign UP',
-    termsAndConditions: 'term'
+    termsAndConditions: 'term',
+    ConfirmPassword:'Confirm password',
+    NewPassword:'New password',
+    TermsAndConditions:'Terms And Conditions',
+    CardNumber:'Card number',
+    ExpireDate:'Expire date',
+    Name:'Name',
+    CCV:'CCV',
+    Payment:'Payment'
 };

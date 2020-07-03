@@ -41,5 +41,13 @@
     Next:'التالي',
     Apply:'أضف',
     PlaceOrder:'تأكيد الطلب',
-    SignUP : 'تسجيل دخول'
+    SignUP : 'تسجيل دخول',
+    ConfirmPassword: 'تأكيد كلمة السر',
+    NewPassword:'كلمة السر الجديدة',
+    TermsAndConditions:'الشروط و البنود',
+    CardNumber:'رقم البطاقة الإئتمانية',
+    Name:'الإسم',
+    ExpireDate:'تاريخ انتهاء البطاقة',
+    CCV:'رقم التحقق',
+    Payment:"الدفع"
   };
