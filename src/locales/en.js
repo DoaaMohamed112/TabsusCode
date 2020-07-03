@@ -44,5 +44,9 @@ export default {
     Apply:'Apply',
     PlaceOrder:'Place Order',
     SignUP : 'Sign UP',
-    termsAndConditions: 'term'
+    termsAndConditionsStatement: 'By completing this sign up i agree to',
+    termsAndConditions: 'Terms and condition',
+    ConfirmPassword: 'Confirm Password',
+    SignUpWithEmail : 'Sign up with your email address',
+    
 };

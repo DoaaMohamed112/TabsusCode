@@ -41,5 +41,10 @@
     Next:'التالي',
     Apply:'أضف',
     PlaceOrder:'تأكيد الطلب',
-    SignUP : 'تسجيل دخول'
+    SignUP : 'تسجيل دخول',
+    termsAndConditionsStatement: 'بعد الإنتهاء من التسجيل أوافق على ',
+    termsAndConditions: 'الشروط والأحكام',
+    ConfirmPassword: 'تأكيد كلمة المرور',
+    SignUpWithEmail : 'سجل باستخدام عنوان بريدك الإلكترونى',
+
   };
