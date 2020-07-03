@@ -56,5 +56,6 @@
     ContinueShopping:'استكمل الشراء',
     ViewOrderDetails:'اظهر تفاصيل الطلب',
     YourOrderNumber:'رقم طلبك: ',
-    ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي'
+    ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي',
+    Categories:'الاقسام'
   };

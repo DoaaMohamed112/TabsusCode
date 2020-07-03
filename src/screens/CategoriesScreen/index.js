@@ -129,7 +129,7 @@ const CategoriesScreen = props => {
     <View style={Style.container}>
       <Header
         style={{height: 70}}
-        title="Home"
+        title="Categories"
         leftIcon="menu"
         rightIcon="general"
         HandleBack={() => props.navigation.openDrawer()}

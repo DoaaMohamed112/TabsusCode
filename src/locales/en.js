@@ -58,5 +58,6 @@ export default {
     ContinueShopping:'Continue Shopping',
     ViewOrderDetails:"View Order Details",
     YourOrderNumber:'Your order number is: ',
-    ConfirmationMessageIsSent:'A confirmation message is sent to'
+    ConfirmationMessageIsSent:'A confirmation message is sent to',
+    Categories:'Categories'
 };
