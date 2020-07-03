@@ -46,7 +46,13 @@ export default {
     SignUP : 'Sign UP',
     termsAndConditionsStatement: 'By completing this sign up i agree to',
     termsAndConditions: 'Terms and condition',
-    ConfirmPassword: 'Confirm Password',
     SignUpWithEmail : 'Sign up with your email address',
     
+    ConfirmPassword:'Confirm password',
+    NewPassword:'New password',
+    CardNumber:'Card number',
+    ExpireDate:'Expire date',
+    Name:'Name',
+    CCV:'CCV',
+    Payment:'Payment'
 };

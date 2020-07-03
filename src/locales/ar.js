@@ -47,4 +47,10 @@
     ConfirmPassword: 'تأكيد كلمة المرور',
     SignUpWithEmail : 'سجل باستخدام عنوان بريدك الإلكترونى',
 
+    NewPassword:'كلمة السر الجديدة',
+    CardNumber:'رقم البطاقة الإئتمانية',
+    Name:'الإسم',
+    ExpireDate:'تاريخ انتهاء البطاقة',
+    CCV:'رقم التحقق',
+    Payment:"الدفع"
   };
