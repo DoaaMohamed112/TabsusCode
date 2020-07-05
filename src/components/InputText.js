@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TextInput, Picker } from 'react-native';
 import Colors from '../constants/Colors';
+import I18n from '../i18n'
 const Styles = StyleSheet.create({
 
   InputText: {
@@ -85,7 +86,7 @@ const InputText = props => {
   return (
     props.inputType == 'TextInput' ?
     <View>
-      { props.title && <Text style={[Styles.title ,props.TextStyle]}>{props.title}</Text>}
+      { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
 
      <View style={[Styles.InputText, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
       { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}
@@ -99,6 +100,7 @@ const InputText = props => {
           style={[ {width: '100%',height:'100%',textAlignVertical:'top'}]}
         /> 
         </View>
+      { props.errorMsg != '' ? <Text style={props.errorStyle}>{props.errorMsg}</Text> : null}
     </View>
 
          :  

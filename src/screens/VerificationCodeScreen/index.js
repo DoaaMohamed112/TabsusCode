@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Dimensions, Text, TouchableOpacity } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Style from './style'
 import ImagesPaths from '../../constants/ImagesPaths';
 // import *as AuthAction from '../../store/Actions/Auth'
@@ -46,6 +46,8 @@ const VerificationCodeScreen = props => {
   return (
     <View style={Style.container}>
       <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='VerificationCode' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
+      <ScrollView contentContainerStyle={{height:'100%',flexGrow:1}}>
+
       <View style={Style.bodyContainer}>
       <CodeField
         ref={ref}
@@ -75,6 +77,8 @@ const VerificationCodeScreen = props => {
                 <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Send'></BlockButton>
             </TouchableOpacity>
       </View>
+      </ScrollView>
+
     </View>
   );
 }

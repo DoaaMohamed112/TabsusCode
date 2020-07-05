@@ -60,7 +60,7 @@ const PaymentScreen = props => {
           </View>
         </View>
         {/* button part */}
-        <TouchableOpacity style={{ width: '100%', marginTop:'60%'}} >
+        <TouchableOpacity style={{ width: '100%',marginTop:70}} >
           <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Payment'></BlockButton>
         </TouchableOpacity>
         </ScrollView>

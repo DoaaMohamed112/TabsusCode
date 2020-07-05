@@ -42,12 +42,20 @@
     Apply:'أضف',
     PlaceOrder:'تأكيد الطلب',
     SignUP : 'تسجيل دخول',
-    ConfirmPassword: 'تأكيد كلمة السر',
+    termsAndConditionsStatement: 'بعد الإنتهاء من التسجيل أوافق على ',
+    termsAndConditions: 'الشروط والأحكام',
+    ConfirmPassword: 'تأكيد كلمة المرور',
+    SignUpWithEmail : 'سجل باستخدام عنوان بريدك الإلكترونى',
+
     NewPassword:'كلمة السر الجديدة',
-    TermsAndConditions:'الشروط و البنود',
     CardNumber:'رقم البطاقة الإئتمانية',
     Name:'الإسم',
     ExpireDate:'تاريخ انتهاء البطاقة',
     CCV:'رقم التحقق',
-    Payment:"الدفع"
+    Payment:"الدفع",
+    ContinueShopping:'استكمل الشراء',
+    ViewOrderDetails:'اظهر تفاصيل الطلب',
+    YourOrderNumber:'رقم طلبك: ',
+    ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي',
+    Categories:'الاقسام'
   };

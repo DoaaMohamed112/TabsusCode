@@ -25,6 +25,8 @@ import SignupScreen from '../screens/SignupScreen';
 import NewPasswordScreen from '../screens/NewPasswordScreen';
 import TermsConditionsScreen from '../screens/TermsConditionsScreen';
 import PaymentScreen from '../screens/PaymentScreen';
+import CheckoutFinishScreen from '../screens/CheckoutFinishScreen';
+import CategoriesScreen from '../screens/CategoriesScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -81,7 +83,7 @@ function TabsNavigator() {
             inactiveTintColor: Colors.textGray,
           }}>
           <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Categories" component={HomeScreen} />
+          <Tab.Screen name="Categories" component={CategoriesScreen} />
           <Tab.Screen name="Favourite" component={HomeScreen} />
           <Tab.Screen name="account" component={HomeScreen} />
         </Tab.Navigator>
@@ -138,7 +140,6 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-            <Stack.Screen name="PaymentScreen" component={PaymentScreen}/>
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>

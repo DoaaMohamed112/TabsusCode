@@ -44,13 +44,20 @@ export default {
     Apply:'Apply',
     PlaceOrder:'Place Order',
     SignUP : 'Sign UP',
-    termsAndConditions: 'term',
+    termsAndConditionsStatement: 'By completing this sign up i agree to',
+    termsAndConditions: 'Terms and condition',
+    SignUpWithEmail : 'Sign up with your email address',
+    
     ConfirmPassword:'Confirm password',
     NewPassword:'New password',
-    TermsAndConditions:'Terms And Conditions',
     CardNumber:'Card number',
     ExpireDate:'Expire date',
     Name:'Name',
     CCV:'CCV',
-    Payment:'Payment'
+    Payment:'Payment',
+    ContinueShopping:'Continue Shopping',
+    ViewOrderDetails:"View Order Details",
+    YourOrderNumber:'Your order number is: ',
+    ConfirmationMessageIsSent:'A confirmation message is sent to',
+    Categories:'Categories'
 };
