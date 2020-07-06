@@ -57,5 +57,6 @@
     ViewOrderDetails:'اظهر تفاصيل الطلب',
     YourOrderNumber:'رقم طلبك: ',
     ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي',
-    Categories:'الاقسام'
+    Categories:'الاقسام',
+    Dateofbirth: 'تاريخ الميلاد'
   };
