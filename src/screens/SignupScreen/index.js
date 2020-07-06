@@ -31,7 +31,7 @@ const SignupScreen = props => {
   const onChangeText = (label, text) => {
     switch (label) {
       case 'firstName': {
-        let reg = /^(([A-Za-z]|[\u0600-\u06FF])+[,.]?[ ]?|([A-Za-z]|[\u0600-\u06FF])+['-]?)+$/; 
+        let reg = /^(([A-Za-z]|[\u0600-\u06FF])+[,.]?|([A-Za-z]|[\u0600-\u06FF])+['-]?)+$/; 
         if(reg.test(text) === false) 
         {
             setFirstName({value: text, IsValid: false, ErrorMsg: 'Invalid First Name'})

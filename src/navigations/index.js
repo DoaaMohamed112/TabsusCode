@@ -141,7 +141,7 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-            <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
+            <Stack.Screen name="SignupScreen" component={SignupScreen}/>
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>

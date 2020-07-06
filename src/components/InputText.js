@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TextInput, Picker } from 'react-native';
 import Colors from '../constants/Colors';
-import I18n from '../i18n'
+import I18n from '../i18n';
 const Styles = StyleSheet.create({
 
   InputText: {
@@ -13,7 +13,7 @@ const Styles = StyleSheet.create({
     borderRadius: 5,
     width: '80%',
     // marginTop: 10,
-    height: 50,
+    height: 40,
     borderWidth:1,
     borderColor: Colors.textGray,
     
@@ -36,7 +36,7 @@ const Styles = StyleSheet.create({
     fontFamily: 'barmeno-regular',
   },
   SuccessInput: {
-    borderColor: Colors.greenSuccess,
+    borderColor: Colors.primary,
     borderBottomWidth: 1
   },
   ErrorInput: {
@@ -50,8 +50,8 @@ const Styles = StyleSheet.create({
   },
   pickerColor:{
     color: Colors.placeholder
-  },
-  title: {
+  }
+  , title: {
     color: Colors.textGray,
     fontSize: 15,
     marginBottom: 10
@@ -74,9 +74,8 @@ else inputType is picker
 data
 selectedValue={props.value}
 onValueChange={props.handleChange}>
-
 */
-const InputText = props => {
+const InputText = props => { 
   let pickerItems;
   if (props.data != undefined)
     pickerItems = props.data.map((s, i) => {
@@ -85,11 +84,11 @@ const InputText = props => {
 // console.log(i18n.locale)
   return (
     props.inputType == 'TextInput' ?
-    <View>
-      { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
-
+    <>
+    { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
      <View style={[Styles.InputText, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
       { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}
+     
         <TextInput
           placeholder={props.placeholder}
           value={props.value}
@@ -100,9 +99,8 @@ const InputText = props => {
           style={[ {width: '100%',height:'100%',textAlignVertical:'top'}]}
         /> 
         </View>
-      { props.errorMsg != '' ? <Text style={props.errorStyle}>{props.errorMsg}</Text> : null}
-    </View>
-
+        { props.errorMsg != '' ? <Text style={props.errorStyle}>{props.errorMsg}</Text> : null}
+        </>
          :  
       <View style={[Styles.InputPicker, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
       { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}
@@ -119,4 +117,3 @@ const InputText = props => {
 };
 
 export default InputText;
-
