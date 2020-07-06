@@ -9,7 +9,6 @@ const Style = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: Colors.light,
-
     //   padding:10
   },
   footerStyle: {
@@ -17,7 +16,7 @@ const Style = StyleSheet.create({
     backgroundColor: Colors.light,
     width: '100%',
     bottom: 0,
-    height: '17%',
+    height: 130,
 
     borderTopWidth:2,
     borderColor:Colors.lightgray,

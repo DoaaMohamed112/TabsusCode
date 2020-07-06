@@ -1,12 +1,13 @@
 import React from 'react'
-import { View, FlatList, TouchableOpacity, Text , SafeAreaView} from 'react-native'
+import { View, FlatList, Dimensions,TouchableOpacity, Text , SafeAreaView} from 'react-native'
 import Header from '../../components/Header'
 import Style from './style'
-import CartItem from './CartItem'
+import CartItem from '../../components/CartItem'
 import BlockButton from '../../components/BlockButton'
 import Colors from '../../constants/Colors'
 import FontSizes from '../../constants/FontSizes'
 import I18n from '../../i18n'
+const {height, width} = Dimensions.get('window');
 
 const CartScreen = props => {
     const dummyList = [1, 2, 4, 1, 2, 6,8];
@@ -14,8 +15,10 @@ const CartScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} title='Cart' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-           <SafeAreaView style={{paddingBottom: '25%'}}>
+           
+           <SafeAreaView style={{height:'100%'}}>
             <FlatList
+            style={{marginBottom:200}}
                 showsVerticalScrollIndicator={false}
                 refreshing={true}
                 data={dummyList}

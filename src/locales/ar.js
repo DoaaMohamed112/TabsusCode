@@ -58,5 +58,12 @@
     YourOrderNumber:'رقم طلبك: ',
     ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي',
     Categories:'الاقسام',
-    Dateofbirth: 'تاريخ الميلاد'
+    Dateofbirth: 'تاريخ الميلاد',
+    OrderDetails:'تفاصيل الطلب',
+    SKU:'SKU',
+    Price:'السعر',
+    Subtotal:'جزء المجموع',
+    Total:'المجموع',
+    DeliveryPrice:'تكلفة النقل',
+    Vat:'الضريبة'
   };

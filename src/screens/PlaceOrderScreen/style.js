@@ -26,7 +26,7 @@ const Style = StyleSheet.create({
   inputTextStyle: {
       width: '100%',
       marginBottom: 20,
-      flex:0.7,
+      // flex:0.7,
       borderTopEndRadius:0,
       borderBottomEndRadius:0
   },
@@ -79,7 +79,7 @@ const Style = StyleSheet.create({
     backgroundColor: Colors.light,
     width: '100%',
     bottom: 0,
-    height: '17%',
+    height: 120,
     borderTopWidth:2,
     borderColor:Colors.lightgray,
     padding: 20,

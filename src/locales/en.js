@@ -25,7 +25,7 @@ export default {
    SeeMore:"SEE MORE",
    ViewAll:"View All",
    Checkout:"Checkout",
-   TotalSummation:"total summation",
+   TotalSummation:"Total summation",
    COLOR:"COLOR",
    SIZE:'SIZE',
    Resend:'Resend',
@@ -60,5 +60,13 @@ export default {
     YourOrderNumber:'Your order number is: ',
     ConfirmationMessageIsSent:'A confirmation message is sent to',
     Categories:'Categories',
-    Dateofbirth: 'Date of birth'
+    Dateofbirth: 'Date of birth',
+    OrderDetails:'Order Details',
+    SKU:'SKU',
+    Price:'Price',
+    Subtotal:'Subtotal',
+    Total:'Total',
+    DeliveryPrice:'Delivery price',
+    Vat:'Vat'
+
 };

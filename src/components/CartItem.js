@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, StyleSheet, Image, ImageBackground, Text } from 'react-native'
-import Colors from '../../constants/Colors';
-import QuantityIncrementer from '../../components/QuantityIncrementer';
-import FontSizes from '../../constants/FontSizes';
-import I18n from '../../i18n'
+import Colors from '../constants/Colors';
+import QuantityIncrementer from './QuantityIncrementer';
+import FontSizes from '../constants/FontSizes';
+import I18n from '../i18n'
 const CartItem = props => {
 
     return (
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         height: 70,
         margin: 10,
         flex: 0.2,
-        backgroundColor: Colors.lightgray
+        backgroundColor: Colors.tabsBack
     },
     ImageStyle: {
         width: '100%',

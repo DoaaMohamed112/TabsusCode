@@ -36,7 +36,10 @@ const CheckoutScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView contentContainerStyle={{height:'100%'}} >
+            <ScrollView 
+            
+            contentContainerStyle={{}} style={{flexGrow:1,marginBottom:120}} >
+               <View style={{height:'100%'}}>
                 <View style={Style.bodyContainer}>
                     {/* Shipping Address */}
                     <Text style={Style.title}>Shipping Address</Text>
@@ -64,7 +67,8 @@ const CheckoutScreen = props => {
                     <Text style={Style.pragText}>The order will be delivered after three days from this day</Text> 
                     </View>
                 </View>
-
+                </View> 
+                </ScrollView>
              {/* footer */}
              <View style={Style.footerStyle}>
                 <View style={{ flexDirection: I18n.locale=='ar'?'row-reverse': 'row' }}>
@@ -79,7 +83,7 @@ const CheckoutScreen = props => {
                     <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Next'></BlockButton>
                 </TouchableOpacity>
             </View>
-            </ScrollView>
+         
         </View>
     );
 }

@@ -19,7 +19,6 @@ const PlaceOrderScreen = props => {
     const [Voucher, setVoucher] = useState('')
     const [coupon, setCoupon] = useState('')
     useEffect(() => {
-
         // //get screen dimensions
         // const updateDimensions = () => {
         //     setScreenHeight(Dimensions.get('window').height);
@@ -38,7 +37,7 @@ const PlaceOrderScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView contentContainerStyle={{ height: '100%' }} >
+            <ScrollView contentContainerStyle={{  }}style={{flexGrow:1,marginBottom:120}} >
                 <View style={Style.bodyContainer}>
                     {/* Shipping Address */}
                     <Text style={Style.title}>Shipping Address</Text>
@@ -69,30 +68,35 @@ const PlaceOrderScreen = props => {
                         </View>
                         {/* Voucher Input Part */}
                         <View style={{ flexDirection: 'row',paddingTop:10 }}>
+                           <View style={{flex:0.7}}>
                             <InputText inputType='TextInput'
                                 value={Voucher} HandleChange={(value) => { setVoucher(value) }}
                                 style={Style.inputTextStyle}
                                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
                             ></InputText>
-                            <TouchableOpacity style={{ width: '100%', flex: 0.3 }} >
-                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
+                            </View>
+                            <TouchableOpacity style={{  flex: 0.3,    }} >
+                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0,justifyContent:'center', height: 50 }} value='Apply'></BlockButton>
                             </TouchableOpacity>
                         </View>
                           {/* Coupon Input Part */}
                           <Text style={{ fontWeight: 'bold' }}>Coupon Code</Text>
                            
                           <View style={{ flexDirection: 'row',paddingTop:10 }}>
-                            <InputText inputType='TextInput'
+                          <View style={{flex:0.7}}>
+                          <InputText inputType='TextInput'
                                 value={coupon} HandleChange={(value) => { setCoupon(value) }}
                                 style={Style.inputTextStyle}
                                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
                             ></InputText>
+                              </View>  
                             <TouchableOpacity style={{ width: '100%', flex: 0.3 }} >
-                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
+                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0,justifyContent:'center',height:50 }} value='Apply'></BlockButton>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
+                </ScrollView>
 
 
                 {/* footer */}
@@ -109,7 +113,6 @@ const PlaceOrderScreen = props => {
                         <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='PlaceOrder'></BlockButton>
                     </TouchableOpacity>
                 </View>
-            </ScrollView>
         </View>
     );
 }
