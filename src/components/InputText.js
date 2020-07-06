@@ -83,14 +83,9 @@ const InputText = props => {
     });
 // console.log(i18n.locale)
   return (
-<<<<<<< HEAD
     props.inputType == 'TextInput' ?
     <>
     { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
-=======
-    <View>
-      { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
->>>>>>> 5241ff1a5978e24bc7d8eae67868f301a42fc66e
      <View style={[Styles.InputText, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
       { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}
      
@@ -105,7 +100,6 @@ const InputText = props => {
           secureTextEntry={props.secureTextEntry}
         /> 
         </View>
-<<<<<<< HEAD
         { props.errorMsg != '' ? <Text style={props.errorStyle}>{props.errorMsg}</Text> : null}
         </>
          :  
@@ -119,9 +113,6 @@ const InputText = props => {
             {pickerItems}
             
           </Picker>
-=======
-      { props.errorMsg != '' ? <Text style={props.errorStyle}>{props.errorMsg}</Text> : null}
->>>>>>> 5241ff1a5978e24bc7d8eae67868f301a42fc66e
     </View>
   );
 };
