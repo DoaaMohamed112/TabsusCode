@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, ScrollView, Image, SafeAreaView, FlatList } from 'react-native';
 import Style from './style'
 import ImagesPaths from '../../constants/ImagesPaths';
 // import *as AuthAction from '../../store/Actions/Auth'
@@ -12,14 +12,16 @@ import I18n from '../../i18n'
 import AdressItem from '../../components/AddressItem'
 import { RadioButton } from 'react-native-paper';
 import RadioButtonGroup from '../../components/RadioButtonGroup';
+import OrderStatus from '../../components/OrderStatus';
+import OrderProductItem from '../../components/OrderProductItem';
 const { height, width } = Dimensions.get('window');
 
-const PlaceOrderScreen = props => {
+const OrderDetailsScreen = props => {
     const [deliveryMethod, setDeliveryMethod] = useState('Free')
     const [Voucher, setVoucher] = useState('')
     const [coupon, setCoupon] = useState('')
     useEffect(() => {
-
+        // I18n.locale='ar'
         // //get screen dimensions
         // const updateDimensions = () => {
         //     setScreenHeight(Dimensions.get('window').height);
@@ -37,77 +39,78 @@ const PlaceOrderScreen = props => {
     }
     return (
         <View style={Style.container}>
-            <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
+            <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='OrderDetails' leftIcon='close' HandleBack={() => props.navigation.pop()}></Header>
             <ScrollView contentContainerStyle={{ height: '100%' }} >
                 <View style={Style.bodyContainer}>
-                    {/* Shipping Address */}
-                    <Text style={Style.title}>Shipping Address</Text>
-                    <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
 
-                    {/* Payment Method */}
-                    <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Payment Method</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    {/* productItem */}
+                    <SafeAreaView style={{height: '100%' }}>
+                        <FlatList
+                            ListHeaderComponent={() => (
+                                //Order Status
+                                <OrderStatus orderNumber='1234567' status='pending' date='4/1/2020 6:20 pm'></OrderStatus>
+                            )}
+                            showsVerticalScrollIndicator={false}
+                            refreshing={true}
+                            data={[0, 1, 3, 4, 5,6,23,7]}
+                            renderItem={({ item, index }) => (
+                                <OrderProductItem price={20} size='XL' color='red' sku="0590458902809" subtotal={10} productName="Product Name" currency='EG' itemImage={require('../../assets/dummyImages/DummyTshirt.png')}></OrderProductItem>
+                            )}
+                            keyExtractor={item => item._id}
 
-                        <View style={{ flex: 0.8 }}>
-                            {/* Radio group  */}
-                            <RadioButtonGroup handleChange={(selected) => onChange(selected)} labels={['Credit Card', 'Wallet', 'Cash Money']}></RadioButtonGroup>
-                        </View>
-                        {/* Price */}
-                        <View style={{ flex: 0.2, alignItems: 'flex-end' }}>
-                            <Text style={Style.priceStyle}>EG 20</Text>
-                        </View>
-                    </View>
+                            ListFooterComponent={()=>(
+                                <>
+                     <Text style={Style.title}>Shipping Address</Text>
+                    <AdressItem name='hussien mohamed' city='tanta' street='nasr street'
+                     mobile='01115492192'></AdressItem>
+                     </>
+                            )}
+                            ListFooterComponentStyle={Style.ShippingAddress}
+                        />
 
-                    {/* Points & Voucher */}
-                    <View>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ fontWeight: 'bold', flex: 0.5 }}>Points & Voucher</Text>
-                            {/* Points */}
-                            <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
-                                <Text style={Style.priceStyle}>Points 1000</Text>
-                            </View>
-                        </View>
-                        {/* Voucher Input Part */}
-                        <View style={{ flexDirection: 'row',paddingTop:10 }}>
-                            <InputText inputType='TextInput'
-                                value={Voucher} HandleChange={(value) => { setVoucher(value) }}
-                                style={Style.inputTextStyle}
-                                secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
-                            ></InputText>
-                            <TouchableOpacity style={{ width: '100%', flex: 0.3 }} >
-                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
-                            </TouchableOpacity>
-                        </View>
-                          {/* Coupon Input Part */}
-                          <Text style={{ fontWeight: 'bold' }}>Coupon Code</Text>
-                           
-                          <View style={{ flexDirection: 'row',paddingTop:10 }}>
-                            <InputText inputType='TextInput'
-                                value={coupon} HandleChange={(value) => { setCoupon(value) }}
-                                style={Style.inputTextStyle}
-                                secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
-                            ></InputText>
-                            <TouchableOpacity style={{ width: '100%', flex: 0.3 }} >
-                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                    </SafeAreaView>
+                  
                 </View>
 
 
                 {/* footer */}
                 <View style={Style.footerStyle}>
-                    <View style={{ flexDirection: I18n.locale == 'ar' ? 'row-reverse' : 'row' }}>
-                        <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
-                        {/* price */}
+                    <View style={Style.footerTextStyle}>
+                        <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('Total')}</Text>
+                        {/* Total price */}
 
                         <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
                             <Text style={Style.priceStyle}>EG 20</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
-                        <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='PlaceOrder'></BlockButton>
-                    </TouchableOpacity>
+                
+                    <View style={Style.footerTextStyle}>
+                        <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('DeliveryPrice')}</Text>
+                        {/* Delivery price */}
+
+                        <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
+                            <Text style={Style.priceStyle}>EG 20</Text>
+                        </View>
+                    </View>
+                
+                    <View style={Style.footerTextStyle}>
+                        <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('Vat')}</Text>
+                        {/*Vat price */}
+
+                        <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
+                            <Text style={Style.priceStyle}>EG 20</Text>
+                        </View>
+                    </View>
+
+                    <View style={[Style.footerTextStyle,Style.totalSummation]}>
+                        <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
+                        {/*Vat price */}
+
+                        <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
+                            <Text style={[Style.priceStyle,{color:Colors.lightblue,fontWeight:'bold'}]}>EG 20</Text>
+                        </View>
+                    </View>
+
                 </View>
             </ScrollView>
         </View>
@@ -115,7 +118,7 @@ const PlaceOrderScreen = props => {
 }
 
 
-export default PlaceOrderScreen;
+export default OrderDetailsScreen;
 
 
 

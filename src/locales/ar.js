@@ -57,5 +57,12 @@
     ViewOrderDetails:'اظهر تفاصيل الطلب',
     YourOrderNumber:'رقم طلبك: ',
     ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي',
-    Categories:'الاقسام'
+    Categories:'الاقسام',
+    OrderDetails:'تفاصيل الطلب',
+    SKU:'SKU',
+    Price:'السعر',
+    Subtotal:'جزء المجموع',
+    Total:'المجموع',
+    DeliveryPrice:'تكلفة النقل',
+    Vat:'الضريبة'
   };

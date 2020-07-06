@@ -27,6 +27,7 @@ import TermsConditionsScreen from '../screens/TermsConditionsScreen';
 import PaymentScreen from '../screens/PaymentScreen';
 import CheckoutFinishScreen from '../screens/CheckoutFinishScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
+import OrderDetailsScreen from '../screens/OrderDetailsScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -140,6 +141,7 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>
