@@ -58,6 +58,7 @@
     YourOrderNumber:'رقم طلبك: ',
     ConfirmationMessageIsSent:'تم ارسالة رسالة تأكيد علي',
     Categories:'الاقسام',
+    Dateofbirth: 'تاريخ الميلاد',
     OrderDetails:'تفاصيل الطلب',
     SKU:'SKU',
     Price:'السعر',

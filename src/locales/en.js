@@ -60,6 +60,7 @@ export default {
     YourOrderNumber:'Your order number is: ',
     ConfirmationMessageIsSent:'A confirmation message is sent to',
     Categories:'Categories',
+    Dateofbirth: 'Date of birth',
     OrderDetails:'Order Details',
     SKU:'SKU',
     Price:'Price',
@@ -67,4 +68,5 @@ export default {
     Total:'Total',
     DeliveryPrice:'Delivery price',
     Vat:'Vat'
+
 };
