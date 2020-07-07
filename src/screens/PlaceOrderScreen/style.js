@@ -24,12 +24,12 @@ const Style = StyleSheet.create({
       marginBottom:10
   },
   inputTextStyle: {
-      width: '100%',
-      marginBottom: 20,
-      // flex:0.7,
-      borderTopEndRadius:0,
-      borderBottomEndRadius:0
-  },
+    width: '100%',
+    marginBottom: 20,
+    flex:0.7,
+    borderTopEndRadius:0,
+    borderBottomEndRadius:0
+},
   radioStyle:{
     flexDirection:'row',
     alignItems:'center',

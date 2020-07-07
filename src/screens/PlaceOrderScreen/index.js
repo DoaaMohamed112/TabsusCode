@@ -56,9 +56,8 @@ const PlaceOrderScreen = props => {
                             <Text style={Style.priceStyle}>EG 20</Text>
                         </View>
                     </View>
-
-                    {/* Points & Voucher */}
-                    <View>
+     {/* Points & Voucher */}
+     <View>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={{ fontWeight: 'bold', flex: 0.5 }}>Points & Voucher</Text>
                             {/* Points */}
@@ -68,30 +67,26 @@ const PlaceOrderScreen = props => {
                         </View>
                         {/* Voucher Input Part */}
                         <View style={{ flexDirection: 'row',paddingTop:10 }}>
-                           <View style={{flex:0.7}}>
                             <InputText inputType='TextInput'
                                 value={Voucher} HandleChange={(value) => { setVoucher(value) }}
                                 style={Style.inputTextStyle}
                                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
                             ></InputText>
-                            </View>
-                            <TouchableOpacity style={{  flex: 0.3,    }} >
-                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0,justifyContent:'center', height: 50 }} value='Apply'></BlockButton>
+                            <TouchableOpacity style={{ width: '100%', flex: 0.3 }} >
+                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
                             </TouchableOpacity>
                         </View>
                           {/* Coupon Input Part */}
                           <Text style={{ fontWeight: 'bold' }}>Coupon Code</Text>
                            
                           <View style={{ flexDirection: 'row',paddingTop:10 }}>
-                          <View style={{flex:0.7}}>
-                          <InputText inputType='TextInput'
+                            <InputText inputType='TextInput'
                                 value={coupon} HandleChange={(value) => { setCoupon(value) }}
                                 style={Style.inputTextStyle}
                                 secureTextEntry={false} autoCapitalize="none" autoCorrect={false}
                             ></InputText>
-                              </View>  
                             <TouchableOpacity style={{ width: '100%', flex: 0.3 }} >
-                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0,justifyContent:'center',height:50 }} value='Apply'></BlockButton>
+                                <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
                             </TouchableOpacity>
                         </View>
                     </View>
