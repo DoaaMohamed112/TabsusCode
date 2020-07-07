@@ -29,6 +29,8 @@ import CheckoutFinishScreen from '../screens/CheckoutFinishScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import OrderDetailsScreen from '../screens/OrderDetailsScreen';
 import CategoryItemsScreen from '../screens/CategoryItemsScreen';
+import WishListScreen from '../screens/WishListScreen'
+import WalletScreen from '../screens/WalletScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -66,7 +68,7 @@ function TabsNavigator() {
                 iconName = focused
                 ? ImagesPaths.category
                 : ImagesPaths.category;
-              } else if (route.name === 'Favourite') {
+              } else if (route.name === 'Wish list') {
                 iconName = focused
                 ? ImagesPaths.fav
                 : ImagesPaths.fav;
@@ -86,7 +88,7 @@ function TabsNavigator() {
           }}>
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Categories" component={CategoryStackNavigator} />
-          <Tab.Screen name="Favourite" component={HomeScreen} />
+          <Tab.Screen name="Wish list" component={WishListScreen} />
           <Tab.Screen name="account" component={HomeScreen} />
         </Tab.Navigator>
     );
@@ -150,6 +152,7 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="WalletScreen" component={WalletScreen} />
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>

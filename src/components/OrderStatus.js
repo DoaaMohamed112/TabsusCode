@@ -9,7 +9,7 @@ import I18n from '../i18n'
 
 const OrderStatus = (props) => {
     return (
-        <View style={Styles.container}>
+        <View style={[Styles.container,props.style]}>
             <View style={{ flexDirection:I18n.locale=='ar'?'row-reverse': 'row' }}>
                 <View style={{ flex: 0.8,alignItems:I18n.locale=='ar'?'flex-end':'flex-start' }}>
                     {/* order number */}

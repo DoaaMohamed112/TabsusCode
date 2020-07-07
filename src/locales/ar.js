@@ -37,7 +37,8 @@
     StreetAddress:'عنوان الشارع',
     Zip:'رقم البريد',
     SaveAddress:'تسجيل العنوان',
-    NewAddress:'اضافة عنوان',
+    NewAddress:'+ اضافة عنوان',
+    WalletShipping:'+ شحن المحفظة',
     Next:'التالي',
     Apply:'أضف',
     PlaceOrder:'تأكيد الطلب',
@@ -53,6 +54,7 @@
     ExpireDate:'تاريخ انتهاء البطاقة',
     CCV:'رقم التحقق',
     Payment:"الدفع",
+    Payments:'المدفوعات',
     ContinueShopping:'استكمل الشراء',
     ViewOrderDetails:'اظهر تفاصيل الطلب',
     YourOrderNumber:'رقم طلبك: ',
@@ -65,5 +67,7 @@
     Subtotal:'جزء المجموع',
     Total:'المجموع',
     DeliveryPrice:'تكلفة النقل',
-    Vat:'الضريبة'
+    Vat:'الضريبة',
+    MyWishList:'قائمتي المفضلة',
+    YouHave:'انت تملك'
   };

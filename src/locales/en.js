@@ -40,6 +40,7 @@ export default {
     Zip:'Zip/Postal Code',
     SaveAddress:'Save Address',
     NewAddress:'+ New Address',
+    WalletShipping:'+ Wallet shipping',
     Next:'Next',
     Apply:'Apply',
     PlaceOrder:'Place Order',
@@ -55,6 +56,7 @@ export default {
     Name:'Name',
     CCV:'CCV',
     Payment:'Payment',
+    Payments:'Payments',
     ContinueShopping:'Continue Shopping',
     ViewOrderDetails:"View Order Details",
     YourOrderNumber:'Your order number is: ',
@@ -67,6 +69,8 @@ export default {
     Subtotal:'Subtotal',
     Total:'Total',
     DeliveryPrice:'Delivery price',
-    Vat:'Vat'
+    Vat:'Vat',
+    MyWishList:'My Wish List',
+    YouHave:'You have'
 
 };

@@ -33,7 +33,7 @@ const MainItem = props => {
               <IconButton
                 icon="heart"
                 size={25}
-                color={!itemData.IsFav ? Colors.light : Colors.primary}
+                color={!itemData.IsFav ? Colors.textGray : Colors.error}
                 onPress={updateItem}
                 style={Styles.iconContainer}
               />
@@ -97,7 +97,7 @@ const Styles = StyleSheet.create({
   iconContainer: {
     padding: 5,
     borderRadius: 100,
-    backgroundColor: Colors.lightgray,
+    backgroundColor: Colors.light,
     marginHorizontal: '10%',
   },
   discountStyle: {

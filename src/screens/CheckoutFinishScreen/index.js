@@ -20,7 +20,7 @@ const CheckoutFinishScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView contentContainerStyle={{height:'100%'}} >
+            <ScrollView style={{flexGrow:1}} >
                 <View style={Style.bodyContainer}>
                <View style={{borderBottomColor:Colors.lightgray, borderBottomWidth:1,alignItems:'center'}}>
                    <IconButton  icon="check" style={{backgroundColor:Colors.greenSuccess}} size={20} color={Colors.light}  />
@@ -33,7 +33,6 @@ const CheckoutFinishScreen = props => {
                 </View>
 
 
-             {/* footer */}
              <View style={Style.footerStyle}>
              <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
                     <BlockButton fontStyle={{ fontSize: FontSizes.pragraph, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='ContinueShopping'></BlockButton>

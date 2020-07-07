@@ -16,7 +16,7 @@ import MainItem from '../../components/MainItem';
 
 const {height, width} = Dimensions.get('window');
 
-const CategoryItemsScreen = props => {
+const WishListScreen = props => {
   console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
   const [DataList, setDataList] = useState([
@@ -26,7 +26,7 @@ const CategoryItemsScreen = props => {
       name: "Paint Comps",
       rate: 3.5,
       price: '150 EG',
-      IsFav: false,
+      IsFav: true,
       discount: '0%',
     },
     {
@@ -35,7 +35,7 @@ const CategoryItemsScreen = props => {
             name: "Paint Comps",
             rate: 3.5,
             price: '150 EG',
-            IsFav: false,
+            IsFav: true,
             discount: '0%',
     },
     {
@@ -44,7 +44,7 @@ const CategoryItemsScreen = props => {
             name: "Paint Comps",
             rate: 3.5,
             price: '150 EG',
-            IsFav: false,
+            IsFav: true,
             discount: '0%',
     },
     {
@@ -53,7 +53,7 @@ const CategoryItemsScreen = props => {
       name: "Paint Comps",
       rate: 3.5,
       price: '150 EG',
-      IsFav: false,
+      IsFav: true,
       discount: '0%',
     },
     {
@@ -62,7 +62,7 @@ const CategoryItemsScreen = props => {
             name: "Paint Comps",
             rate: 3.5,
             price: '150 EG',
-            IsFav: false,
+            IsFav: true,
             discount: '0%',
     },
     {
@@ -71,7 +71,7 @@ const CategoryItemsScreen = props => {
       name: "Paint Comps",
       rate: 3.5,
       price: '150 EG',
-      IsFav: false,
+      IsFav: true,
       discount: '0%',
     },
     {
@@ -80,7 +80,7 @@ const CategoryItemsScreen = props => {
             name: "Paint Comps",
             rate: 3.5,
             price: '150 EG',
-            IsFav: false,
+            IsFav: true,
             discount: '0%',
     },
   ],);
@@ -105,7 +105,7 @@ const onSetISView = () => {
     <View style={Style.container}>
       <Header
         style={{height: 70}}
-        title="Categories"
+        title="MyWishList"
         leftIcon="menu"
         rightIcon="general"
         HandleBack={() => props.navigation.openDrawer()}
@@ -114,23 +114,6 @@ const onSetISView = () => {
         onPressCart={() => props.navigation.navigate('CartScreen')}
       />
 
-      <View style={Style.tabsContainer}>
-    
-          <TouchableOpacity style={Style.tabStyle}>
-              <Text style={Style.tabText}>Sort by</Text>
-              <Image style={Style.tabImg} source={ImagesPaths.sortby}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={Style.tabStyle}>
-              <Text style={Style.tabText}>Filter</Text>
-              <Image style={Style.tabImg} source={ImagesPaths.filter}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={Style.tabStyle} onPress={onSetISView}>
-              <Text style={Style.tabText}>View</Text>
-              <Image style={Style.tabImg} source={colCount == 2 ? ImagesPaths.view : ImagesPaths.view2}/>
-          </TouchableOpacity>
-
-          </View>
-      
       <SafeAreaView style={Style.bodyContent}>
                         <FlatList
                         key={colCount}
@@ -150,4 +133,4 @@ const onSetISView = () => {
   );
 };
 
-export default CategoryItemsScreen;
+export default WishListScreen;
