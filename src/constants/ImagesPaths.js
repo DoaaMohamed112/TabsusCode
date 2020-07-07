@@ -18,5 +18,9 @@ export default {
     fav: require('../assets/icons/Enabled-heart.png'),
     category: require('../assets/icons/Enabled-categories.png'),
     account: require('../assets/icons/Enabled-Account.png'),
+    filter: require('../assets/icons/filter.png'),
+    sortby: require('../assets/icons/sortby.png'),
+    view: require('../assets/icons/view.png'),
+    view2: require('../assets/icons/view2.png'),
   }
 

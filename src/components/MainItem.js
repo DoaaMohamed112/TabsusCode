@@ -80,8 +80,6 @@ const MainItem = props => {
 
 const Styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-
 },
   imgStyle: {
     width: '80%',

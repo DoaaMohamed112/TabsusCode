@@ -170,7 +170,9 @@ const CategoriesScreen = props => {
                     //   itemStyle={Style.itemContainer}
                     //   onPress={() => handlePressItem(item)}
                     // />
-                    <View
+                    <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={()=> props.navigation.navigate('CategoryItems')}
                       style={[
                         Style.itemContainer,
                         {marginRight: index % 2 == 0 ? 20 : 0},
@@ -187,7 +189,7 @@ const CategoriesScreen = props => {
                         style={Style.title}>
                         {item.name}
                       </Text>
-                    </View>
+                    </TouchableOpacity>
                   );
                 })}
               </View>

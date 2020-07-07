@@ -13,9 +13,10 @@ const Styles = StyleSheet.create({
     borderRadius: 5,
     width: '80%',
     // marginTop: 10,
-    height: 50,
+    height: 30,
     borderWidth:1,
     borderColor: Colors.textGray,
+    justifyContent: 'center'
     
   },
   InputPicker: {
@@ -31,7 +32,6 @@ const Styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '80%',
     marginTop: 30,
-    height: 40,
     borderColor: 'transparent',
     // fontFamily: 'barmeno-regular',
   },
@@ -95,7 +95,7 @@ const InputText = props => {
           secureTextEntry={props.secureTextEntry}
           autoCapitalize={props.autoCapitalize}
           autoCorrect={props.autoCorrect}
-          style={[ {width: '100%',height:'100%',textAlignVertical:'center',paddingHorizontal: 20}]}
+          style={[ {width: '100%',height:'100%',textAlignVertical:'center'}]}
           secureTextEntry={props.secureTextEntry}
         /> 
         </View>
