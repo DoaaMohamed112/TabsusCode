@@ -1,3 +1,4 @@
+import React from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 import Colors from '../../constants/Colors';
 import FontSizes from '../../constants/FontSizes';
@@ -44,7 +45,6 @@ const Style = StyleSheet.create({
     // flexWrap: 'wrap',
     width: width - 40,
     marginVertical:20,
-    paddingBottom:120,
     alignContent: 'flex-end',
     marginHorizontal: 20,
   },
