@@ -78,7 +78,12 @@ const Style = StyleSheet.create({
         fontSize: 12,
         color: Colors.error,
         marginTop: 10
-    }
+    },
+    dropdownTitle: {
+        color: Colors.textGray,
+        fontSize: 15,
+        marginTop: 20
+      },
 });
 
 export default Style;

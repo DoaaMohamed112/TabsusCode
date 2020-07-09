@@ -29,6 +29,40 @@ const SignupScreen = props => {
   const [passowrd, setPassword] = useState({value: "", IsValid: true, ErrorMsg: 'Use upper and lower case letters'});
   const [confirmPassword, setConfirmPassword] = useState({value: "", IsValid: true, ErrorMsg: ''});
 
+  const [years,setYears] = useState([]);
+  const [months,setMonths] = useState([1,2,3,4,5,6,7,8,9,10,11,12]);
+  const [days,setDays] = useState([]);
+
+
+  const [selectedYear, setSelectedYear] = useState(2020);
+  const [selectedMonth, setSelectedMonth] = useState(months[0]);
+  const [selectedDay, setSelectedDay] = useState(1);
+  // const [chosenDate,setChosenDate] = useState({day:0,month:0,year:0})
+
+  useEffect(() => {
+    let arr = getAllYears();
+    setYears([...arr])
+    let dayList = getDaysInMonth(1,arr[0]);
+    setDays([...dayList])
+  }, [])
+
+  const getAllYears = () => {
+    var currentYear = new Date().getFullYear();
+    const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+    // console.log(range(currentYear, currentYear - 50, -1)); 
+    return range(currentYear, currentYear - 80, -1);
+  }
+
+  // date
+  var getDaysInMonth = function(month,year) {
+    // Here January is 1 based
+    //Day 0 is the last day in the previous month
+   let days= new Date(year, month, 0).getDate();
+   const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+   return range(1, days , +1);
+
+  };
+
   const onChangeText = (label, text) => {
     switch (label) {
       case 'firstName': {
@@ -102,6 +136,34 @@ const SignupScreen = props => {
     }
   };
 
+  const setselectedItem = (item, index, label) => {
+    switch (label) {
+      case "day":
+        {
+        setSelectedDay(item);
+        break;
+        }
+      case "month":
+        {
+        setSelectedMonth(item);
+        let newList = getDaysInMonth(index+1,selectedYear);
+        setDays([...newList])
+        setSelectedDay(1);
+        break;
+        }
+      case "year":
+        {
+        setSelectedYear(item)
+        let List = getDaysInMonth(selectedMonth,item);
+        setDays([...List])
+        setSelectedDay(1);
+        break;
+        }
+      default:
+        break;
+    }
+  }
+
   return (
     <View style={Style.container}>
       <Header
@@ -138,15 +200,15 @@ const SignupScreen = props => {
           <InputText inputType="TextInput" HandleChange={(e) => onChangeText('lastName' , e)} value={lastName.value} errorMsg={lastName.ErrorMsg} errorStyle={Style.errorStyle} TextStyle={Style.textStyle} title={'LastName'} style={Style.inputStyle} />
           <InputText inputType="TextInput" HandleChange={(e) => onChangeText('email' , e)} value={email.value} errorMsg={email.ErrorMsg} errorStyle={Style.errorStyle} TextStyle={Style.textStyle} title={'Email'} style={Style.inputStyle} />
           <InputText inputType="TextInput" HandleChange={(e) => onChangeText('mobile' , e)} value={mobile.value} errorMsg={mobile.ErrorMsg} errorStyle={Style.errorStyle} TextStyle={Style.textStyle} title={'Mobile'} style={Style.inputStyle} />
-          <Text style={Style.title}>{I18n.t('Dateofbirth')}</Text>
+          <Text style={Style.dropdownTitle}>{I18n.t('Dateofbirth')}</Text>
         <View style={{flexDirection: 'row'}}>
-          <Select style={{flex: 0.4}}>
+          <Select style={{flex: 0.4, marginEnd: 15}} selectedItem={selectedDay} setSelectedItem={(item,index)=> setselectedItem(item,index,"day")}  data={days}>
 
           </Select>
-          <Select style={{flex: 0.4}}>
+          <Select style={{flex: 0.4, marginEnd: 15}}  selectedItem={selectedMonth}  setSelectedItem={(item,index)=> setselectedItem(item,index,"month")} data={months}>
 
           </Select>
-          <Select style={{flex: 0.4}}>
+          <Select style={{flex: 0.4}} selectedItem={selectedYear}  setSelectedItem={(item,index)=> setselectedItem(item,index,"year")} data={years}>
 
           </Select>
           </View>

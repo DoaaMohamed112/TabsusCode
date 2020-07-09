@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
-  StyleSheet
+  StyleSheet,
+  FlatList
 } from 'react-native';
 import ImagesPaths from '../constants/ImagesPaths';
 import Colors from '../constants/Colors';
@@ -25,12 +26,12 @@ const DropdownMenu = props => {
  const setMenuRef = ref => {
     _menu = ref;
   };
- const hideMenu = () => {
+ const hideMenu = (item, index) => {
+    props.setSelectedItem(item,index);
     _menu.hide();
   };
 
  const showMenu = () => {
-    console.log(_menu)
     _menu.show();
   };
       return(
@@ -61,21 +62,26 @@ const DropdownMenu = props => {
           ref={setMenuRef}
           button={
             <TouchableOpacity activeOpacity={1} onPress={showMenu} style={Styles.container}>
-                <Text style={Styles.textStyle}>DD</Text>
+                <Text  style={Styles.textStyle} numberOfLines={1} ellipsizeMode="tail">{props.selectedItem}</Text>
                 <IconButton icon="chevron-down"  size={25}/>
             </TouchableOpacity>
           }
           style={Styles.menuStyle}
         >
-          <MenuItem onPress={hideMenu}>Menu item 1</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-          <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
+          <ScrollView>
+            {props.data.map((item,index)=> {
+                return(<MenuItem onPress={() => hideMenu(item,index)} key={index}>{item}</MenuItem>)
+            })}
+         
+          </ScrollView>
+      {/* <FlatList
+        data={props.data}
+        renderItem={({item, index}) => {
+          <MenuItem onPress={hideMenu} key={index}>{item}</MenuItem>
+        }}
+        keyExtractor={(item) => item}
+        extraData={props.data}
+      /> */}
         </Menu>
       </View>
        
@@ -96,7 +102,6 @@ const Styles = StyleSheet.create({
     borderColor: Colors.textGray,
     overflow: 'hidden',
     paddingHorizontal: 20,
-    marginEnd: 15,
     
   },
   textStyle: {
