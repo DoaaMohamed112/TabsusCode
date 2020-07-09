@@ -16,7 +16,19 @@ const Style = StyleSheet.create({
         left: 0,
         zIndex: 2,
         elevation:1000,
-    }
+    },
+    bar: {
+        marginTop: 28,
+        height: 32,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      title: {
+        backgroundColor: 'transparent',
+        color: 'white',
+        fontSize: 18,
+      },
+    
 });
 
 export default Style;

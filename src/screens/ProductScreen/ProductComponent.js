@@ -191,7 +191,7 @@ const ProductComponent = props => {
       </View>
 
       {/* sizes */}
-      <TouchableOpacity style={Styles.sizesContent}>
+      <TouchableOpacity style={Styles.sizesContent} onPress={props.pressSizes}>
         <Text style={Styles.sizeText}>SELECT SIZE</Text>
         <View style={Styles.iconContainer}>
           <IconButton
