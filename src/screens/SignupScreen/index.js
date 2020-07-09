@@ -138,8 +138,9 @@ const SignupScreen = props => {
           <InputText inputType="TextInput" HandleChange={(e) => onChangeText('lastName' , e)} value={lastName.value} errorMsg={lastName.ErrorMsg} errorStyle={Style.errorStyle} TextStyle={Style.textStyle} title={'LastName'} style={Style.inputStyle} />
           <InputText inputType="TextInput" HandleChange={(e) => onChangeText('email' , e)} value={email.value} errorMsg={email.ErrorMsg} errorStyle={Style.errorStyle} TextStyle={Style.textStyle} title={'Email'} style={Style.inputStyle} />
           <InputText inputType="TextInput" HandleChange={(e) => onChangeText('mobile' , e)} value={mobile.value} errorMsg={mobile.ErrorMsg} errorStyle={Style.errorStyle} TextStyle={Style.textStyle} title={'Mobile'} style={Style.inputStyle} />
+          <Text style={Style.title}>{I18n.t('Dateofbirth')}</Text>
         <View style={{flexDirection: 'row'}}>
-          <Select style={{flex: 0.4}} title={'Dateofbirth'}>
+          <Select style={{flex: 0.4}}>
 
           </Select>
           <Select style={{flex: 0.4}}>

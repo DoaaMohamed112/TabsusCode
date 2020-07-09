@@ -152,7 +152,7 @@ const ProductStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-            <Stack.Screen name="WalletScreen" component={WalletScreen} />
+            {/* <Stack.Screen name="WalletScreen" component={WalletScreen} /> */}
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
         </Stack.Navigator>
