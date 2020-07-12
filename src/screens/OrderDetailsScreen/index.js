@@ -10,8 +10,6 @@ import FontSizes from '../../constants/FontSizes';
 import Colors from '../../constants/Colors';
 import I18n from '../../i18n'
 import AdressItem from '../../components/AddressItem'
-import { RadioButton } from 'react-native-paper';
-import RadioButtonGroup from '../../components/RadioButtonGroup';
 import OrderStatus from '../../components/OrderStatus';
 import OrderProductItem from '../../components/OrderProductItem';
 const { height, width } = Dimensions.get('window');

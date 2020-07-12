@@ -32,6 +32,7 @@ const CheckoutScreen = props => {
 
     const onChange = (item) => {
         console.log(item)
+        setDeliveryMethod(item);
     }
     return (
         <View style={Style.container}>
@@ -56,7 +57,7 @@ const CheckoutScreen = props => {
 
 
                     </View>
-                    <RadioButtonGroup handleChange={(selected) => onChange(selected)} labels={['Free Delivery', 'Express Delivery']}></RadioButtonGroup>
+                    <RadioButtonGroup selectedItem={deliveryMethod} handleChange={(selected) => onChange(selected)} labels={['Free Delivery', 'Express Delivery']}></RadioButtonGroup>
 
                     <View style={Style.timeBlock}>
                         <View style={Style.imgContainerStyle}>

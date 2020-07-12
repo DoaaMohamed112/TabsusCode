@@ -32,7 +32,8 @@ const PlaceOrderScreen = props => {
     });
 
     const onChange = (item) => {
-        console.log(item)
+        console.log(item);
+        setDeliveryMethod(item)
     }
     return (
         <View style={Style.container}>
@@ -49,7 +50,7 @@ const PlaceOrderScreen = props => {
 
                         <View style={{ flex: 1 }}>
                             {/* Radio group  */}
-                            <RadioButtonGroup handleChange={(selected) => onChange(selected)} RightText={'EG 20'} itemIndex={1} labels={['Credit Card', 'Wallet', 'Cash Money']}></RadioButtonGroup>
+                            <RadioButtonGroup selectedItem={deliveryMethod} handleChange={(selected) => onChange(selected)} RightText={'EG 20'} itemIndex={1} labels={['Credit Card', 'Wallet', 'Cash Money']}></RadioButtonGroup>
                         </View>
                      
                     </View>

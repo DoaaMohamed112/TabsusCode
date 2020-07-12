@@ -11,7 +11,6 @@ import Colors from '../../constants/Colors';
 import I18n from '../../i18n'
 import AdressItem from '../../components/AddressItem'
 import { RadioButton, IconButton } from 'react-native-paper';
-import RadioButtonGroup from '../../components/RadioButtonGroup';
 const { height, width } = Dimensions.get('window');
 
 const CheckoutFinishScreen = props => {

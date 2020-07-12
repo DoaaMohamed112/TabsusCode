@@ -16,4 +16,6 @@ export default {
     tabsBack: '#ebebeb',
     tabsBackground: '#dbdcde',
     facebookColor: '#385997',
+    radioBtnback: '#e9eaeb',
+    thumbColor: '#f3bb3580'
 }

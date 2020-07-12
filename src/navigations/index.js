@@ -32,6 +32,7 @@ import CategoryItemsScreen from '../screens/CategoryItemsScreen';
 import WishListScreen from '../screens/WishListScreen'
 import WalletScreen from '../screens/WalletScreen';
 import AccountScreen from '../screens/AccountScreen';
+import FilterScreen from '../screens/FilterScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -50,6 +51,14 @@ function DrawerNavigator() {
             drawerLabel: "Home",
           }}
         />
+         <Drawer.Screen
+          name="FilterScreen"
+          component={FilterScreen}
+          options={{
+            drawerLabel: "Home",
+          }}
+        />
+
        
       </Drawer.Navigator>
     );

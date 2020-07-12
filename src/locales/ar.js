@@ -74,5 +74,15 @@
     Wallet: 'محفظتى',
     AddToCart: 'اضف الى العربة',
     CurrentPassword:'كلمة السر الحالية',
-    ChangePassword:'تغيير كلمة السر'
+    ChangePassword:'تغيير كلمة السر',
+    Filter: 'حدد بحثك',
+    Cancel: 'الغاء',
+    Discount: 'خصم',
+    Rating: 'تقييم',
+    Color: 'لون',
+    Brand: 'علامة تجارية',
+    Size: 'مفاس',
+    Style: 'نوع',
+    discountQuestion: 'هل تريد تفعيل الخصومات؟',
+    selectColor: 'أختر لون'
   };

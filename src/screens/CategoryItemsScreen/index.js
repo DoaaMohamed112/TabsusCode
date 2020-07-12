@@ -120,7 +120,7 @@ const onSetISView = () => {
               <Text style={Style.tabText}>Sort by</Text>
               <Image style={Style.tabImg} source={ImagesPaths.sortby}/>
           </TouchableOpacity>
-          <TouchableOpacity style={Style.tabStyle}>
+          <TouchableOpacity style={Style.tabStyle} onPress={() => props.navigation.navigate('FilterScreen')}>
               <Text style={Style.tabText}>Filter</Text>
               <Image style={Style.tabImg} source={ImagesPaths.filter}/>
           </TouchableOpacity>

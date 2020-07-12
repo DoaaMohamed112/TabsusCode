@@ -76,6 +76,15 @@ export default {
     Wallet: 'My Wallet',
     AddToCart: 'Add to cart',
     CurrentPassword:'Current password',
-    ChangePassword:'Change Password'
-
+    ChangePassword:'Change Password',
+    Filter: 'Filter',
+    Cancel: 'Cancel',
+    Discount: 'Discount',
+    Rating: 'Rating',
+    Color: 'Color',
+    Brand: 'Brand',
+    Size: 'Size',
+    Style: 'Style',
+    discountQuestion: 'Do you want to activate discounts?',
+    selectColor: 'SELECT COLOR',
 };
