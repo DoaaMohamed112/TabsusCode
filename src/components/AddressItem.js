@@ -6,7 +6,7 @@ import { IconButton } from 'react-native-paper';
 
 const AddressItem = (props) => {
     return (
-        <View style={Styles.container}>
+        <View style={[Styles.container,props.style]}>
             <View style={{padding:10 ,flex: 0.8 }}>
                 <Text style={Styles.data}>{props.name}</Text>
                 <Text style={Styles.data}>{props.city}</Text>

@@ -15,7 +15,8 @@ const NotificationsScreen = props => {
 
       <Header style={{ height: 70 }} title='Notifications' leftIcon='back' rightIcon='general'
         HandleBack={() => props.navigation.pop()}
-        onPressCart={() => props.navigation.navigate('CartScreen')}
+        onPressSearch={()=> props.navigation.navigate('SearchScreen')}
+        onPressCart={()=> props.navigation.navigate('CartScreen')}
       ></Header>
       <FlatList
         showsVerticalScrollIndicator={false}

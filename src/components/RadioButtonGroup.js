@@ -16,14 +16,17 @@ const RadioButtonGroup = props => {
     }
    
     return (
-       <View style={Styles.container}>
-           {props.labels.map(item => {
+       <View style={[Styles.container,props.style]}>
+           {props.labels.map((item, index) => {
                return(
-                   <View style={Styles.rowContainer}>
-                       <TouchableOpacity onPress={() => onSelect(item)} style={[Styles.iconContainer,{ borderWidth : selectedItem == item ? 2 : 0 , backgroundColor: selectedItem == item ? Colors.light : Colors.lightgray}]}>
-                          {selectedItem == item ?  <View style={Styles.active}></View> : null}
+                   <View style={[Styles.rowContainer, {backgroundColor: selectedItem == item ? Colors.tabsBack: Colors.light,  borderEndWidth: selectedItem == item ? 8 : 0}]}>
+                       <TouchableOpacity onPress={() => onSelect(item)} style={[Styles.iconContainer,{ borderWidth : selectedItem == item ? 2 : 0 , backgroundColor: selectedItem == item ? Colors.greenSuccess : Colors.lightgray, borderColor: selectedItem == item ? Colors.greenSuccess : Colors.primary }]}>
+                          {selectedItem == item ?  <IconButton icon={"check"} color={Colors.light} size={18} style={Styles.active} /> : null}
                        </TouchableOpacity>
-                       <View><Text style={Styles.title}>{item}</Text></View>
+                       <View style={{width: '100%', paddingEnd: 20, flexDirection: 'row'}}>
+                           <Text style={Styles.title}>{item}</Text>
+                           {props.RightText && props.itemIndex ==  index ? <Text style={Styles.rightText}>{props.RightText}</Text> : null}
+                       </View>
                    </View>
                );
            })}
@@ -39,11 +42,15 @@ const Styles = StyleSheet.create({
         flexDirection: 'row',
         // marginTop: 20,
         alignItems: 'center',
-        paddingVertical:20
+        paddingVertical:20,
+        paddingHorizontal: 40,
+        borderColor: Colors.greenSuccess,
+        justifyContent:'center',
+        
     },
     iconContainer: {
-        width: 20,
-        height: 20,
+        width: 23,
+        height: 23,
         borderRadius: 20,
         marginHorizontal: 10,
         borderColor: Colors.primary,
@@ -51,14 +58,26 @@ const Styles = StyleSheet.create({
         alignItems: 'center'
     },
     active:{
-        backgroundColor: Colors.primary,
-        width: 10,
-        height: 10,
+        backgroundColor: Colors.greenSuccess,
+        width: 20,
+        height: 20,
         borderRadius: 10,
     },
     title: {
         fontSize: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'left',
+        textAlignVertical: 'center',
+        width: '70%',
+    },
+    rightText: {
+        marginLeft: 'auto',
+        textAlign: 'right',
+        color: Colors.lightblue,
+        fontSize: 15,
+        fontWeight: 'bold',
+        width: '30%',
+        textAlignVertical: 'center'
     }
 });
 

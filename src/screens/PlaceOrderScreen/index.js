@@ -37,27 +37,24 @@ const PlaceOrderScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView contentContainerStyle={{  }}style={{flexGrow:1,marginBottom:120}} >
+            <ScrollView contentContainerStyle={{}} style={{ flexGrow: 1, marginBottom: 120 }} >
                 <View style={Style.bodyContainer}>
                     {/* Shipping Address */}
                     <Text style={Style.title}>Shipping Address</Text>
-                    <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
+                    <AdressItem style={{ marginHorizontal:20 }} name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
 
                     {/* Payment Method */}
-                    <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Payment Method</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={{ fontWeight: 'bold', marginTop: 20, marginHorizontal:20 }}>Payment Method</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', }}>
 
-                        <View style={{ flex: 0.8 }}>
+                        <View style={{ flex: 1 }}>
                             {/* Radio group  */}
-                            <RadioButtonGroup handleChange={(selected) => onChange(selected)} labels={['Credit Card', 'Wallet', 'Cash Money']}></RadioButtonGroup>
+                            <RadioButtonGroup handleChange={(selected) => onChange(selected)} RightText={'EG 20'} itemIndex={1} labels={['Credit Card', 'Wallet', 'Cash Money']}></RadioButtonGroup>
                         </View>
-                        {/* Price */}
-                        <View style={{ flex: 0.2, alignItems: 'flex-end' }}>
-                            <Text style={Style.priceStyle}>EG 20</Text>
-                        </View>
+                     
                     </View>
-     {/* Points & Voucher */}
-     <View>
+                    {/* Points & Voucher */}
+                    <View style={{marginHorizontal:20}}>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={{ fontWeight: 'bold', flex: 0.5 }}>Points & Voucher</Text>
                             {/* Points */}
@@ -66,7 +63,7 @@ const PlaceOrderScreen = props => {
                             </View>
                         </View>
                         {/* Voucher Input Part */}
-                        <View style={{ flexDirection: 'row',paddingTop:10 }}>
+                        <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                             <InputText inputType='TextInput'
                                 value={Voucher} HandleChange={(value) => { setVoucher(value) }}
                                 style={Style.inputTextStyle}
@@ -76,10 +73,10 @@ const PlaceOrderScreen = props => {
                                 <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%', borderTopStartRadius: 0, borderBottomStartRadius: 0 }} value='Apply'></BlockButton>
                             </TouchableOpacity>
                         </View>
-                          {/* Coupon Input Part */}
-                          <Text style={{ fontWeight: 'bold' }}>Coupon Code</Text>
-                           
-                          <View style={{ flexDirection: 'row',paddingTop:10 }}>
+                        {/* Coupon Input Part */}
+                        <Text style={{ fontWeight: 'bold' }}>Coupon Code</Text>
+
+                        <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                             <InputText inputType='TextInput'
                                 value={coupon} HandleChange={(value) => { setCoupon(value) }}
                                 style={Style.inputTextStyle}
@@ -91,23 +88,23 @@ const PlaceOrderScreen = props => {
                         </View>
                     </View>
                 </View>
-                </ScrollView>
+            </ScrollView>
 
 
-                {/* footer */}
-                <View style={Style.footerStyle}>
-                    <View style={{ flexDirection: I18n.locale == 'ar' ? 'row-reverse' : 'row' }}>
-                        <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
-                        {/* price */}
+            {/* footer */}
+            <View style={Style.footerStyle}>
+                <View style={{ flexDirection: I18n.locale == 'ar' ? 'row-reverse' : 'row' }}>
+                    <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
+                    {/* price */}
 
-                        <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
-                            <Text style={Style.priceStyle}>EG 20</Text>
-                        </View>
+                    <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
+                        <Text style={Style.priceStyle}>EG 20</Text>
                     </View>
-                    <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={() => props.navigation.navigate('PaymentScreen')} >
-                        <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='PlaceOrder'></BlockButton>
-                    </TouchableOpacity>
                 </View>
+                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={() => props.navigation.navigate('PaymentScreen')} >
+                    <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='PlaceOrder'></BlockButton>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }

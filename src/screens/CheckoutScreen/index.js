@@ -36,39 +36,39 @@ const CheckoutScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Checkout' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView 
-            
-            contentContainerStyle={{}} style={{flexGrow:1,marginBottom:120}} >
-               <View style={{height:'100%'}}>
-                <View style={Style.bodyContainer}>
-                    {/* Shipping Address */}
-                    <Text style={Style.title}>Shipping Address</Text>
-                    <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
+            <ScrollView
 
-                    {/* button part */}
-                    <TouchableOpacity style={{ width: '100%', marginTop: 20, marginBottom: '10%' }} onPress={() => props.navigation.navigate('AddressBookScreen')} >
-                        <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} iconSize={25} backColor={Colors.light} style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} value='NewAddress'></BlockButton>
-                    </TouchableOpacity>
+                contentContainerStyle={{}} style={{ flexGrow: 1, marginBottom: 120 }} >
+                <View style={{ height: '100%' }}>
+                    <View style={Style.bodyContainer}>
+                        {/* Shipping Address */}
+                        <Text style={Style.title}>Shipping Address</Text>
+                        <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
 
-                    {/* Delivery Method */}
-                    <Text style={{ fontWeight: 'bold' }}>Delivery Method</Text>
-                    {/* Radio group  */}
+                        {/* button part */}
+                        <TouchableOpacity style={{ width: '100%', marginTop: 20, marginBottom: '10%' }} onPress={() => props.navigation.navigate('AddressBookScreen')} >
+                            <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} iconSize={25} backColor={Colors.light} style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} value='NewAddress'></BlockButton>
+                        </TouchableOpacity>
+
+                        {/* Delivery Method */}
+                        <Text style={{ fontWeight: 'bold' }}>Delivery Method</Text>
+                        {/* Radio group  */}
+
+
+                    </View>
                     <RadioButtonGroup handleChange={(selected) => onChange(selected)} labels={['Free Delivery', 'Express Delivery']}></RadioButtonGroup>
 
-
-                </View>
-
-                <View style={Style.timeBlock}>
-                    <View style={Style.imgContainerStyle}>
-                        <Image source={require('../../assets/images/Delivery-time.png')} style={Style.imgStyle} />
-                    </View>
-                    <View> 
-                        <Text style={Style.titleText}>Delivery time</Text>
-                    <Text style={Style.pragText}>The order will be delivered after three days from this day</Text> 
+                    <View style={Style.timeBlock}>
+                        <View style={Style.imgContainerStyle}>
+                            <Image source={require('../../assets/images/Delivery-time.png')} style={Style.imgStyle} />
+                        </View>
+                        <View>
+                            <Text style={Style.titleText}>Delivery time</Text>
+                            <Text style={Style.pragText}>The order will be delivered after three days from this day</Text>
+                        </View>
                     </View>
                 </View>
-                </View> 
-                </ScrollView>
+            </ScrollView>
              {/* footer */}
              <View style={Style.footerStyle}>
                 <View style={{ flexDirection: I18n.locale=='ar'?'row-reverse': 'row' }}>

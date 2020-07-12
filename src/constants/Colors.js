@@ -15,5 +15,5 @@ export default {
     greenSuccess:'#38c567',
     tabsBack: '#ebebeb',
     tabsBackground: '#dbdcde',
-    facebookColor: '#385997'
+    facebookColor: '#385997',
 }

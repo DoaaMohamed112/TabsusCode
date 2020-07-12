@@ -12,7 +12,7 @@ const Style = StyleSheet.create({
     //   padding:10
     },
     bodyContainer:{
-      paddingHorizontal:20,
+      // paddingHorizontal:20,
       paddingTop:50,
     //   marginBottom:'',
       width:'100%',
@@ -20,6 +20,7 @@ const Style = StyleSheet.create({
     //   justifyContent:'center'
     },
     title: {
+      paddingHorizontal:20,
       color: Colors.textGray,
       marginBottom:10
   },
