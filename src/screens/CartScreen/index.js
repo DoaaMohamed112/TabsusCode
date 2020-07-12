@@ -39,7 +39,7 @@ const CartScreen = props => {
                         <Text style={Style.priceStyle}>EG 20</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
+                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={() => props.navigation.navigate('CheckoutScreen')}>
                     <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Checkout'></BlockButton>
                 </TouchableOpacity>
             </View>

@@ -232,8 +232,8 @@ const SignupScreen = props => {
         <Text style={{color: Colors.secondary,fontSize: 12}}>
           {I18n.t('termsAndConditionsStatement')}{' '}
         </Text>
-        <TouchableOpacity>
-          <Text style={{textDecorationLine: 'underline', textDecorationStyle: 'solid',fontSize: 13}} onPress={() => props.nav.navigate('SigupScreen')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('TermsConditionsScreen')}>
+          <Text style={{textDecorationLine: 'underline', textDecorationStyle: 'solid',fontSize: 13}} >
             {I18n.t('termsAndConditions')}
           </Text>
         </TouchableOpacity>

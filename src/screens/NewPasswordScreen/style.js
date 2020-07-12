@@ -15,7 +15,8 @@ const Style = StyleSheet.create({
       paddingHorizontal:20,
       width:'100%',
       height:height-70 , //70 is the height of header,
-      justifyContent:'center'
+      // justifyContent:'center'
+      marginTop:50
     },
     title: {
       color: Colors.textGray,
@@ -23,6 +24,7 @@ const Style = StyleSheet.create({
   },
   inputTextStyle: {
       width: '100%',
+      height:50,
       marginBottom: 20
   },
 });

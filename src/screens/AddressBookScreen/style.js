@@ -25,7 +25,8 @@ const Style = StyleSheet.create({
   },
   inputTextStyle: {
       width: '100%',
-      marginBottom: 20
+      marginBottom: 10,
+      height: 50
   },
 });
 

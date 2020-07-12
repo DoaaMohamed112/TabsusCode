@@ -4,6 +4,8 @@ export default {
     DeliveryTime:require('../assets/images/Delivery-time.png'),
     ReturnPolicy:require('../assets/images/Return-Policy.png'),
     SoldBy:require('../assets/images/Sold-by.png'),
+    profile:require('../assets/images/Profile.png'),
+    profile2:require('../assets/images/profile2.png'),
     
 
 

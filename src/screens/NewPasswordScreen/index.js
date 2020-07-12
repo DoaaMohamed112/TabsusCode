@@ -14,8 +14,9 @@ import { validateForm , validate } from '../../Validation/Validation';
 const { height, width } = Dimensions.get('window');
 
 const NewPasswordScreen = props => {
- const [newPassword, setNewPassword] = useState({value:'',isValid:''});
- const [confirmPassword, setConfirmPassword] = useState({value:'',isValid:''});
+  const [currentPassword, setCurrentPassword] = useState({value:'',isValid:''});
+  const [newPassword, setNewPassword] = useState({value:'',isValid:''});
+  const [confirmPassword, setConfirmPassword] = useState({value:'',isValid:''});
 
   // useEffect(() => {
 
@@ -32,8 +33,15 @@ const NewPasswordScreen = props => {
   // });
   return (
     <View style={Style.container}>
-      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='NewPassword' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
+      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ChangePassword' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
       <View style={Style.bodyContainer}>
+        {/* New Password Part */}
+  <Text style={Style.title}>{I18n.t('CurrentPassword')}</Text>
+        <InputText inputType='TextInput'
+          value={currentPassword.value} HandleChange={(val)=>{let result = validate('password',val);setCurrentPassword({value:val,isValid:result.IsValid})}}
+          style={Style.inputTextStyle}  Isvalid={currentPassword.isValid}
+          secureTextEntry={true} autoCapitalize="none" autoCorrect={false}
+        ></InputText>
         {/* New Password Part */}
   <Text style={Style.title}>{I18n.t('NewPassword')}</Text>
         <InputText inputType='TextInput'
@@ -51,8 +59,8 @@ const NewPasswordScreen = props => {
         ></InputText>
 
         {/* button part */}
-        <TouchableOpacity disabled={confirmPassword.value!=newPassword.value && newPassword.IsValid!='success'} style={{ width: '100%', marginTop: 20 }} >
-                <BlockButton fontStyle={{fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%',opacity:(confirmPassword.value!=newPassword.value && newPassword.IsValid!='success')?0.5:1 }} value='Send'></BlockButton>
+        <TouchableOpacity disabled={confirmPassword.value!=newPassword.value && newPassword.IsValid!='success'} style={{ position:'absolute',bottom:100,width: '100%',alignSelf:'center', marginTop: 20 }} >
+                <BlockButton fontStyle={{fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%',opacity:(confirmPassword.value!=newPassword.value && newPassword.IsValid!='success')?0.5:1 }} value='Save'></BlockButton>
             </TouchableOpacity>
       </View>
     </View>

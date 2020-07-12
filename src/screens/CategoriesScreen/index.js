@@ -35,8 +35,47 @@ const CategoriesScreen = props => {
             {
               id: '1',
               img:
-                'https://i.ya-webdesign.com/images/gucci-black-panther-png.png',
+                'https://lh3.googleusercontent.com/proxy/u2Nk6Dz6udgZwvYkkfYHEeQeuUjWoTMt5ZSe-03u3HcqFavLl1q-6N9LwVed8eHtUGs05Aj6WzP8zEoPTszeSRpsOoD8vPmaOQX8zu-9adhHgJXDFQ',
               name: 'TVs',
+            },
+            {
+              id: '2',
+              img:
+                'https://static.wixstatic.com/media/2cd43b_1e1d8d27f807481bb02827e0cb44b151~mv2.png/v1/fill/w_320,h_410,fp_0.50_0.50/2cd43b_1e1d8d27f807481bb02827e0cb44b151~mv2.png',
+              name: 'Washers',
+            },
+          ],
+        },
+        {
+          subCategory: 'Chargers',
+          Data: [
+            {
+              id: '1',
+              img:
+                'https://i.ya-webdesign.com/images/gucci-black-panther-png.png',
+              name: 'Gucci Black Panther',
+            },
+            {
+              id: '2',
+              img:
+                'https://cdn.shopify.com/s/files/1/0070/3230/7812/products/Y326002_139_HERO_R_W_SPOTLESS-TRAVELER-TANK-DRESS_1024x.png?v=1587757706',
+              name: "Women's Spotless Traveler Tank Dress",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      Category: 'Clothes',
+      content: [
+        {
+          subCategory: 'Large Electronics',
+          Data: [
+            {
+              id: '1',
+              img:
+                'https://i.ya-webdesign.com/images/gucci-black-panther-png.png',
+              name: 'TVs asd fda',
             },
             {
               id: '2',
@@ -66,7 +105,46 @@ const CategoriesScreen = props => {
       ],
     },
     {
-      Category: 'Clothes',
+      Category: 'Home, Gardens',
+      content: [
+        {
+          subCategory: 'Large Electronics',
+          Data: [
+            {
+              id: '1',
+              img:
+                'https://i.ya-webdesign.com/images/gucci-black-panther-png.png',
+              name: 'TVs asd fda',
+            },
+            {
+              id: '2',
+              img:
+                'https://cdn.shopify.com/s/files/1/0070/3230/7812/products/Y326002_139_HERO_R_W_SPOTLESS-TRAVELER-TANK-DRESS_1024x.png?v=1587757706',
+              name: 'Washers',
+            },
+          ],
+        },
+        {
+          subCategory: 'Chargers',
+          Data: [
+            {
+              id: '1',
+              img:
+                'https://i.ya-webdesign.com/images/gucci-black-panther-png.png',
+              name: 'Gucci Black Panther',
+            },
+            {
+              id: '2',
+              img:
+                'https://cdn.shopify.com/s/files/1/0070/3230/7812/products/Y326002_139_HERO_R_W_SPOTLESS-TRAVELER-TANK-DRESS_1024x.png?v=1587757706',
+              name: "Women's Spotless Traveler Tank Dress",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      Category: 'Organic',
       content: [
         {
           subCategory: 'Large Electronics',
@@ -141,14 +219,14 @@ const CategoriesScreen = props => {
         showsVerticalScrollIndicator={false}
         // refreshing={true}
         style={{width:'100%',backgroundColor:Colors.backGray}}
-        contentContainerStyle={{alignItems:'center'}}
+        contentContainerStyle={{}}
         data={DataList}
         extraData={DataList}
         horizontal={true}
         renderItem={({item, index}) => (
-          <TouchableOpacity onPress={()=>{setChosenCategoryIndex(index)}} style={{width:width*0.25,alignItems:'center',paddingVertical:20,
+          <TouchableOpacity onPress={()=>{setChosenCategoryIndex(index)}} style={{width:width*0.25,justifyContent:'center',paddingVertical:20,alignItems:'center',
           backgroundColor:chosenCategoryIndex==index?Colors.tabsBackground:null}}>
-              <Text style={{paddingHorizontal:5,textAlign:'center'}}>{item.Category}</Text>
+              <Text style={{paddingHorizontal:5,textAlignVertical:'center',textAlign:'center'}}>{item.Category}</Text>
           </TouchableOpacity>
            
         )}

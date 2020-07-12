@@ -31,6 +31,7 @@ import OrderDetailsScreen from '../screens/OrderDetailsScreen';
 import CategoryItemsScreen from '../screens/CategoryItemsScreen';
 import WishListScreen from '../screens/WishListScreen'
 import WalletScreen from '../screens/WalletScreen';
+import AccountScreen from '../screens/AccountScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -89,7 +90,7 @@ function TabsNavigator() {
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Categories" component={CategoryStackNavigator} />
           <Tab.Screen name="Wish list" component={WishListScreen} />
-          <Tab.Screen name="account" component={HomeScreen} />
+          <Tab.Screen name="account" component={AccountScreen} />
         </Tab.Navigator>
     );
   }
@@ -103,7 +104,7 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="Welcome" component={Welcome} />
             <Stack.Screen name="SigupScreen" component={SignupScreen} />
-            <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+            {/* <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} /> */}
             <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} />
 
 
@@ -127,6 +128,15 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="CartScreen" component={CartScreen} />
             <Stack.Screen name="SearchScreen" component={SearchScreen} />
             <Stack.Screen name="ProductStackNavigator" component={ProductStackNavigator} />
+            <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
+            <Stack.Screen name="CheckoutScreen" component={CheckoutScreen}/>
+            <Stack.Screen name="AddressBookScreen" component={AddressBookScreen}/>
+            <Stack.Screen name="CheckoutFinishScreen" component={CheckoutFinishScreen}/>
+            <Stack.Screen name="PaymentScreen" component={PaymentScreen}/>
+            <Stack.Screen name="OrderDetailsScreen" component={OrderDetailsScreen}/>
+            <Stack.Screen name="WalletScreen" component={WalletScreen}/>
+            <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+
         </Stack.Navigator>
     );
 }
@@ -136,7 +146,6 @@ const PaymentStackNavigator = () => {
         <Stack.Navigator headerMode="none" >
             <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
             <Stack.Screen name="CheckoutScreen" component={CheckoutScreen}/>
-            <Stack.Screen name="AddressBookScreen" component={AddressBookScreen}/>
         </Stack.Navigator>
     );
 }
@@ -148,13 +157,23 @@ const ProductStackNavigator = () => {
       </Stack.Navigator>
   );
 }
+const AccountStackNavigator = () => {
+  return (
+      <Stack.Navigator headerMode="none" >
+                    <Stack.Screen name="AccountScreen" component={AccountScreen}/>
+            <Stack.Screen name="WalletScreen" component={WalletScreen}/>
+            <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+      </Stack.Navigator>
+  );
+}
 
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-            {/* <Stack.Screen name="WalletScreen" component={WalletScreen} /> */}
+            {/* <Stack.Screen name="ProductScreen" component={ProductScreen} /> */}
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
+            {/* <Stack.Screen name="AccountStackNavigator" component={AccountStackNavigator} /> */}
         </Stack.Navigator>
     );
 }

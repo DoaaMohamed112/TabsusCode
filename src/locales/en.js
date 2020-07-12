@@ -71,6 +71,11 @@ export default {
     DeliveryPrice:'Delivery price',
     Vat:'Vat',
     MyWishList:'My Wish List',
-    YouHave:'You have'
+    YouHave:'You have',
+    Account: 'Account',
+    Wallet: 'My Wallet',
+    AddToCart: 'Add to cart',
+    CurrentPassword:'Current password',
+    ChangePassword:'Change Password'
 
 };

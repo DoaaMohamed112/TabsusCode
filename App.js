@@ -16,7 +16,7 @@ import Colors from "./src/constants/Colors";
 // const store = configureStore(initialState);
 
 export default function App(){
-
+console.disableYellowBox=true;
  return( 
    <>
  <StatusBar barStyle="light-content"  backgroundColor={Colors.dark} />

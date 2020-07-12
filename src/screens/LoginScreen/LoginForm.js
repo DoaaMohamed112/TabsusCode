@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
   inputTextStyle: {
     width: '100%',
     marginBottom: 20,
+    height:50
   },
   forgotContainer: {
     width: '100%',

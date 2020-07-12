@@ -104,7 +104,7 @@ const PlaceOrderScreen = props => {
                             <Text style={Style.priceStyle}>EG 20</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
+                    <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={() => props.navigation.navigate('PaymentScreen')} >
                         <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='PlaceOrder'></BlockButton>
                     </TouchableOpacity>
                 </View>

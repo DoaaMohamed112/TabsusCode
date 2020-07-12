@@ -18,7 +18,7 @@ const {height, width} = Dimensions.get('window');
 
 const SizesComponent = props => {
   const [counteries, setContries] = useState([
-    {name: 'EG', IsSelected: false},
+    {name: 'EG', IsSelected: true},
     {name: 'EU', IsSelected: false},
     {name: 'UK', IsSelected: false},
     {name: 'KSA', IsSelected: false},
@@ -27,7 +27,7 @@ const SizesComponent = props => {
   ]);
 
   const [sizes, setSizes] = useState([
-    {name: 'S', IsSelected: false},
+    {name: 'S', IsSelected: true},
     {name: 'M', IsSelected: false},
     {name: 'L', IsSelected: false},
     {name: 'XL', IsSelected: false},
@@ -69,7 +69,7 @@ const SizesComponent = props => {
     let list = [...counteries];
     let index = counteries.findIndex(i => i == item);
     let index2 = counteries.findIndex(i => i.IsSelected == true);
-    list[index2] = false;
+    list[index2].IsSelected = false;
     list[index].IsSelected = true;
     setContries([...list]);
   };
@@ -78,7 +78,7 @@ const SizesComponent = props => {
     let list = [...sizes];
     let index = sizes.findIndex(i => i == item);
     let index2 = sizes.findIndex(i => i.IsSelected == true);
-    list[index2] = false;
+    list[index2].IsSelected = false;
     list[index].IsSelected = true;
     setSizes([...list]);
   };
@@ -100,6 +100,7 @@ const SizesComponent = props => {
                   backgroundColor: item.IsSelected
                     ? Colors.tabsBackground
                     : Colors.light,
+                  color: Colors.dark
                 },
               ]}>
               <Text style={Styles.itemText}>{item.name}</Text>

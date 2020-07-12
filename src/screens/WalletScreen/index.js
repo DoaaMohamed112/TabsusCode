@@ -6,11 +6,15 @@ import OrderStatus from '../../components/OrderStatus'
 import BlockButton from '../../components/BlockButton'
 import FontSizes from '../../constants/FontSizes'
 import Colors from '../../constants/Colors'
+import Header from '../../components/Header'
+
 
 const WalletScreen = (props) => {
 
     return (
         <View style={Styles.container}>
+         <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Wallet' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
+
             <Text style={Styles.haveText}>{I18n.t('YouHave')}</Text>
             <Text style={Styles.amount}>EG 1500</Text>
 
@@ -21,7 +25,7 @@ const WalletScreen = (props) => {
                 refreshing={true}
                 data={[0, 1, 3,5,6,8, 7]}
                 renderItem={({ item, index }) => (
-                    <OrderStatus style={{ borderRadius: 0, borderWidth: 1, elevation: 0 }} orderNumber='1234567' status='Done' date='4/1/2020 6:20 pm'></OrderStatus>
+                    <OrderStatus style={{ borderRadius: 0, borderBottomWidth: 0, elevation: 0 }} orderNumber='1234567' status='Done' date='4/1/2020 6:20 pm'></OrderStatus>
                 )}
                 keyExtractor={item => item._id}
             />

@@ -69,5 +69,10 @@
     DeliveryPrice:'تكلفة النقل',
     Vat:'الضريبة',
     MyWishList:'قائمتي المفضلة',
-    YouHave:'انت تملك'
+    YouHave:'انت تملك',
+    Account: 'الحساب',
+    Wallet: 'محفظتى',
+    AddToCart: 'اضف الى العربة',
+    CurrentPassword:'كلمة السر الحالية',
+    ChangePassword:'تغيير كلمة السر'
   };

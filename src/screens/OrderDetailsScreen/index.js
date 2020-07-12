@@ -52,9 +52,9 @@ const OrderDetailsScreen = props => {
                             )}
                             showsVerticalScrollIndicator={false}
                             refreshing={true}
-                            data={[0, 1, 3, 4, 5,6,23,7]}
+                            data={[0, 1]}
                             renderItem={({ item, index }) => (
-                                <OrderProductItem price={20} size='XL' color='red' sku="0590458902809" subtotal={10} productName="Product Name" currency='EG' itemImage={require('../../assets/dummyImages/DummyTshirt.png')}></OrderProductItem>
+                                <OrderProductItem price={20} size='XL' color='red' sku="0590458902809" subtotal={10} productName="Product Name" currency='EG' itemImage={{uri: 'https://i.ya-webdesign.com/images/gucci-black-panther-png.png'}}></OrderProductItem>
                             )}
                             keyExtractor={item => item._id}
 

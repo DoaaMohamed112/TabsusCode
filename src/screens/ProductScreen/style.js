@@ -28,6 +28,13 @@ const Style = StyleSheet.create({
         color: 'white',
         fontSize: 18,
       },
+      footerStyle: {
+        flexDirection: 'row',
+        width: '100%',
+         elevation: 10,
+        marginHorizontal: 10,
+        marginVertical: 15
+      }
     
 });
 

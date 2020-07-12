@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {
   View,
   Dimensions,
   Text,
   TouchableOpacity,
   ScrollView,
+  Animated
 } from 'react-native';
 import Style from './style';
 import ImagesPaths from '../../constants/ImagesPaths';
@@ -18,14 +19,15 @@ import ProductComponent from './ProductComponent';
 import SizesComponent from './SizesComponent';
 import DetailsComponent from './DetailsComponent';
 import ReviewsComponent from './ReviewsComponent';
-import Animated from 'react-native-reanimated';
+import { IconButton } from 'react-native-paper';
+// import Animated from 'react-native-reanimated';
 
 const {height, width} = Dimensions.get('window');
 
 const ProductScreen = props => {
   const [selectedTab, setTab] = useState(1);
   const [IsSizesOpened, setIsSizesOpened] = useState(false);
-  const [ scrollY, setScrollY] = useState(new Animated.Value(0));
+  const scrollY = useRef(new Animated.Value(0)).current;
   const [item, setItem] = useState({
     imgs: [
       'https://i.pinimg.com/originals/bd/ef/cb/bdefcbc72735f64db17f3250b1e64245.png',
@@ -49,7 +51,7 @@ const ProductScreen = props => {
   const setSelectedTab = index => {
     setTab(index);
     setIsSizesOpened(false);
-    viewId.scrollTo({x: 0, y: 0, animated: true});
+    // viewId.scrollTo({x: 0, y: 0, animated: true});
   };
 
   // const onScroll =(event) => Animated.event(
@@ -63,7 +65,7 @@ const ProductScreen = props => {
   //   },
   // ).__getHandler()(event);
 
-  const setRef = ref => {
+  const setRefScroll = ref => {
     viewId = ref;
   };
 
@@ -76,20 +78,31 @@ const ProductScreen = props => {
 
   const HEADER_MAX_HEIGHT = height * 0.55;
 const HEADER_MIN_HEIGHT = 70;
-const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
+const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT-HEADER_MIN_HEIGHT;
 
 const headerHeight = scrollY.interpolate({
-  inputRange: [0, HEADER_SCROLL_DISTANCE, HEADER_MAX_HEIGHT],
-  outputRange: [HEADER_MAX_HEIGHT,HEADER_SCROLL_DISTANCE, HEADER_MIN_HEIGHT],
+  inputRange: [0, HEADER_SCROLL_DISTANCE],
+  outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
   extrapolate: 'clamp',
+  useNativeDriver: true
 });
-
+const backgroundCol = scrollY.interpolate({
+  inputRange: [0, 140],
+  outputRange: ['rgba(244,245,248,0.0)', Colors.backGray],
+  extrapolate: 'clamp',
+  useNativeDriver: true
+});
+const IconColor = scrollY.interpolate({
+  inputRange: [0, 140],
+  outputRange: [Colors.dark, Colors.light],
+  extrapolate: 'clamp',
+  useNativeDriver: true
+});
 
   return (
     <View style={Style.container}>
-      <View style={{height: height * 0.55}}>
-        {/* header */}
-        <View style={[Style.headerStyle]}>
+        <Animated.View style={[Style.headerStyle, {backgroundColor: backgroundCol}]}
+        >
           <Header
             style={{height: 70, backgroundColor: 'transparent'}}
             leftIcon="back"
@@ -103,38 +116,46 @@ const headerHeight = scrollY.interpolate({
             noshadow={true}
             IconColor={Colors.dark}
           />
-        </View>
-       {/* carousel */}
-       <Animated.View 
-          style={{
-            width: width,
-            height: headerHeight,
-            backgroundColor: Colors.backGray,
-            position: 'absolute',
-            top: 0,
-            zIndex: 1,
-            flex: 0
-          }}>
-          <Carousel images={item.imgs} height={height * 0.55} />
+          
         </Animated.View>
-      </View>
-      
+       
+
+
+        <Animated.ScrollView ref={setRefScroll}
+         
+         onScroll={Animated.event([
+          {
+            nativeEvent: {
+              contentOffset: {
+                y: scrollY
+              }
+            }
+          }
+        ],
+       )
+      }
+        scrollEventThrottle={16}
+        >
+
+          
+       {/* carousel */}
+       <View 
+          style={[{
+            width: width,
+            backgroundColor: Colors.error,
+            // position: 'absolute',
+            top: 0,
+            // zIndex: 1,
+            // flex: 0
+            height: height * 0.55 
+          }]}>
+             {/* header */}
+       
+          <Carousel images={item.imgs} height={height * 0.55} />
+        </View>
       {/* tabs */}
       <ProductTabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
 
-      <ScrollView ref={setRef} 
-       scrollEventThrottle={1}
-       onScroll={() => {Animated.event(
-        [{
-          nativeEvent: {
-            contentOffset: { y: scrollY },
-          },
-        }],
-        {
-          listener: ({ nativeEvent }) => scrollY.setValue(nativeEvent.contentOffset.y),
-        },
-      ); console.log(headerHeight)}}
-      >
         {selectedTab == 1 ? (
           IsSizesOpened == true ? (
             <SizesComponent />
@@ -143,7 +164,7 @@ const headerHeight = scrollY.interpolate({
               Item={item}
               pressSizes={() => {
                 setIsSizesOpened(true);
-                viewId.scrollTo({x: 0, y: 0, animated: true});
+                // viewId.scrollTo({x: 0, y: 0, animated: true});
               }}
               handleLike={handleLike}
             />
@@ -153,17 +174,20 @@ const headerHeight = scrollY.interpolate({
         ) : (
           <ReviewsComponent />
         )}
-      </ScrollView>
-      {/* <View style={Style.footerStyle}>
-        <TouchableOpacity style={{width: '100%', marginTop: 20, marginBottom: 20, elevation: 10}}>
+      </Animated.ScrollView>
+      <View style={Style.footerStyle}>
+        <TouchableOpacity style={{ backgroundColor: Colors.primary,borderRadius: 5,justifyContent:'center',alignItems: 'center' }}>
+          <IconButton icon="heart-outline" size={25} />
+        </TouchableOpacity>
+        <TouchableOpacity style={{ width: '85%', justifyContent: 'center' ,alignItems: 'center' }}>
           <BlockButton
-            fontStyle={{fontSize: FontSizes.subtitle, fontWeight: 'bold'}}
+            fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }}
             backColor={Colors.primary}
-            style={{width: '90%'}}
-            value="Next"
+            style={{ width: '90%', paddingVertical: 10}}
+            value="AddToCart"
           />
         </TouchableOpacity>
-      </View> */}
+      </View>
     </View>
   );
 };

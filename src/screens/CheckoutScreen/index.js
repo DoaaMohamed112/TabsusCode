@@ -46,7 +46,7 @@ const CheckoutScreen = props => {
                     <AdressItem name='hussien mohamed' city='tanta' street='nasr street' mobile='01115492192'></AdressItem>
 
                     {/* button part */}
-                    <TouchableOpacity style={{ width: '100%', marginTop: 20, marginBottom: '10%' }} >
+                    <TouchableOpacity style={{ width: '100%', marginTop: 20, marginBottom: '10%' }} onPress={() => props.navigation.navigate('AddressBookScreen')} >
                         <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} iconSize={25} backColor={Colors.light} style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} value='NewAddress'></BlockButton>
                     </TouchableOpacity>
 
@@ -79,7 +79,7 @@ const CheckoutScreen = props => {
                         <Text style={Style.priceStyle}>EG 20</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} >
+                <TouchableOpacity  onPress={() => props.navigation.navigate('PlaceOrderScreen')} style={{ width: '100%', marginTop: 20 }} >
                     <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Next'></BlockButton>
                 </TouchableOpacity>
             </View>
