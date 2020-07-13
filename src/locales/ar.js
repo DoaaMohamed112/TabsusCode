@@ -84,5 +84,6 @@
     Size: 'مفاس',
     Style: 'نوع',
     discountQuestion: 'هل تريد تفعيل الخصومات؟',
-    selectColor: 'أختر لون'
+    selectColor: 'أختر لون',
+    AccountInfo: 'معلومات الحساب'
   };

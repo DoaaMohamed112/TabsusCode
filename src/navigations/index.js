@@ -33,6 +33,7 @@ import WishListScreen from '../screens/WishListScreen'
 import WalletScreen from '../screens/WalletScreen';
 import AccountScreen from '../screens/AccountScreen';
 import FilterScreen from '../screens/FilterScreen';
+import AccountInfoScreen from '../screens/AccountInfoScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -144,6 +145,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="PaymentScreen" component={PaymentScreen}/>
             <Stack.Screen name="OrderDetailsScreen" component={OrderDetailsScreen}/>
             <Stack.Screen name="WalletScreen" component={WalletScreen}/>
+            <Stack.Screen name="AccountInfoScreen" component={AccountInfoScreen}/>
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
 
         </Stack.Navigator>

@@ -31,7 +31,9 @@ const Style = StyleSheet.create({
     },
     avatarImg: {
         width: 50,
-        resizeMode: 'contain',
+        height:50,
+        // resizeMode: 'contain',
+        borderRadius:25
     },
     avatarContent: {
         flexDirection: 'column',
@@ -50,7 +52,7 @@ const Style = StyleSheet.create({
     },
     Content: {
         marginHorizontal: 20,
-        marginVertical: 70,
+        marginVertical: '10%',
         backgroundColor: Colors.tabsBack,
         borderRadius: 20,
         paddingHorizontal: 20,

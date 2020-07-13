@@ -87,4 +87,5 @@ export default {
     Style: 'Style',
     discountQuestion: 'Do you want to activate discounts?',
     selectColor: 'SELECT COLOR',
+    AccountInfo: 'Account Information'
 };
