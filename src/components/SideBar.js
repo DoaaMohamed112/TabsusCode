@@ -12,7 +12,7 @@ const SideBar = (props) => {
         {
             active: true,
             TitleBtn: "Home",
-            ScreenName: "Home",
+            ScreenName: "HomeHomeScreen",
         },
         {
             active: false,
@@ -22,7 +22,7 @@ const SideBar = (props) => {
         {
             active: false,
             TitleBtn: "Settings",
-            ScreenName: "Home",
+            ScreenName: "SettingsScreen",
         },
         {
             active: false,
@@ -52,7 +52,7 @@ const SideBar = (props) => {
         {
             active: false,
             TitleBtn: "Returns and Refund",
-            ScreenName: "Home",
+            ScreenName: "ReturnsConditionsScreen",
         },
         {
             active: false,
@@ -62,7 +62,7 @@ const SideBar = (props) => {
         {
             active: false,
             TitleBtn: "Terms & Conditions",
-            ScreenName: "Home",
+            ScreenName: "TermsConditionsScreen",
         },
         {
             active: false,
@@ -82,7 +82,8 @@ const SideBar = (props) => {
         {
             list[index].active = true;
             list[index2].active = false;
-            setMenuItems([...list])
+            setMenuItems([...list]);
+            props.navigation.navigate(item.ScreenName);
         }
 
     };

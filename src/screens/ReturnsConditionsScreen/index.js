@@ -11,12 +11,12 @@ import Colors from '../../constants/Colors';
 import I18n from '../../i18n'
 const { height, width } = Dimensions.get('window');
 
-const TermsConditionsScreen = props => {
+const ReturnsConditionsScreen = props => {
  
   const terms='Lorem ipsum dolor sit amet, consectetur adiLorem ipsum dolor sit amet,dunt u piscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u \n \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum \n \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt us'
   return (
     <View style={Style.container}>
-      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='termsAndConditions' leftIcon='menu' HandleBack={() => props.navigation.openDrawer()}></Header>
+      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='returnsAndConditions' leftIcon='back' HandleBack={() => props.navigation.openDrawer()}></Header>
       <ScrollView style={{padding:30}}>
       <Text style={{color:Colors.textGray,letterSpacing:1}}>{terms}</Text>
       </ScrollView>
@@ -25,7 +25,7 @@ const TermsConditionsScreen = props => {
 }
 
 
-export default TermsConditionsScreen;
+export default ReturnsConditionsScreen;
 
 
 

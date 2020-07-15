@@ -87,5 +87,8 @@ export default {
     Style: 'Style',
     discountQuestion: 'Do you want to activate discounts?',
     selectColor: 'SELECT COLOR',
-    AccountInfo: 'Account Information'
+    AccountInfo: 'Account Information',
+    Settings: 'Settings',
+    settingBox: 'Language, Country, Currency',
+    returnsAndConditions: 'Returns and Refund'
 };

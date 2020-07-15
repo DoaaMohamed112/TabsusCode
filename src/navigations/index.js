@@ -34,6 +34,8 @@ import WalletScreen from '../screens/WalletScreen';
 import AccountScreen from '../screens/AccountScreen';
 import FilterScreen from '../screens/FilterScreen';
 import AccountInfoScreen from '../screens/AccountInfoScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import ReturnsConditionsScreen from '../screens/ReturnsConditionsScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -57,6 +59,27 @@ function DrawerNavigator() {
           component={FilterScreen}
           options={{
             drawerLabel: "Home",
+          }}
+        />
+         <Drawer.Screen
+          name="SettingsScreen"
+          component={SettingsScreen}
+          options={{
+            drawerLabel: "Settings",
+          }}
+        />
+         <Drawer.Screen
+          name="ReturnsConditionsScreen"
+          component={ReturnsConditionsScreen}
+          options={{
+            drawerLabel: "Returns and Refund",
+          }}
+        />
+         <Drawer.Screen
+          name="TermsConditionsScreen"
+          component={TermsConditionsScreen}
+          options={{
+            drawerLabel: "Terms & Conditions",
           }}
         />
 
@@ -115,7 +138,7 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="Welcome" component={Welcome} />
             <Stack.Screen name="SigupScreen" component={SignupScreen} />
             {/* <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} /> */}
-            <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} />
+            {/* <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} /> */}
 
 
         </Stack.Navigator>

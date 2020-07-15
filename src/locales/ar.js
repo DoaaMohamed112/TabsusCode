@@ -45,6 +45,7 @@
     SignUP : 'تسجيل دخول',
     termsAndConditionsStatement: 'بعد الإنتهاء من التسجيل أوافق على ',
     termsAndConditions: 'الشروط والأحكام',
+    returnsAndConditions: 'سياسة الاسترجاع',
     ConfirmPassword: 'تأكيد كلمة المرور',
     SignUpWithEmail : 'سجل باستخدام عنوان بريدك الإلكترونى',
 
@@ -85,5 +86,7 @@
     Style: 'نوع',
     discountQuestion: 'هل تريد تفعيل الخصومات؟',
     selectColor: 'أختر لون',
-    AccountInfo: 'معلومات الحساب'
+    AccountInfo: 'معلومات الحساب',
+    Settings: 'اعدادات',
+    settingBox: 'اللغه,البلد,العملة'
   };
