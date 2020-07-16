@@ -36,6 +36,13 @@ const NewPasswordScreen = props => {
       <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='ChangePassword' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
       <View style={Style.bodyContainer}>
         {/* New Password Part */}
+  <Text style={Style.title}>{I18n.t('CurrentPassword')}</Text>
+        <InputText inputType='TextInput'
+          value={currentPassword.value} HandleChange={(val)=>{let result = validate('password',val);setCurrentPassword({value:val,isValid:result.IsValid})}}
+          style={Style.inputTextStyle}  Isvalid={currentPassword.isValid}
+          secureTextEntry={true} autoCapitalize="none" autoCorrect={false}
+        ></InputText>
+        {/* New Password Part */}
   <Text style={Style.title}>{I18n.t('NewPassword')}</Text>
         <InputText inputType='TextInput'
           value={newPassword.value} HandleChange={(val)=>{let result = validate('password',val);setNewPassword({value:val,isValid:result.IsValid})}}

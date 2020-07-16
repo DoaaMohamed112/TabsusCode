@@ -38,6 +38,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import ReturnsConditionsScreen from '../screens/ReturnsConditionsScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
 import ContactScreen from '../screens/ContactScreen';
+import FAQScreen from '../screens/FaqScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -96,6 +97,13 @@ function DrawerNavigator() {
           component={ContactScreen}
           options={{
             drawerLabel: "Contact Us",
+          }}
+        />
+         <Drawer.Screen
+          name="FAQScreen"
+          component={FAQScreen}
+          options={{
+            drawerLabel: "FAQ",
           }}
         />
 
