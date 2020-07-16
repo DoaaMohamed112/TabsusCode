@@ -88,5 +88,8 @@
     selectColor: 'أختر لون',
     AccountInfo: 'معلومات الحساب',
     Settings: 'اعدادات',
-    settingBox: 'اللغه,البلد,العملة'
+    settingBox: 'اللغه,البلد,العملة',
+    Feedback: 'تقييمك لتحسيننا',
+    Title: 'عنوان',
+    TheMessage: 'الرسالة'
   };

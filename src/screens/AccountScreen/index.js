@@ -58,7 +58,7 @@ const AccountScreen = props => {
 
   return (
     <View style={Style.container}>
-      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Account' leftIcon='menu' HandleBack={() => props.navigation.pop()}></Header>
+      <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='Account' leftIcon='menu' HandleBack={() => props.navigation.openDrawer()}></Header>
 
         <ScrollView style={{}} >
             <View style={Style.headContainer}>

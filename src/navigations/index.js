@@ -36,6 +36,7 @@ import FilterScreen from '../screens/FilterScreen';
 import AccountInfoScreen from '../screens/AccountInfoScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ReturnsConditionsScreen from '../screens/ReturnsConditionsScreen';
+import FeedbackScreen from '../screens/FeedbackScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -80,6 +81,13 @@ function DrawerNavigator() {
           component={TermsConditionsScreen}
           options={{
             drawerLabel: "Terms & Conditions",
+          }}
+        />
+         <Drawer.Screen
+          name="FeedbackScreen"
+          component={FeedbackScreen}
+          options={{
+            drawerLabel: "Feedback to improve us",
           }}
         />
 

@@ -90,5 +90,8 @@ export default {
     AccountInfo: 'Account Information',
     Settings: 'Settings',
     settingBox: 'Language, Country, Currency',
-    returnsAndConditions: 'Returns and Refund'
+    returnsAndConditions: 'Returns and Refund',
+    Feedback: 'Feedback to improve us',
+    Title: 'Title',
+    TheMessage: 'The Message'
 };

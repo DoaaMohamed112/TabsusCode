@@ -83,7 +83,6 @@ const InputText = props => {
     });
 // console.log(i18n.locale)
   return (
-    props.inputType == 'TextInput' ?
     <>
     { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
      <View style={[Styles.InputText, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
@@ -96,24 +95,13 @@ const InputText = props => {
           secureTextEntry={props.secureTextEntry}
           autoCapitalize={props.autoCapitalize}
           autoCorrect={props.autoCorrect}
-          style={[ {width: '100%',height:'100%',textAlignVertical:'center'}]}
+          style={[ {width: '100%',height:'100%',textAlignVertical: props.alignVerticalTop ? 'top' : 'center', paddingVertical: props.alignVerticalTop ? 20 : 0 , paddingHorizontal: 10}]}
           secureTextEntry={props.secureTextEntry}
         /> 
         </View>
         { props.errorMsg != '' ? <Text style={props.errorStyle}>{props.errorMsg}</Text> : null}
         </>
-         :  
-      <View style={[Styles.InputPicker, props.style, props.Isvalid === 'success' ? Styles.SuccessInput : (props.Isvalid === 'error') ? Styles.ErrorInput : null]}>
-      { props.Icon ? <Image source={props.Icon} style={Styles.icon} /> : null}
-          <Picker
-            selectedValue={props.value}
-            style={{...Styles.pickerColor,...{width: props.Icon ? '85%' : '110%',color: props.value == 'City' || props.value== 'Region' ? Colors.fontLightGray : Colors.fontMidiumLightGray} }}
-            mode='dropdown'
-            onValueChange={props.handleChange} >
-            {pickerItems}
-            
-          </Picker>
-    </View>
+
   );
 };
 

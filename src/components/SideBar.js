@@ -56,8 +56,8 @@ const SideBar = (props) => {
         },
         {
             active: false,
-            TitleBtn: "Feedback to Improve us",
-            ScreenName: "Home",
+            TitleBtn: "Feedback to improve us",
+            ScreenName: "FeedbackScreen",
         },
         {
             active: false,
