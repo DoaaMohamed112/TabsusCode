@@ -67,6 +67,12 @@ const Style = StyleSheet.create({
     fontSize: 15,
     marginTop: 10,
   },
+  modaltitle: {
+    fontSize: 20,
+    color: Colors.textGray,
+    fontWeight: 'bold',
+    paddingBottom: 20,
+  }
 });
 
 export default Style;

@@ -7,23 +7,19 @@ import Modal from 'react-native-modal';
 
 
 const ModalView = (props) => {
-    const [isModalVisible, setModalVisible] = useState(true);
+  //   const [isModalVisible, setModalVisible] = useState(true);
   
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
+  // const toggleModal = () => {
+  //   setModalVisible(!isModalVisible);
+  // };
 
     return (
-      <Modal isVisible={isModalVisible}
-        onBackdropPress={() => setModalVisible(false)}
+      <Modal isVisible={props.Isvisible}
+        onBackdropPress={props.setModalVisible}
         style={{ margin: 0,   justifyContent: 'flex-end'}}
-
+        backdropOpacity={0}
       >
-        <View style={{ flex: 0.3, backgroundColor: Colors.light, alignItems:'center',  }}>
-          <TouchableOpacity > 
-            <Text style={Styles.title}>Popularity</Text>
-           </TouchableOpacity>
-        </View>
+        {props.children}
       </Modal>
     );
 }
@@ -33,7 +29,8 @@ const Styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: Colors.textGray,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingBottom: 20
   }
 });
 

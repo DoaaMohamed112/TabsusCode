@@ -13,12 +13,17 @@ import Style from './style';
 import ImagesPaths from '../../constants/ImagesPaths';
 import Header from '../../components/Header';
 import MainItem from '../../components/MainItem';
+import ModalView from '../../components/ModalView';
+import Colors from '../../constants/Colors';
 
 const {height, width} = Dimensions.get('window');
 
 const CategoryItemsScreen = props => {
   console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
+  const [IsModalVisible, setIsModalVisible] = useState(false);
+  const [selectedSortBy, setSelectedSortBy] = useState(0);
+
   const [DataList, setDataList] = useState([
     {
       id: '1',
@@ -101,6 +106,15 @@ const onSetISView = () => {
     }
 }
 
+const openModal = () => {
+  setIsModalVisible(true);
+}
+
+const onSelectSortingWay = (index) => {
+  setSelectedSortBy(index);
+  setIsModalVisible(false);
+}
+
   return (
     <View style={Style.container}>
       <Header
@@ -116,7 +130,7 @@ const onSetISView = () => {
 
       <View style={Style.tabsContainer}>
     
-          <TouchableOpacity style={Style.tabStyle}>
+          <TouchableOpacity style={Style.tabStyle} onPress={openModal}>
               <Text style={Style.tabText}>Sort by</Text>
               <Image style={Style.tabImg} source={ImagesPaths.sortby}/>
           </TouchableOpacity>
@@ -146,6 +160,25 @@ const onSetISView = () => {
                         keyExtractor={item => item.id}
                       />
      </SafeAreaView>
+
+     <ModalView Isvisible={IsModalVisible} setModalVisible={()=> setIsModalVisible(false)}>
+      <View style={{ flex: 0.3, backgroundColor: Colors.light, alignItems:'center', paddingTop: '10%', elevation: 25 }}>
+          <TouchableOpacity onPress={() => onSelectSortingWay(0)} style={{width: '100%',alignItems: 'center'}}> 
+            <Text 
+            style={[ Style.modaltitle, {color: selectedSortBy == 0 ? Colors.dark : Colors.textGray}]}>Popularity</Text>
+           </TouchableOpacity>
+          <TouchableOpacity onPress={() => onSelectSortingWay(1)} style={{width: '100%',alignItems: 'center'}}> 
+            <Text style={[ Style.modaltitle, {color: selectedSortBy == 1 ? Colors.dark : Colors.textGray}]}>Best Rating</Text>
+           </TouchableOpacity>
+          <TouchableOpacity onPress={() => onSelectSortingWay(2)} style={{width: '100%',alignItems: 'center'}}> 
+            <Text style={[ Style.modaltitle, {color: selectedSortBy == 2 ? Colors.dark : Colors.textGray}]}>Lowest Price</Text>
+           </TouchableOpacity>
+          <TouchableOpacity onPress={() => onSelectSortingWay(3)} style={{width: '100%',alignItems: 'center'}}> 
+            <Text style={[ Style.modaltitle, {color: selectedSortBy == 3 ? Colors.dark : Colors.textGray}]}>Highest Price</Text>
+           </TouchableOpacity>
+        </View>
+     
+      </ModalView>
     </View>
   );
 };

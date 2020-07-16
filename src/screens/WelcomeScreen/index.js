@@ -7,7 +7,7 @@ import Colors from '../../constants/Colors';
 import CountryCurrencyPicker from '../../CountryCurrencyPicker';
 import I18n from '../../i18n';
 import * as RNLocalize from "react-native-localize";
-import ModalView from '../../components/ModalView';
+
 let locales;
 const handleLocales = async () => {
   locales = RNLocalize.getLocales();
@@ -68,7 +68,7 @@ const WelcomeScreen = props => {
         </TouchableOpacity>
       </View>
 
-      <ModalView />
+    
     </ScrollView>
   );
 }
