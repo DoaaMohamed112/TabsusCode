@@ -91,5 +91,6 @@
     settingBox: 'اللغه,البلد,العملة',
     Feedback: 'تقييمك لتحسيننا',
     Title: 'عنوان',
-    TheMessage: 'الرسالة'
+    TheMessage: 'الرسالة',
+    Contact: 'تواصل معنا'
   };

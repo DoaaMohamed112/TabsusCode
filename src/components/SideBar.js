@@ -42,7 +42,7 @@ const SideBar = (props) => {
         {
             active: false,
             TitleBtn: "Contact Us",
-            ScreenName: "Home",
+            ScreenName: "ContactScreen",
         },
         {
             active: false,

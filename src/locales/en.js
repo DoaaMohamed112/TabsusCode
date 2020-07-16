@@ -93,5 +93,6 @@ export default {
     returnsAndConditions: 'Returns and Refund',
     Feedback: 'Feedback to improve us',
     Title: 'Title',
-    TheMessage: 'The Message'
+    TheMessage: 'The Message',
+    Contact: 'Contact us'
 };

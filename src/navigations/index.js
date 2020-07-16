@@ -37,6 +37,7 @@ import AccountInfoScreen from '../screens/AccountInfoScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ReturnsConditionsScreen from '../screens/ReturnsConditionsScreen';
 import FeedbackScreen from '../screens/FeedbackScreen';
+import ContactScreen from '../screens/ContactScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -88,6 +89,13 @@ function DrawerNavigator() {
           component={FeedbackScreen}
           options={{
             drawerLabel: "Feedback to improve us",
+          }}
+        />
+         <Drawer.Screen
+          name="ContactScreen"
+          component={ContactScreen}
+          options={{
+            drawerLabel: "Contact Us",
           }}
         />
 

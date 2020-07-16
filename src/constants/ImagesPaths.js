@@ -16,6 +16,7 @@ export default {
     arrowDown:require('../assets/icons/down-arrow.png'),
     facebook:require('../assets/icons/facebook.png'),
     google:require('../assets/icons/google.png'),
+    whatsapp:require('../assets/icons/whatsapp.png'),
     home: require('../assets/icons/Enabled-Home.png'),
     fav: require('../assets/icons/Enabled-heart.png'),
     category: require('../assets/icons/Enabled-categories.png'),
@@ -24,5 +25,6 @@ export default {
     sortby: require('../assets/icons/sortby.png'),
     view: require('../assets/icons/view.png'),
     view2: require('../assets/icons/view2.png'),
+    call: require('../assets/icons/call.png'),
   }
 
