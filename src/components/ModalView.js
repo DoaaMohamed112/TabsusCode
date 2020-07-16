@@ -19,7 +19,7 @@ const ModalView = (props) => {
         style={{ margin: 0,   justifyContent: 'flex-end'}}
 
       >
-        <View style={{ flex: 0.3, backgroundColor: Colors.light, alignItems:'center' }}>
+        <View style={{ flex: 0.3, backgroundColor: Colors.light, alignItems:'center',  }}>
           <TouchableOpacity > 
             <Text style={Styles.title}>Popularity</Text>
            </TouchableOpacity>
@@ -29,7 +29,7 @@ const ModalView = (props) => {
 }
 
 const Styles = StyleSheet.create({
-  
+
   title: {
     fontSize: 20,
     color: Colors.textGray,
