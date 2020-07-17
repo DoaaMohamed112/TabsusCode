@@ -95,7 +95,8 @@ const InputText = props => {
           secureTextEntry={props.secureTextEntry}
           autoCapitalize={props.autoCapitalize}
           autoCorrect={props.autoCorrect}
-          style={[ {width: '100%',height:'100%',textAlignVertical: props.alignVerticalTop ? 'top' : 'center', paddingVertical: props.alignVerticalTop ? 20 : 0 , paddingHorizontal: 10}]}
+          multiline={props.multiline}
+          style={[ {width: '100%',height:'100%',textAlignVertical: props.alignVerticalTop ? 'top' : 'center', paddingVertical: props.alignVerticalTop ? 20 : 0 , paddingHorizontal: 10},props.inputStyle]}
           secureTextEntry={props.secureTextEntry}
         /> 
         </View>

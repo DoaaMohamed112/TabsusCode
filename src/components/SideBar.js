@@ -12,7 +12,7 @@ const SideBar = (props) => {
         {
             active: true,
             TitleBtn: "Home",
-            ScreenName: "HomeHomeScreen",
+            ScreenName: "Home",
         },
         {
             active: false,

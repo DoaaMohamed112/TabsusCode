@@ -15,7 +15,7 @@ const Style = StyleSheet.create({
     bodyContainer:{
       // paddingHorizontal:20,
       // paddingTop:50,
-      marginBottom:150, //footer height
+      marginBottom:220, //footer height
       width:'100%',
     },
     title: {
@@ -35,7 +35,7 @@ const Style = StyleSheet.create({
     backgroundColor: Colors.backGray,
     width: '100%',
     bottom: 0,
-    height: 150,
+    height: 220,
     borderTopWidth:2,
     borderColor:Colors.lightgray,
     paddingVertical: 10,
@@ -63,7 +63,7 @@ const Style = StyleSheet.create({
     borderTopColor:Colors.textGray,
     borderTopWidth:1,
     width:'100%',
-    paddingVertical:20
+    paddingTop:20
   }
 });
 

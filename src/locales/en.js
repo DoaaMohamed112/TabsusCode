@@ -94,5 +94,13 @@ export default {
     Feedback: 'Feedback to improve us',
     Title: 'Title',
     TheMessage: 'The Message',
-    Contact: 'Contact us'
+    Contact: 'Contact us',
+    PointsVouchers:'Points & Vouchers',
+    Points:'Points',
+    ReviewOrder:'Review Order',
+    Comment:'Comment',
+    Submit:'Submit',
+    Quality:'Quality',
+    Price:'Price',
+    Value:'Value'
 };

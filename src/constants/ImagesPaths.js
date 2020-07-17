@@ -6,7 +6,7 @@ export default {
     SoldBy:require('../assets/images/Sold-by.png'),
     profile:require('../assets/images/Profile.png'),
     profile2:require('../assets/images/profile2.png'),
-    
+    pointsVouchers:require('../assets/images/PointsVoucher.png'),
 
 
 

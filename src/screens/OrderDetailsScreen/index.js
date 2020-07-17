@@ -38,7 +38,7 @@ const OrderDetailsScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='OrderDetails' leftIcon='close' HandleBack={() => props.navigation.pop()}></Header>
-            <ScrollView contentContainerStyle={{ height: '100%' }} >
+            <ScrollView contentContainerStyle={{height:'100%'}}>
                 <View style={Style.bodyContainer}>
 
                     {/* productItem */}
@@ -102,13 +102,16 @@ const OrderDetailsScreen = props => {
 
                     <View style={[Style.footerTextStyle,Style.totalSummation]}>
                         <Text style={{ fontWeight: 'bold', flex: 0.5 }}>{I18n.t('TotalSummation')}</Text>
-                        {/*Vat price */}
+                        {/*Total price */}
 
                         <View style={{ flex: 0.5, alignItems: 'flex-end' }}>
                             <Text style={[Style.priceStyle,{color:Colors.lightblue,fontWeight:'bold'}]}>EG 20</Text>
                         </View>
+                      
                     </View>
-
+                    <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={() => props.navigation.navigate('ReviewOrderScreen')} >
+                    <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='ReviewOrder'></BlockButton>
+                </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>
