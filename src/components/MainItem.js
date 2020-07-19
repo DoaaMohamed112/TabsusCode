@@ -46,8 +46,13 @@ const MainItem = props => {
               )}
             </View>
           )}
+          {props.close != undefined && (
+            <View style={{flex: 0.5, alignItems: 'flex-end'}}>
+              <IconButton icon="close" size={22} style={{backgroundColor: Colors.light}}/>
+            </View>
+          )}
         </View>
-        <Image source={{uri: itemData.img}} style={Styles.imgStyle} />
+        <Image source={{uri: itemData.img}} style={[Styles.imgStyle,props.imgSytle]} />
       </View>
 
       <View style={Styles.itemDetailsContainer}>

@@ -15,10 +15,12 @@ import Header from '../../components/Header';
 import MainItem from '../../components/MainItem';
 import ModalView from '../../components/ModalView';
 import Colors from '../../constants/Colors';
+import BlockButton from '../../components/BlockButton';
+import FontSizes from '../../constants/FontSizes';
 
 const {height, width} = Dimensions.get('window');
 
-const CategoryItemsScreen = props => {
+const ReturnsScreen = props => {
   console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
   const [IsModalVisible, setIsModalVisible] = useState(false);
@@ -124,119 +126,53 @@ const CategoryItemsScreen = props => {
     <View style={Style.container}>
       <Header
         style={{height: 70}}
-        title="Categories"
-        leftIcon="menu"
-        rightIcon="general"
-        HandleBack={() => props.navigation.openDrawer()}
-        onPressNotification={() => props.navigation.navigate('Notifications')}
-        onPressSearch={() => props.navigation.navigate('SearchScreen')}
-        onPressCart={() => props.navigation.navigate('CartScreen')}
+        title="MyReturns"
+        leftIcon="back"
+        HandleBack={() => props.navigation.pop()}
       />
-
-      <View style={Style.tabsContainer}>
-        <TouchableOpacity style={Style.tabStyle} onPress={openModal}>
-          <Text style={Style.tabText}>Sort by</Text>
-          <Image style={Style.tabImg} source={ImagesPaths.sortby} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={Style.tabStyle}
-          onPress={() => props.navigation.navigate('FilterScreen')}>
-          <Text style={Style.tabText}>Filter</Text>
-          <Image style={Style.tabImg} source={ImagesPaths.filter} />
-        </TouchableOpacity>
-        <TouchableOpacity style={Style.tabStyle} onPress={onSetISView}>
-          <Text style={Style.tabText}>View</Text>
-          <Image
-            style={Style.tabImg}
-            source={colCount == 2 ? ImagesPaths.view : ImagesPaths.view2}
-          />
-        </TouchableOpacity>
-      </View>
 
       <SafeAreaView style={Style.bodyContent}>
         <FlatList
-          key={colCount}
           showsVerticalScrollIndicator={false}
           // refreshing={true}
           data={DataList}
           extraData={DataList}
-          numColumns={colCount}
           // horizontal={false}
           renderItem={({item, index}) => (
             <MainItem
+              close
               key={item.id}
               IsLeft={index % 2 == 0}
               item={item}
-              itemStyle={[
-                Style.itemContainer,
-                {width: colCount == 2 ? width / 2 - 30 : width - 40},
-              ]}
-              imgSytle={colCount == 1 ? Style.itemImgStyle : null}
+              itemStyle={[Style.itemContainer, {width: width - 40}]}
+              imgSytle={Style.itemImgStyle}
             />
           )}
           keyExtractor={item => item.id}
         />
       </SafeAreaView>
-
-      <ModalView
-        Isvisible={IsModalVisible}
-        setModalVisible={() => setIsModalVisible(false)}>
-        <View
-          style={{
-            flex: 0.3,
-            backgroundColor: Colors.light,
-            alignItems: 'center',
-            paddingTop: '10%',
-            elevation: 25,
-          }}>
-          <TouchableOpacity
-            onPress={() => onSelectSortingWay(0)}
-            style={{width: '100%', alignItems: 'center'}}>
-            <Text
-              style={[
-                Style.modaltitle,
-                {color: selectedSortBy == 0 ? Colors.dark : Colors.textGray},
-              ]}>
-              Popularity
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => onSelectSortingWay(1)}
-            style={{width: '100%', alignItems: 'center'}}>
-            <Text
-              style={[
-                Style.modaltitle,
-                {color: selectedSortBy == 1 ? Colors.dark : Colors.textGray},
-              ]}>
-              Best Rating
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => onSelectSortingWay(2)}
-            style={{width: '100%', alignItems: 'center'}}>
-            <Text
-              style={[
-                Style.modaltitle,
-                {color: selectedSortBy == 2 ? Colors.dark : Colors.textGray},
-              ]}>
-              Lowest Price
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => onSelectSortingWay(3)}
-            style={{width: '100%', alignItems: 'center'}}>
-            <Text
-              style={[
-                Style.modaltitle,
-                {color: selectedSortBy == 3 ? Colors.dark : Colors.textGray},
-              ]}>
-              Highest Price
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </ModalView>
+      {/* footer */}
+      <View style={Style.footerStyle}>
+        {/* button part */}
+        <TouchableOpacity
+          style={{width: '100%', marginVertical: 20, }}
+          onPress={() => props.navigation.navigate('AddressBookScreen')}>
+          <BlockButton
+            fontStyle={{fontSize: FontSizes.subtitle, fontWeight: 'bold'}}
+            iconSize={25}
+            backColor={Colors.light}
+            style={{
+              width: '100%',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            value="NewReturn"
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
-export default CategoryItemsScreen;
+export default ReturnsScreen;

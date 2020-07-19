@@ -99,6 +99,7 @@ export default {
   Comment: 'تعليق',
   Submit: 'تأكيد',
   Quality: 'الجودة',
-  Value:'القيمة'
-
+  Value:'القيمة',
+  MyReturns: 'مرتجعاتى',
+  NewReturn: '+ مرتجع جديد'
 };

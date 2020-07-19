@@ -41,6 +41,7 @@ import ContactScreen from '../screens/ContactScreen';
 import FAQScreen from '../screens/FaqScreen';
 import PointsVouchersScreen from '../screens/PointsVouchersScreen';
 import ReviewOrderScreen from '../screens/ReviewOrderScreen';
+import ReturnsScreen from '../screens/ReturnsScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -198,6 +199,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="PointsVouchersScreen" component={PointsVouchersScreen}/>
             <Stack.Screen name="AccountInfoScreen" component={AccountInfoScreen}/>
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+            <Stack.Screen name="ReturnsScreen" component={ReturnsScreen} />
 
         </Stack.Navigator>
     );
@@ -232,7 +234,7 @@ const AccountStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-            <Stack.Screen name="ReviewOrderScreen" component={ReviewOrderScreen}/>
+            {/* <Stack.Screen name="ReviewOrderScreen" component={ReviewOrderScreen}/> */}
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
             {/* <Stack.Screen name="AccountStackNavigator" component={AccountStackNavigator} /> */}

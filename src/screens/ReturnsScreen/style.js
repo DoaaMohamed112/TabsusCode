@@ -8,11 +8,7 @@ const Style = StyleSheet.create({
     backgroundColor: Colors.light,
     flex: 1,
   },
-  itemImgStyle:{
-    width: '100%',
-    height: '100%',
-    alignSelf: 'center'
-  },
+
   tabsContainer: {
       width: '100%',
      backgroundColor: Colors.backGray,
@@ -43,14 +39,24 @@ const Style = StyleSheet.create({
   itemContainer: {
     // width: width - 40,
     height: width * 0.7,
+    marginBottom: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // alignSelf: 'center'
+  },
+  itemImgStyle:{
+    width: '100%',
+    height: '100%',
+    alignSelf: 'center'
   },
   bodyContent: {
     // flexWrap: 'wrap',
     width: width - 40,
     marginVertical:20,
-    paddingBottom:120,
+    paddingBottom: 150,
     alignContent: 'flex-end',
     marginHorizontal: 20,
+    marginTop: 40
   },
   imgStyle: {
     width: '80%',
@@ -76,6 +82,32 @@ const Style = StyleSheet.create({
     color: Colors.textGray,
     fontWeight: 'bold',
     paddingBottom: 20,
+  },
+  footerStyle: {
+    position: 'absolute',
+    backgroundColor: Colors.light,
+    width: '100%',
+    bottom: 0,
+    // height: 100,
+    borderTopWidth:2,
+    borderColor:Colors.lightgray,
+    paddingHorizontal: 20,
+    shadowColor: Colors.lightgray,
+    shadowOffset: {
+      width: 0,
+      height: 15,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 5.78,
+    
+    elevation: 1,
+    justifyContent: 'center',
+  },
+  priceStyle: {
+    // textAlignVertical:'center',
+    color: Colors.lightblue,
+    fontWeight: 'bold',
+    //  marginStart: 5,
   }
 });
 

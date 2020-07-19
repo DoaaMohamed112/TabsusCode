@@ -76,7 +76,7 @@ const AccountScreen = props => {
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('AccountInfoScreen')} >Account Information</Text>
           <Text style={Style.listItem} >My Orders</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('AddressBookScreen')}>Address Book</Text>
-          <Text style={Style.listItem} >My Returns</Text>
+          <Text style={Style.listItem} onPress={() => props.navigation.navigate('ReturnsScreen')}>My Returns</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('WalletScreen')}>My Wallet</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('PointsVouchersScreen')} >{I18n.t('PointsVouchers')}</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('NewPasswordScreen')}>Change Password</Text>

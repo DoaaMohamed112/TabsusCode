@@ -102,5 +102,7 @@ export default {
     Submit:'Submit',
     Quality:'Quality',
     Price:'Price',
-    Value:'Value'
+    Value:'Value',
+    MyReturns: 'My Returns',
+    NewReturn: '+ New Return'
 };
