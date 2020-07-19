@@ -104,5 +104,13 @@ export default {
     Price:'Price',
     Value:'Value',
     MyReturns: 'My Returns',
-    NewReturn: '+ New Return'
+    NewReturn: '+ New return',
+    EmailAddress: 'E-mail address',
+    Address: 'Address',
+    ReasonForReturn: 'Reason for return',
+    itemNum: 'Item number',
+    quantity: 'QTY',
+    OrderNum: 'Order number',
+    OrderDate: 'Order date',
+
 };

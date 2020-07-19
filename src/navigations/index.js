@@ -42,6 +42,7 @@ import FAQScreen from '../screens/FaqScreen';
 import PointsVouchersScreen from '../screens/PointsVouchersScreen';
 import ReviewOrderScreen from '../screens/ReviewOrderScreen';
 import ReturnsScreen from '../screens/ReturnsScreen';
+import AddReturnScreen from '../screens/AddReturnScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -199,7 +200,8 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="PointsVouchersScreen" component={PointsVouchersScreen}/>
             <Stack.Screen name="AccountInfoScreen" component={AccountInfoScreen}/>
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
-            <Stack.Screen name="ReturnsScreen" component={ReturnsScreen} />
+            <Stack.Screen name="ReturnsStackNavigator" component={ReturnsStackNavigator} />
+
 
         </Stack.Navigator>
     );
@@ -210,6 +212,14 @@ const PaymentStackNavigator = () => {
         <Stack.Navigator headerMode="none" >
             <Stack.Screen name="PlaceOrderScreen" component={PlaceOrderScreen}/>
             <Stack.Screen name="CheckoutScreen" component={CheckoutScreen}/>
+        </Stack.Navigator>
+    );
+}
+const ReturnsStackNavigator = () => {
+    return (
+        <Stack.Navigator headerMode="none" >
+            <Stack.Screen name="ReturnsScreen" component={ReturnsScreen} />
+            <Stack.Screen name="AddReturnScreen" component={AddReturnScreen} />
         </Stack.Navigator>
     );
 }

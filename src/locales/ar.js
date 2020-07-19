@@ -101,5 +101,12 @@ export default {
   Quality: 'الجودة',
   Value:'القيمة',
   MyReturns: 'مرتجعاتى',
-  NewReturn: '+ مرتجع جديد'
+  NewReturn: '+ مرتجع جديد',
+  EmailAddress: 'البريد الكترونى',
+  Address: 'العنوان',
+  ReasonForReturn: 'سبب المرتجع',
+  itemNum: 'رقم المنتج',
+  quantity: 'الكمية',
+  OrderNum: 'رقم الطلب',
+  OrderDate: 'تاريخ الطلب',
 };

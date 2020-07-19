@@ -156,7 +156,7 @@ const ReturnsScreen = props => {
         {/* button part */}
         <TouchableOpacity
           style={{width: '100%', marginVertical: 20, }}
-          onPress={() => props.navigation.navigate('AddressBookScreen')}>
+          onPress={() => props.navigation.navigate('AddReturnScreen')}>
           <BlockButton
             fontStyle={{fontSize: FontSizes.subtitle, fontWeight: 'bold'}}
             iconSize={25}
