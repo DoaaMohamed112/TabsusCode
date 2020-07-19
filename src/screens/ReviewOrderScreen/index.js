@@ -20,7 +20,7 @@ const ReviewOrderScreen = props => {
     return (
         <View style={Style.container}>
             <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='OrderDetails' leftIcon='close' HandleBack={() => props.navigation.pop()}></Header>
-            <KeyboardAvoidingView >
+            <KeyboardAvoidingView behavior={'padding'} style={{width: '100%', height: height - 100}}>
                 <ScrollView style={{ paddingHorizontal: 20, paddingTop: 20 }}>
                     <View style={{ flexDirection: 'row' }}>
                         {/* quality */}
@@ -76,15 +76,10 @@ const ReviewOrderScreen = props => {
                     </View>
 
                     {/* comment part */}
-
-
                     <View style={Style.CommentContainer}>
                         <InputText alignVerticalTop inputType="TextInput" HandleChange={(e) => setComment(e)} value={comment} multiline={true} alignVerticalTop="top" title={'Comment'} style={Style.InputContainer} />
 
                     </View>
-
-
-
                 </ScrollView>
 
                 <View style={Style.footerStyle}>

@@ -15,7 +15,8 @@ const Style = StyleSheet.create({
         // position:'absolute',
         // justifyContent:'flex-end',
         // height: 220,
-        
+        // position: 'relative',
+        marginTop: 'auto',
         paddingVertical: 20,
         paddingHorizontal:20,
    
