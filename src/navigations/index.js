@@ -43,6 +43,7 @@ import PointsVouchersScreen from '../screens/PointsVouchersScreen';
 import ReviewOrderScreen from '../screens/ReviewOrderScreen';
 import ReturnsScreen from '../screens/ReturnsScreen';
 import AddReturnScreen from '../screens/AddReturnScreen';
+import AddressbookListScreen from '../screens/AddressbookListScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -201,6 +202,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="AccountInfoScreen" component={AccountInfoScreen}/>
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
             <Stack.Screen name="ReturnsStackNavigator" component={ReturnsStackNavigator} />
+            <Stack.Screen name="AddressbookListScreen" component={AddressbookListScreen} />
 
 
         </Stack.Navigator>
