@@ -178,9 +178,13 @@ const CategoryItemsScreen = props => {
         />
       </SafeAreaView>
 
+    
+
       <ModalView
         Isvisible={IsModalVisible}
-        setModalVisible={() => setIsModalVisible(false)}>
+        setModalVisible={() => setIsModalVisible(false)}
+        menu={true}>
+     
         <View
           style={{
             flex: 0.3,
@@ -234,6 +238,7 @@ const CategoryItemsScreen = props => {
             </Text>
           </TouchableOpacity>
         </View>
+     
       </ModalView>
     </View>
   );
