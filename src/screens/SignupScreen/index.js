@@ -26,7 +26,7 @@ const SignupScreen = props => {
   const [lastName, setLastName] = useState({value: "", IsValid: true, ErrorMsg: ''});
   const [email, setEmail] = useState({value: "", IsValid: true, ErrorMsg: ''});
   const [mobile, setMobile] = useState({value: "", IsValid: true, ErrorMsg: ''});
-  const [passowrd, setPassword] = useState({value: "", IsValid: true, ErrorMsg: 'Use upper and lower case letters'});
+  const [passowrd, setPassword] = useState({value: "", IsValid: true, ErrorMsg: ''});
   const [confirmPassword, setConfirmPassword] = useState({value: "", IsValid: true, ErrorMsg: ''});
 
   const [years,setYears] = useState([]);
@@ -69,7 +69,7 @@ const SignupScreen = props => {
         let reg = /^(([A-Za-z]|[\u0621-\u064A])+[,.]?[ ]?|([A-Za-z]|[\u0621-\u064A])+['-]?)+$/; 
         if(reg.test(text) === false) 
         {
-            setFirstName({value: text, IsValid: false, ErrorMsg: 'Invalid First Name'})
+            setFirstName({value: text, IsValid: false, ErrorMsg: I18n.t('InvalidName')})
         }
         else{
             setFirstName({value: text, IsValid: true, ErrorMsg: ''})
@@ -80,7 +80,7 @@ const SignupScreen = props => {
         let reg = /^(([A-Za-z]|[\u0621-\u064A])+[,.]?[ ]?|([A-Za-z]|[\u0621-\u064A])+['-]?)+$/; 
         if(reg.test(text) === false) 
         {
-            setLastName({value: text, IsValid: false, ErrorMsg: 'Invalid Last Name'})
+            setLastName({value: text, IsValid: false, ErrorMsg: I18n.t('InvalidName')})
         }
         else{
           setLastName({value: text, IsValid: true, ErrorMsg: ''})
@@ -91,7 +91,7 @@ const SignupScreen = props => {
         let reg =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(reg.test(text) === false) 
         {
-            setEmail({value: text, IsValid: false, ErrorMsg: 'Invalid Email'})
+            setEmail({value: text, IsValid: false, ErrorMsg: I18n.t('InvalidEmail')})
         }
         else{
             setEmail({value: text, IsValid: true, ErrorMsg: ''})
@@ -102,7 +102,7 @@ const SignupScreen = props => {
         let reg =  /^(01\d{9})$/;
         if(reg.test(text) === false) 
         {
-            setMobile({value: text, IsValid: false, ErrorMsg: 'Invalid Mobile Number'})
+            setMobile({value: text, IsValid: false, ErrorMsg: I18n.t('InvalidNumber')})
         }
         else{
           setMobile({value: text, IsValid: true, ErrorMsg: ''})
@@ -113,7 +113,7 @@ const SignupScreen = props => {
         let reg =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
         if(reg.test(text) === false) 
         {
-            setPassword({value: text, IsValid: false, ErrorMsg: 'Please enter a password with minimum eight characters, at least one uppercase letter, one lowercase letter and one number'})
+            setPassword({value: text, IsValid: false, ErrorMsg: I18n.t('PasswordValidation')})
         }
         else{
           setPassword({value: text, IsValid: true, ErrorMsg: ''})
@@ -123,7 +123,7 @@ const SignupScreen = props => {
       case 'confirmPassword': {
         if(passowrd.value != text) 
         {
-            setConfirmPassword({value: text, IsValid: false, ErrorMsg: 'password not match'})
+            setConfirmPassword({value: text, IsValid: false, ErrorMsg: I18n.t('PasswordNotMatch')})
         }
         else{
           setConfirmPassword({value: text, IsValid: true, ErrorMsg: ''})

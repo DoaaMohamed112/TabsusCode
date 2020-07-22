@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground, Dimen
 import Colors from '../constants/Colors';
 import { IconButton } from 'react-native-paper';
 import Style from '../screens/SplashScreen/style';
-
+import I18n from '../i18n';
 const { width, height } = Dimensions.get('window');
 
 
@@ -11,62 +11,62 @@ const SideBar = (props) => {
     const [menuItems, setMenuItems] = useState([
         {
             active: true,
-            TitleBtn: "Home",
+            TitleBtn: I18n.t("Home"),
             ScreenName: "Home",
         },
         {
             active: false,
-            TitleBtn: "Gifts",
+            TitleBtn: I18n.t("Gifts"),
             ScreenName: "Home",
         },
         {
             active: false,
-            TitleBtn: "Settings",
+            TitleBtn: I18n.t("Settings"),
             ScreenName: "SettingsScreen",
         },
         {
             active: false,
-            TitleBtn: "Market Place",
+            TitleBtn: I18n.t("MarketPlace"),
             ScreenName: "Home",
         },
         {
             active: false,
-            TitleBtn: "About Us",
+            TitleBtn: I18n.t("AboutUs"),
             ScreenName: "Home",
         },
         {
             active: false,
-            TitleBtn: "Rate Us",
+            TitleBtn: I18n.t("RateUs"),
             ScreenName: "Home",
         },
         {
             active: false,
-            TitleBtn: "Contact Us",
+            TitleBtn: I18n.t("ContactUs"),
             ScreenName: "ContactScreen",
         },
         {
             active: false,
-            TitleBtn: "FAQ",
+            TitleBtn: I18n.t("FAQ"),
             ScreenName: "FAQScreen",
         },
         {
             active: false,
-            TitleBtn: "Returns and Refund",
+            TitleBtn: I18n.t("ReturnsRefund"),
             ScreenName: "ReturnsConditionsScreen",
         },
         {
             active: false,
-            TitleBtn: "Feedback to improve us",
+            TitleBtn: I18n.t("FeedbackImprove"),
             ScreenName: "FeedbackScreen",
         },
         {
             active: false,
-            TitleBtn: "Terms & Conditions",
+            TitleBtn: I18n.t("termsAndConditions"),
             ScreenName: "TermsConditionsScreen",
         },
         {
             active: false,
-            TitleBtn: "Logout",
+            TitleBtn: I18n.t("Logout"),
             ScreenName: "Home",
         },
 

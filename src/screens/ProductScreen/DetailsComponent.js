@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
 } from 'react-native';
+import I18n from '../../i18n';
 import Colors from '../../constants/Colors';
 import StarRating from 'react-native-star-rating';
 import {IconButton} from 'react-native-paper';
@@ -24,7 +25,7 @@ const DetailsComponent = props => {
     <View style={Styles.container}>
       {/* description */}
       <View style={Styles.content}>
-        <Text style={Styles.maintitle}>DESCRIPTION</Text>
+  <Text style={Styles.maintitle}>{I18n.t('Description').toUpperCase()}</Text>
         <Text style={Styles.pargText}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text
@@ -34,7 +35,7 @@ const DetailsComponent = props => {
       </View>
       {/* information */}
       <View style={Styles.content}> 
-      <Text style={Styles.title}>MORE INFORMATION</Text>
+  <Text style={Styles.title}>{I18n.t('MoreInformation').toUpperCase()}</Text>
       <View style={Styles.moreInfoContent}>
           <View style={Styles.InfoContainer}>
             <Text style={Styles.infoTitle}>PATTERN</Text>

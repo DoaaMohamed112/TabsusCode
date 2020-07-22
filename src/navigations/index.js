@@ -44,7 +44,7 @@ import ReviewOrderScreen from '../screens/ReviewOrderScreen';
 import ReturnsScreen from '../screens/ReturnsScreen';
 import AddReturnScreen from '../screens/AddReturnScreen';
 import AddressbookListScreen from '../screens/AddressbookListScreen';
-
+import I18n from '../i18n';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -83,13 +83,13 @@ function DrawerNavigator() {
             drawerLabel: "Returns and Refund",
           }}
         />
-         <Drawer.Screen
+         {/* <Drawer.Screen
           name="TermsConditionsScreen"
           component={TermsConditionsScreen}
           options={{
             drawerLabel: "Terms & Conditions",
           }}
-        />
+        /> */}
          <Drawer.Screen
           name="FeedbackScreen"
           component={FeedbackScreen}
@@ -123,19 +123,19 @@ function TabsNavigator() {
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
   
-              if (route.name === 'Home') {
+              if (route.name === I18n.t('Home')) {
                 iconName = focused
                   ? ImagesPaths.home
                   : ImagesPaths.home;
-              } else if (route.name === 'Categories') {
+              } else if (route.name === I18n.t('Categories')) {
                 iconName = focused
                 ? ImagesPaths.category
                 : ImagesPaths.category;
-              } else if (route.name === 'Wish list') {
+              } else if (route.name === I18n.t('WishList')) {
                 iconName = focused
                 ? ImagesPaths.fav
                 : ImagesPaths.fav;
-              } else if (route.name === 'account') {
+              } else if (route.name === I18n.t('Account')) {
                 iconName = focused
                 ? ImagesPaths.account
                 : ImagesPaths.account;
@@ -149,10 +149,10 @@ function TabsNavigator() {
             activeTintColor: Colors.darkgray,
             inactiveTintColor: Colors.textGray,
           }}>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Categories" component={CategoryStackNavigator} />
-          <Tab.Screen name="Wish list" component={WishListScreen} />
-          <Tab.Screen name="account" component={AccountScreen} />
+          <Tab.Screen name={I18n.t("Home")} component={HomeScreen} />
+          <Tab.Screen name={I18n.t("Categories")} component={CategoryStackNavigator} />
+          <Tab.Screen name={I18n.t("WishList")} component={WishListScreen} />
+          <Tab.Screen name={I18n.t("Account")} component={AccountScreen} />
         </Tab.Navigator>
     );
   }
@@ -167,7 +167,6 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="Welcome" component={Welcome} />
             <Stack.Screen name="SigupScreen" component={SignupScreen} />
             {/* <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} /> */}
-            {/* <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} /> */}
 
 
         </Stack.Navigator>
@@ -236,7 +235,7 @@ const ProductStackNavigator = () => {
 const AccountStackNavigator = () => {
   return (
       <Stack.Navigator headerMode="none" >
-                    <Stack.Screen name="AccountScreen" component={AccountScreen}/>
+            <Stack.Screen name="AccountScreen" component={AccountScreen}/>
             <Stack.Screen name="WalletScreen" component={WalletScreen}/>
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
       </Stack.Navigator>
@@ -249,6 +248,8 @@ const MainStackNavigator = () => {
             {/* <Stack.Screen name="ReviewOrderScreen" component={ReviewOrderScreen}/> */}
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
+            <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} />
+
             {/* <Stack.Screen name="AccountStackNavigator" component={AccountStackNavigator} /> */}
         </Stack.Navigator>
     );

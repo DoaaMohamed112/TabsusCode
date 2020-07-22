@@ -215,6 +215,7 @@ const CategoriesScreen = props => {
         onPressSearch={() => props.navigation.navigate('SearchScreen')}
         onPressCart={() => props.navigation.navigate('CartScreen')}
       />
+      {/* list of horizontal categories */}
       <FlatList
         showsVerticalScrollIndicator={false}
         // refreshing={true}
@@ -232,22 +233,18 @@ const CategoriesScreen = props => {
         )}
         keyExtractor={item => item.id}
       />
-      <ScrollView style={{paddingVertical: 20, paddingHorizontal: 20}}>
+      {/* list of sub categories */}
+      <ScrollView style={{paddingBottom: 20,marginTop:20, paddingHorizontal: 20}}>
         {DataList[chosenCategoryIndex].content.map((List, index) => {
           return (
             <View key={index}>
+              {/* sub category title */}
               <CategoryBar title={List.subCategory} />
 
+              {/* list of items */}
               <View style={Style.bodyContent}>
                 {List.Data.slice(0, 4).map((item, index) => {
                   return (
-                    // <MainItem
-                    //   key={index}
-                    //   IsLeft={index % 2 == 0}
-                    //   item={item}
-                    //   itemStyle={Style.itemContainer}
-                    //   onPress={() => handlePressItem(item)}
-                    // />
                     <TouchableOpacity
                     activeOpacity={0.8}
                     onPress={()=> props.navigation.navigate('CategoryItems')}

@@ -14,6 +14,7 @@ import {IconButton} from 'react-native-paper';
 import ImagesPaths from '../../constants/ImagesPaths';
 import CategoryBar from '../../components/CategoryBar';
 import MainItem from '../../components/MainItem';
+import I18n from '../../i18n';
 const {height, width} = Dimensions.get('window');
 
 const ProductComponent = props => {
@@ -127,7 +128,7 @@ const ProductComponent = props => {
   return (
     <View style={Styles.container}>
       <View style={Styles.basicContent}>
-        <Text style={Styles.title}>Product name</Text>
+  <Text style={Styles.title}>{I18n.t('ProductName').toUpperCase()}</Text>
         <Text style={Styles.detail}>{props.Item.name}</Text>
       </View>
       <View style={Styles.basicContent}>
@@ -150,7 +151,7 @@ const ProductComponent = props => {
       <View style={Styles.priceContent}>
         <View style={Styles.priceContainer}>
           <Text style={Styles.priceText}>
-            {props.Item.price} {'   '}
+            {props.Item.price} 
           </Text>
           <Text style={Styles.oldPriceText}> {props.Item.oldprice} </Text>
         </View>
@@ -173,7 +174,7 @@ const ProductComponent = props => {
       </View>
       {/* colors */}
       <View style={Styles.colorSet}>
-        <Text style={Styles.colorSetTitle}>SELECT COLOR</Text>
+  <Text style={Styles.colorSetTitle}>{I18n.t('SelectColor').toUpperCase()}</Text>
         <FlatList
           data={props.Item.colors}
           horizontal={true}
@@ -192,7 +193,7 @@ const ProductComponent = props => {
 
       {/* sizes */}
       <TouchableOpacity style={Styles.sizesContent} onPress={props.pressSizes}>
-        <Text style={Styles.sizeText}>SELECT SIZE</Text>
+              <Text style={Styles.sizeText}>{I18n.t('SelectSize').toUpperCase()}</Text>
         <View style={Styles.iconContainer}>
           <IconButton
             icon="chevron-right"
@@ -208,7 +209,7 @@ const ProductComponent = props => {
           <Image source={ImagesPaths.DeliveryTime} style={Styles.imgStyle} />
         </View>
         <View style={Styles.infoText}>
-          <Text style={Styles.titleText}>Delivery time</Text>
+          <Text style={Styles.titleText}>{I18n.t('DeliveryTime')}</Text>
           <Text style={Styles.pragText}>
             The order will be delivered after three days from this day
           </Text>
@@ -221,7 +222,7 @@ const ProductComponent = props => {
           <Image source={ImagesPaths.ReturnPolicy} style={Styles.imgStyle} />
         </View>
         <View style={Styles.infoText}>
-          <Text style={Styles.titleText}>Return Policy</Text>
+          <Text style={Styles.titleText}>{I18n.t('ReturnPolicy')}</Text>
           <Text style={Styles.pragText}>
             14 days free return and up to 30 days for detective product.
           </Text>
@@ -234,7 +235,7 @@ const ProductComponent = props => {
           <Image source={ImagesPaths.SoldBy} style={Styles.imgStyle} />
         </View>
         <View style={Styles.infoText}>
-          <Text style={Styles.titleText}>Sold by:</Text>
+          <Text style={Styles.titleText}>{I18n.t('SoldBy')}:</Text>
           <Text style={Styles.pragText}>elhosiny reda</Text>
         </View>
       </View>
@@ -267,23 +268,23 @@ const Styles = StyleSheet.create({
     paddingTop: 0,
   },
   basicContent: {
-    flexDirection: 'row',
+    flexDirection: I18n.locale=='ar'?'row-reverse':'row',
     paddingTop: 13,
     paddingHorizontal: 20,
   },
   title: {
     width: '50%',
-    textAlign: 'left',
+    textAlign: I18n.locale=='ar'?'right':'left',
     fontSize: 15,
   },
   detail: {
     width: '50%',
-    textAlign: 'right',
+    textAlign: I18n.locale=='ar'?'left':'right',
     color: Colors.textGray,
   },
   starsStyle: {
     width: '50%',
-    alignItems: 'flex-start',
+    alignItems: I18n.locale=='ar'?'flex-end':'flex-start',
   },
   priceText: {
     color: Colors.lightblue,
@@ -292,23 +293,24 @@ const Styles = StyleSheet.create({
     color: Colors.lightblue,
     opacity: 0.5,
     textDecorationLine: 'line-through',
+    marginHorizontal:10
   },
   iconsStyle: {
     width: '50%',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: I18n.locale=='ar'?'flex-start':'flex-end',
     flexDirection: 'row',
   },
   priceContainer: {
     width: '50%',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    flexDirection: I18n.locale=='ar'?'row-reverse':'row',
+    justifyContent:'flex-start',
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   priceContent: {
     width: '100%',
-    flexDirection: 'row',
+    flexDirection: I18n.locale=='ar'?'row-reverse':'row',
     borderBottomColor: Colors.tabsBack,
     borderBottomWidth: 1,
   },
@@ -335,7 +337,7 @@ const Styles = StyleSheet.create({
     // borderTopWidth: 1,
     borderBottomColor: Colors.tabsBack,
     borderBottomWidth: 1,
-    flexDirection: 'row',
+    flexDirection: I18n.locale=='ar'?'row-reverse':'row',
     paddingVertical: 20,
     // marginVertical: 20,
     width: '100%',
@@ -359,15 +361,19 @@ const Styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     paddingBottom: 5,
+    textAlign:I18n.locale=='ar'?'right':'left',
+
   },
   pragText: {
     width: '60%',
+    textAlign:I18n.locale=='ar'?'right':'left',
     color: Colors.textGray,
     lineHeight: 20,
     fontSize: 13,
   },
   infoText: {
     width: width - 80,
+    alignItems:I18n.locale=='ar'?'flex-end':'flex-start',
   },
   sizesContent: {
     flexDirection: 'row',

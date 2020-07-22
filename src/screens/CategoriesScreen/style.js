@@ -13,6 +13,7 @@ const Style = StyleSheet.create({
         width: width / 2 - 30,
         height: width *0.6,
         
+        
     },
     bodyContent: {
         flexDirection: 'row', 
