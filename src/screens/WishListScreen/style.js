@@ -47,6 +47,7 @@ const Style = StyleSheet.create({
     marginVertical:20,
     alignContent: 'flex-end',
     marginHorizontal: 20,
+    paddingBottom:60
   },
   imgStyle: {
     width: '80%',

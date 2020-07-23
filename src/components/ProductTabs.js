@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Dimensions, StyleSheet, Text,TouchableOpacity} from 'react-native';
 import Colors from '../constants/Colors';
-
+import I18n from '../i18n';
 
 
 const ProductTabs = props => {
@@ -25,13 +25,13 @@ const ProductTabs = props => {
   return (
       <View style={Styles.container}>
         <TouchableOpacity onPress={() => props.setSelectedTab(1)} style={[Styles.tabStyle, {backgroundColor: props.selectedTab == 1 ? Colors.light : Colors.tabsBackground }]}>
-          <Text style={{color: 'black'}}>Product</Text>
+          <Text style={{color: 'black'}}>{I18n.t('Product')}</Text>
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => props.setSelectedTab(2)} style={[Styles.tabStyle, {backgroundColor: props.selectedTab == 2 ? Colors.light : Colors.tabsBackground }]}>
-          <Text style={{color: 'black'}}>Details</Text>
+          <Text style={{color: 'black'}}>{I18n.t('Details')}</Text>
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => props.setSelectedTab(3)} style={[Styles.tabStyle, {backgroundColor: props.selectedTab == 3 ? Colors.light : Colors.tabsBackground }]}>
-          <Text style={{color: 'black'}}>Reviews</Text>
+          <Text style={{color: 'black'}}>{I18n.t('Reviews')}</Text>
         </TouchableOpacity>
       </View>
   );

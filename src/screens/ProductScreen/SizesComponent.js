@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
 } from 'react-native';
+import I18n from '../../i18n';
 import Colors from '../../constants/Colors';
 import StarRating from 'react-native-star-rating';
 import {IconButton} from 'react-native-paper';
@@ -87,7 +88,7 @@ const SizesComponent = props => {
   return (
     <View style={Styles.container}>
       {/* title */}
-      <Text style={Styles.textStyle}>SELECT SIZES</Text>
+  <Text style={Styles.textStyle}>{I18n.t('SelectSize').toUpperCase()}</Text>
       {/* Countries */}
       <View style={Styles.countriesContent}>
         {counteries.map((item, index) => {

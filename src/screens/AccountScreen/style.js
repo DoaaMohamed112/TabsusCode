@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import Colors from '../../constants/Colors';
-
+import I18n from '../../i18n';
 const {height, width} = Dimensions.get('window');
 
 const Style = StyleSheet.create({
@@ -12,7 +12,7 @@ const Style = StyleSheet.create({
     //   padding:10
     },
     headContainer: {
-        flexDirection: 'row',
+        flexDirection:'row',
         width: '100%',
         paddingHorizontal: 20,
         paddingVertical: 10,
@@ -23,7 +23,8 @@ const Style = StyleSheet.create({
     },
     camIcon: {
         backgroundColor: Colors.tabsBackground,
-        marginStart: 'auto'
+        marginStart: 'auto',
+        // marginEnd:'auto',
     },
     profileContainer:{
         flexDirection: 'row',
