@@ -74,7 +74,7 @@ const AccountScreen = props => {
         </View>
         <View style={Style.Content}>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('AccountInfoScreen')} >Account Information</Text>
-          <Text style={Style.listItem} >My Orders</Text>
+          <Text style={Style.listItem} onPress={() => props.navigation.navigate('OrdersScreen')}>My Orders</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('AddressbookListScreen')}>Address Book</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('ReturnsStackNavigator')}>My Returns</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('WalletScreen')}>My Wallet</Text>

@@ -44,6 +44,7 @@ import ReviewOrderScreen from '../screens/ReviewOrderScreen';
 import ReturnsScreen from '../screens/ReturnsScreen';
 import AddReturnScreen from '../screens/AddReturnScreen';
 import AddressbookListScreen from '../screens/AddressbookListScreen';
+import OrdersScreen from '../screens/OrdersScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -203,6 +204,7 @@ const HomeStackNavigator = () => {
             <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
             <Stack.Screen name="ReturnsStackNavigator" component={ReturnsStackNavigator} />
             <Stack.Screen name="AddressbookListScreen" component={AddressbookListScreen} />
+            <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
 
 
         </Stack.Navigator>

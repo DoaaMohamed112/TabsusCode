@@ -112,5 +112,5 @@ export default {
     quantity: 'QTY',
     OrderNum: 'Order number',
     OrderDate: 'Order date',
-
+    Orders: 'Orders'
 };

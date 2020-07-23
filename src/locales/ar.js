@@ -109,4 +109,5 @@ export default {
   quantity: 'الكمية',
   OrderNum: 'رقم الطلب',
   OrderDate: 'تاريخ الطلب',
+  Orders: 'الطلبات'
 };
