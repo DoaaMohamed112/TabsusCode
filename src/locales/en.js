@@ -138,6 +138,7 @@ export default {
     quantity: 'QTY',
     OrderNum: 'Order number',
     OrderDate: 'Order date',
+    Orders: 'Orders',
     InvalidName:'Invalid Name',
     InvalidEmail:'Invalid Email',
     InvalidNumber:'Invalid Mobile Number',

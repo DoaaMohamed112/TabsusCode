@@ -134,6 +134,7 @@ export default {
   quantity: 'الكمية',
   OrderNum: 'رقم الطلب',
   OrderDate: 'تاريخ الطلب',
+  Orders: 'الطلبات',
   InvalidName:'الإسم غير صحيح',
   InvalidEmail:'البريد الإلكتروني غير صحيح',
   InvalidNumber:'رقم الهاتف غير صحيح',

@@ -73,13 +73,14 @@ const AccountScreen = props => {
           <IconButton icon="camera-outline" onPress={() => showImagePicker()} color={Colors.darkgray} size={25} style={Style.camIcon} />
         </View>
         <View style={Style.Content}>
+
   <Text style={Style.listItem} onPress={() => props.navigation.navigate('AccountInfoScreen')} >{I18n.t('AccountInformation')}</Text>
-          <Text style={Style.listItem} >{I18n.t('MyOrders')}</Text>
+          <Text style={Style.listItem} onPress={() => props.navigation.navigate('OrdersScreen')}>{I18n.t('MyOrders')}</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('AddressbookListScreen')}>{I18n.t('AddressBook')}</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('ReturnsStackNavigator')}>{I18n.t('MyReturns')}</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('WalletScreen')}>{I18n.t('Wallet')}</Text>
           <Text style={Style.listItem} onPress={() => props.navigation.navigate('PointsVouchersScreen')} >{I18n.t('PointsVouchers')}</Text>
-  <Text style={Style.listItem} onPress={() => props.navigation.navigate('NewPasswordScreen')}>{I18n.t('ChangePassword')}</Text>
+          <Text style={Style.listItem} onPress={() => props.navigation.navigate('NewPasswordScreen')}>{I18n.t('ChangePassword')}</Text>
           <Text style={Style.listItem} >{I18n.t('Logout')}</Text>
         </View>
       </ScrollView>
