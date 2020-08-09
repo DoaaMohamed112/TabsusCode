@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, FlatList, TouchableOpacity, Text, Image, ScrollView } from 'react-native'
+import React, { useEffect } from 'react'
+import { View, FlatList, TouchableOpacity, Text, Image,AsyncStorage, ScrollView } from 'react-native'
 import Header from '../../components/Header'
 import Style from './style'
 import BlockButton from '../../components/BlockButton'
@@ -9,7 +9,15 @@ import ImagesPaths from '../../constants/ImagesPaths'
 import LoginForm from './LoginForm'
 import I18n from '../../i18n'
 const LoginScreen = props => {
-
+    // useEffect(()=>{
+    //     AsyncStorage.getItem("Nationality")
+    //     .then((item) => {
+    //       item = JSON.parse(item);
+    //       console.log("get tab",item)
+    //       return true;
+    //     })
+    //     .done();
+    // },[])
     return (
         <ScrollView style={Style.container}>
             <Header style={{ height: 70 }} title='Login' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>

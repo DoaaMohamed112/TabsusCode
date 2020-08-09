@@ -16,7 +16,6 @@ import { IconButton } from 'react-native-paper';
 const { height, width } = Dimensions.get('window');
 
 const SearchScreen = props => {
-    console.disableYellowBox = true;
 
     const [SearchText, setSearchText] = useState('');
 

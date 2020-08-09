@@ -32,41 +32,22 @@ const DropdownMenu = props => {
   };
 
  const showMenu = () => {
+  console.log("Dropdown",props.data)
+
     _menu.show();
   };
       return(
-        // <View style={[props.style,{marginTop: 20, justifyContent: 'flex-end',position: 'relative'}]}>
-        //     { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}
-
-        //      <View style={Styles.container}>
-        //        <Text style={Styles.textStyle}>DD</Text>
-        //        <IconButton icon="chevron-down"  size={25}/>
-        //      </View>
-        //      <ScrollView style={Styles.menuStyle}>
-        //         <Text style={Styles.itemStyle}>1</Text>
-        //         <Text style={Styles.itemStyle}>2</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //         <Text style={Styles.itemStyle}>23</Text>
-        //      </ScrollView>
-        // </View>
 
         <View style={[props.style,{marginTop: 20, justifyContent: 'flex-end',position: 'relative'}]}>
         <Menu
           ref={setMenuRef}
           button={
-            <TouchableOpacity activeOpacity={1} onPress={showMenu} style={Styles.container}>
-                <Text  style={Styles.textStyle} numberOfLines={1} ellipsizeMode="tail">{props.selectedItem}</Text>
-                <IconButton icon="chevron-down"  size={25}/>
+            <TouchableOpacity activeOpacity={1} onPress={()=>{showMenu()}} style={Styles.container}>
+                <Text  style={[Styles.textStyle,props.textStyle]} numberOfLines={1} ellipsizeMode="tail">{props.selectedItem}</Text>
+                <IconButton icon="chevron-down" style={props.arrowStyle} size={30}/>
             </TouchableOpacity>
           }
-          style={Styles.menuStyle}
+          style={[Styles.menuStyle,props.menuStyle]}
         >
           <ScrollView>
             {props.data.map((item,index)=> {

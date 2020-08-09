@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   FlatList,
@@ -14,43 +14,111 @@ import Colors from '../../constants/Colors';
 import FontSizes from '../../constants/FontSizes';
 import ImagesPaths from '../../constants/ImagesPaths';
 import InputText from '../../components/InputText';
+import LoadingModel from '../../components/LoadingModel';
 import I18n from '../../i18n';
+import { useDispatch } from 'react-redux';
+import *as Action from '../../store/Actions/Auth';
+import { toast } from '../../constants/Toaster';
+
 const LoginForm = props => {
-  const [email, setEmail] = React.useState('');
-  const [passowrd, setPassword] = React.useState('');
+  const [email, setEmail] = useState({value: "", IsValid: true, ErrorMsg: ''});
+  const [passowrd, setPassword] = useState({value: "", IsValid: true, ErrorMsg: ''});
+  const [isLoading,setIsLoading] = useState(false);
+  const [IsFormValid, setIsFormValid] = useState(false);
   // ---------------------------------------------------
+  const dispatch = useDispatch();
+
   const changePasswod = event => {
-    setPassword(event);
+    let reg =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        console.log(event);
+        if(reg.test(event) === false) 
+        {
+            setPassword({value: event, IsValid: false, ErrorMsg: I18n.t('PasswordValidation')})
+        }
+        else{
+          setPassword({value: event, IsValid: true, ErrorMsg: ''})
+        }
+
+        // if(passowrd.IsValid && email.IsValid)
+        // {
+        //   setIsFormValid(true);
+        // }
+        // else
+        // {
+        //   setIsFormValid(false);
+        // }
   };
 
   const changeEmail = event => {
-    setEmail(event);
+    let reg =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(reg.test(event) === false) 
+    {
+        setEmail({value: event, IsValid: false, ErrorMsg: I18n.t('InvalidEmail')})
+    }
+    else{
+        setEmail({value: event, IsValid: true, ErrorMsg: ''})
+    }
+
+    
+    // if(passowrd.IsValid && passowrd.value != '' && email.IsValid && email.value != '')
+    // {
+    //   setIsFormValid(true);
+    // }
+    // else
+    // {
+    //   setIsFormValid(false);
+    // }
   };
 
+  const SignIn=()=>{
+    setIsLoading(true);
+   dispatch(Action.login({email:email.value,password:passowrd.value},(event)=>{
+    console.log("Login",event);
+    if(event.ok)
+    {
+      setIsLoading(false);
+      props.nav.navigate('VerificationCodeScreen');
+    }
+    else{
+      setIsLoading(false);
+      toast(event.data)
+    }
+   }))
+
+  }
   return (
     <View style={styles.container}>
+      <LoadingModel LoadingModalVisiblty={isLoading} />
       {/* Email Part */}
-      <Text style={styles.title}>{I18n.t('EmailOrUser')}</Text>
+      {/* <Text style={styles.title}>{I18n.t('EmailOrUser')}</Text> */}
       <InputText
         inputType="TextInput"
-        value={email}
+        value={email.value}
         HandleChange={changeEmail}
         style={styles.inputTextStyle}
         secureTextEntry={false}
         autoCapitalize="none"
         autoCorrect={false}
+        errorMsg={email.ErrorMsg} 
+        errorStyle={styles.errorStyle}
+        TextStyle={styles.textStyle}
+        title="EmailOrUser"
       />
 
       {/* Password Part */}
-      <Text style={styles.title}>{I18n.t('Password')}</Text>
+      {/* <Text style={styles.title}>{I18n.t('Password')}</Text> */}
       <InputText
+        title="Password"
         inputType="TextInput"
-        value={passowrd}
+        value={passowrd.value}
+        TextStyle={styles.textStyle}
         HandleChange={changePasswod}
         style={styles.inputTextStyle}
         secureTextEntry={true}
         autoCapitalize="none"
         autoCorrect={false}
+        errorMsg={passowrd.ErrorMsg} 
+        errorStyle={styles.errorStyle}
       />
 
       {/* forgot password */}
@@ -62,8 +130,9 @@ const LoginForm = props => {
 
       {/* Login button */}
       <TouchableOpacity
-        style={{width: '100%', marginTop: 20}}
-        onPress={() => props.nav.navigate('VerificationCodeScreen')}>
+        disabled={!(passowrd.IsValid && passowrd.value != '' && email.IsValid && email.value != '')}
+        style={{width: '100%', marginTop: 20, opacity: (passowrd.IsValid && passowrd.value != '' && email.IsValid && email.value != '') ? 1 : 0.5 }}
+        onPress={() => SignIn()}>
         <BlockButton
           fontStyle={{fontSize: FontSizes.subtitle, fontWeight: 'bold'}}
           backColor={Colors.primary}
@@ -83,7 +152,7 @@ const LoginForm = props => {
         <Text style={{color: Colors.secondary}}>
           {I18n.t('DontHaveAccount')}{' '}
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity >
           <Text onPress={() => props.nav.navigate('SigupScreen')}>
             {I18n.t('RegisterNow')}
           </Text>
@@ -104,12 +173,19 @@ const styles = StyleSheet.create({
   },
   inputTextStyle: {
     width: '100%',
-    marginBottom: 20,
     height:50
   },
   forgotContainer: {
     width: '100%',
     alignItems: 'center',
   },
+  errorStyle: {
+    fontSize: 12,
+    color: Colors.error,
+    marginTop: 10
+},
+textStyle:{
+  marginTop: 20,
+},
 });
 export default LoginForm;

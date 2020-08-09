@@ -10,7 +10,6 @@ import FontSizes from '../../constants/FontSizes';
 import Colors from '../../constants/Colors';
 import I18n from '../../i18n'
 import { IconButton } from 'react-native-paper';
-import ImagePicker from 'react-native-image-picker';
 
 const { height, width } = Dimensions.get('window');
 

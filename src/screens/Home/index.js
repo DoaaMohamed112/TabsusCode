@@ -15,7 +15,6 @@ import AdsItem from '../../components/AdsItem';
 const { height, width } = Dimensions.get('window');
 
 const HomeScreen = props => {
-    console.disableYellowBox = true;
 
     const [DataList, setDataList] = useState([
         {

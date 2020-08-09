@@ -77,7 +77,7 @@ const ReviewOrderScreen = props => {
 
                     {/* comment part */}
                     <View style={Style.CommentContainer}>
-                        <InputText alignVerticalTop inputType="TextInput" HandleChange={(e) => setComment(e)} value={comment} multiline={true} alignVerticalTop="top" title={'Comment'} style={Style.InputContainer} />
+                        <InputText alignVerticalTop alignVerticalTop inputType="TextInput" HandleChange={(e) => setComment(e)} value={comment} multiline={true} alignVerticalTop="top" title={'Comment'} style={Style.InputContainer} />
 
                     </View>
                 </ScrollView>

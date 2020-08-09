@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Dimensions, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Style from './style'
 import ImagesPaths from '../../constants/ImagesPaths';
@@ -14,10 +14,18 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
+import LoadingModal from '../../components/LoadingModel';
+import { toast } from '../../constants/Toaster';
+
+import *as Action from '../../store/Actions/Auth';
+
+import { useDispatch } from 'react-redux';
  const { height, width } = Dimensions.get('window');
 
 const VerificationCodeScreen = props => {
   const [email, setEmail] = React.useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const changeEmail = event => {
     setEmail(event);
   };
@@ -29,6 +37,7 @@ const VerificationCodeScreen = props => {
     value,
     setValue,
   });
+  const dispatch = useDispatch();
 
   useEffect(() => {
 
@@ -43,8 +52,26 @@ const VerificationCodeScreen = props => {
     //   Dimensions.removeEventListener('change', updateDimensions);
     // }
   });
+
+  const send =() =>{
+    setIsLoading(true);
+    dispatch(Action.ActivateAccount(
+      {
+        "confirmationKey":value
+      },
+      (event) => {
+        setIsLoading(false);
+
+        if (event.ok)
+        props.navigation.navigate('HomeStackNavigator');
+        else
+          toast(event.data);
+      }))
+  }
   return (
     <View style={Style.container}>
+            <LoadingModal LoadingModalVisiblty={isLoading} />
+
       <Header style={{ height: 70 }} bodyStyle={{ width: '80%' }} title='VerificationCode' leftIcon='back' HandleBack={() => props.navigation.pop()}></Header>
       <ScrollView contentContainerStyle={{height:'100%',flexGrow:1}}>
 
@@ -73,7 +100,7 @@ const VerificationCodeScreen = props => {
                 <BlockButton fontStyle={{ fontSize: FontSizes.pragraph, fontWeight: 'bold' }} backColor={Colors.light} style={{borderWidth:0}} value='Resend'></BlockButton>
             </TouchableOpacity>
         {/* button part */}
-        <TouchableOpacity onPress={()=>props.navigation.navigate('HomeStackNavigator')} style={{ width: '100%', marginTop: 20 }} >
+        <TouchableOpacity onPress={send} style={{ width: '100%', marginTop: 20 }} >
                 <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Send'></BlockButton>
             </TouchableOpacity>
       </View>

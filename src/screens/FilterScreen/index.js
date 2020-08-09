@@ -42,7 +42,6 @@ const FilterScreen = props => {
   const [selectedColors, setSelectedColors] = useState([]);
   const [colors, setColors] = useState(['#cb35dc', '#6a51ed', '#ed5195', '#acb6c4', '#676767', '#000000']);
 
-  console.disableYellowBox = true;
 
   const { navigation } = props;
   

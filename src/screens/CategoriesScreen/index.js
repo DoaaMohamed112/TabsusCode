@@ -23,7 +23,6 @@ import AdsItem from '../../components/AdsItem';
 const {height, width} = Dimensions.get('window');
 
 const CategoriesScreen = props => {
-  console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
   const [DataList, setDataList] = useState([
     {

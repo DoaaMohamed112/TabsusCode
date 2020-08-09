@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet, TextInput, Picker, Dimensions} from 'react-native';
+import {View, Text, Image, StyleSheet, TextInput, Dimensions} from 'react-native';
 import Colors from '../constants/Colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {IconButton} from 'react-native-paper';

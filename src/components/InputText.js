@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TextInput, Picker } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput } from 'react-native';
 import Colors from '../constants/Colors';
 import I18n from '../i18n';
 const Styles = StyleSheet.create({
@@ -70,18 +70,12 @@ if inputType = TextInput
           secureTextEntry={props.secureTextEntry}
           autoCapitalize={props.autoCapitalize}
           autoCorrect={props.autoCorrect}
-else inputType is picker
 data
 selectedValue={props.value}
 onValueChange={props.handleChange}>
 */
 const InputText = props => { 
-  let pickerItems;
-  if (props.data != undefined)
-    pickerItems = props.data.map((s, i) => {
-      return <Picker.Item color={i != 0 ? Colors.darkgray : Colors.fontLightGray} key={i} value={s} label={s} />
-    });
-// console.log(i18n.locale)
+
   return (
     <>
     { props.title && <Text style={[Styles.title ,props.TextStyle]}>{I18n.t(props.title)}</Text>}

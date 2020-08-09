@@ -21,7 +21,6 @@ import FontSizes from '../../constants/FontSizes';
 const {height, width} = Dimensions.get('window');
 
 const ReturnsScreen = props => {
-  console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
   const [IsModalVisible, setIsModalVisible] = useState(false);
   const [selectedSortBy, setSelectedSortBy] = useState(0);

@@ -17,7 +17,6 @@ import MainItem from '../../components/MainItem';
 const {height, width} = Dimensions.get('window');
 
 const WishListScreen = props => {
-  console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
   const [DataList, setDataList] = useState([
     {

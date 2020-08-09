@@ -19,7 +19,6 @@ import Colors from '../../constants/Colors';
 const {height, width} = Dimensions.get('window');
 
 const CategoryItemsScreen = props => {
-  console.disableYellowBox = true;
   const [chosenCategoryIndex, setChosenCategoryIndex] = useState(0);
   const [IsModalVisible, setIsModalVisible] = useState(false);
   const [selectedSortBy, setSelectedSortBy] = useState(0);

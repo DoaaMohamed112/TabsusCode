@@ -245,7 +245,7 @@ const AccountStackNavigator = () => {
 const MainStackNavigator = () => {
     return (
         <Stack.Navigator headerMode="none" >
-            {/* <Stack.Screen name="ReviewOrderScreen" component={ReviewOrderScreen}/> */}
+            <Stack.Screen name="ReviewOrderScreen" component={ReviewOrderScreen}/>
             <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
             <Stack.Screen name="HomeStackNavigator" component={HomeStackNavigator} />
             <Stack.Screen name="TermsConditionsScreen" component={TermsConditionsScreen} />
