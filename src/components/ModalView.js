@@ -62,7 +62,7 @@ const ModalView = props => {
             paddingVertical: 40,
           }}>
           <Text style={{fontSize: 15, textAlign: 'center'}}>{props.message}</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center',marginTop: 20}}>
+          <View style={{flexDirection: 'row', alignContent: 'center', justifyContent: 'center',marginTop: 20}}>
             <TouchableOpacity onPress={props.onPressOkBtn}><Text style={{fontSize: 15,color:Colors.lightblue,paddingHorizontal:20}}>{props.OkTitle}</Text></TouchableOpacity>
         <TouchableOpacity onPress={props.onPressCancelBtn}><Text style={{fontSize: 15,color:Colors.lightblue,paddingHorizontal:20}}>{props.CancelTitle}</Text></TouchableOpacity>
           </View>

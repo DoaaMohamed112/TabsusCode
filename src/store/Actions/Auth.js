@@ -1,5 +1,5 @@
 import * as types from '../ActionTypes';
-import { Post, setData,Put } from "./API_Requests";
+import { Post, setData,Put, Get } from "./API_Requests";
 import AsyncStorage from "@react-native-community/async-storage";
 import { navigate, replace, reset } from "../../navigations/NavigationService";
 import { Platform } from 'react-native'
@@ -16,11 +16,11 @@ const storeData = async data => {
 };
 export const autoLogin = async () => {
     let user = {}
-    user = await AsyncStorage.getItem('UserToken')
+    user = await AsyncStorage.getItem('User')
         .then((item) => {
             if (item != undefined) {
                 item = JSON.parse(item);
-                console.log("UserToken", item)
+                console.log("User", item)
                 setTimeout(() => { replace("HomeStackNavigator") }, 2000)
             }
             else {
@@ -68,13 +68,45 @@ export const login = (userData, callback) => {
     };
 };
 
+
+export const GetUserData = (callback) => {
+    return async (dispatch) => {
+        try {
+            console.log("Enter Get User Data")
+             Get('/V1/customers/me', true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    console.log(res);
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        await AsyncStorage.setItem("User",JSON.stringify({user:  res}))
+                        callback({ ok: true, data: "" })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
+
+
 export const ActivateAccount = (userData, callback) => {
     return async (dispatch) => {
         try {
                     
              Put('/V1/customers/me/activate',{
                 confirmationKey: userData.confirmationKey,
-            }).then(async response => {
+            },false).then(async response => {
                 if (response != undefined) {
                     let res = await response.json();
 
@@ -98,6 +130,92 @@ export const ActivateAccount = (userData, callback) => {
         }
     };
 };
+
+
+export const ValidateEmail = (userData, callback) => {
+    return async (dispatch) => {
+        try {
+             Post('/V1/customers/isEmailAvailable',userData).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    console.log(res);
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // AsyncStorage.setItem("UserToken",JSON.stringify({token:  res}))
+                        callback({ ok: true, data: "" })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
+export const ForgetPassword = (userData, callback) => {
+    return async (dispatch) => {
+        try {
+            console.log("User Data For Forget", userData)
+             Put('/V1/customers/password',userData,false).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    console.log(res);
+                    if (response.ok) {
+                        // dispatch(setData(types.USER_TOKEN, res))
+                        // AsyncStorage.setItem("UserToken",JSON.stringify({token:  res}))
+                        callback({ ok: true, data: "" })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
+export const ChangePassword = (userData, callback) => {
+    return async (dispatch) => {
+        try {
+            console.log("User Data For change", userData)
+             Put('/V1/customers/me/password',userData,true).then(async response => {
+                if (response != undefined) {
+                    let res = await response.json();
+                    console.log(res);
+                    if (response.ok) {
+                        callback({ ok: true, data: "" })
+                    }
+                    else {
+                        callback({ ok: false, data: res.message })
+                    }
+                }
+                else {
+                    callback({ ok: false, data: "Something went wrong, please try again!" })
+                }
+            })
+
+        } catch (err) {
+            console.log(err.message);
+            callback({ ok: false, data: "Something went wrong, please try again!" })
+        }
+    };
+};
+
 
 export const SignUp = (userData, callback) => {
     return async (dispatch) => {

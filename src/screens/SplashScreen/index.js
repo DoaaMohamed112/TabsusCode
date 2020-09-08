@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 
 const Splash = props => {
 const dispatch = useDispatch();
+let Globals = require('../../constants/Globals');
+
 
   useEffect(()=>{
     //  AuthAction.autoLogin()
@@ -18,13 +20,20 @@ const dispatch = useDispatch();
       item = JSON.parse(item);
       console.log("Language",item.lang)
       
-      I18n.locale = item.lang
-      return true;
+      I18n.locale = item.lang.toLowerCase().includes('en') ? 'en' : 'ar';
+      Globals.Language = item.lang.toLowerCase().includes('en') ? 'en' : 'ar';
+      AuthAction.autoLogin(dispatch);
+      }
+      else
+      {
+        Globals.Language = 'en';
+        console.log("Undefined");
+        AuthAction.autoLogin(dispatch);
       }
     })
     .done();
 
-    AuthAction.autoLogin(dispatch)
+    
   });
   // console.log("hey splash")
     return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, ImageBackground,Dimensions, Text, AsyncStorage,TouchableOpacity, ScrollView } from 'react-native';
+import { View, Image, ImageBackground, Dimensions, Text, AsyncStorage, TouchableOpacity, ScrollView } from 'react-native';
 import Style from './style'
 import ImagesPaths from '../../constants/ImagesPaths';
 import BlockButton from '../../components/BlockButton';
@@ -13,6 +13,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActivityIndicator } from 'react-native-paper';
 import DropdownMenu from '../../components/Dropdown';
 import LoadingModel from '../../components/LoadingModel';
+import { toast } from '../../constants/Toaster';
+// import Globals from '../../constants/Globals';
+// import Globals from '../../constants/Globals';
 
 const { height, width } = Dimensions.get('window');
 
@@ -31,16 +34,18 @@ getLocale = () => {
   return null;
 }
 const WelcomeScreen = props => {
+  let Globals = require('../../constants/Globals');
+
   handleLocales();
   const currentLanguage = I18n.locale;
-  console.log('currentLanguage',currentLanguage)
+  console.log('currentLanguage', currentLanguage)
 
   const [language, setLanguage] = useState(currentLanguage);
-  const [selectedCurrency,setSelectedCurrency] =useState();
-  const [selectedCountry,setSelectedCountry] =useState();
-  const [Currencies,setCurrencies] =useState([]);
-  const [Countries,setCountries] =useState([]);
-  const [isLoading,setIsLoading] =useState(true);
+  const [selectedCurrency, setSelectedCurrency] = useState();
+  const [selectedCountry, setSelectedCountry] = useState();
+  const [Currencies, setCurrencies] = useState([]);
+  const [Countries, setCountries] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
   // const currencies = useSelector(state => state.Nationality.Currencies);
@@ -63,40 +68,51 @@ const WelcomeScreen = props => {
         // props.navigate( "HomeStackNavigator");
         console.log('currencies', event.data.available_currency_codes);
         setCurrencies(event.data.available_currency_codes);
-        if(event.data.available_currency_codes.length > 0)
-        {
-          setSelectedCurrency(event.data.available_currency_codes[0])
+        if (event.data.available_currency_codes.length > 0) {
+          setSelectedCurrency(event.data.available_currency_codes[0]);
         }
+
+        //------------------------------------------------------------------
+        // get all countries
+        dispatch(Action.GetCountries((event1) => {
+          console.log("result of country", event1)
+          if (event1.ok) {
+            console.log('countries', event1.data.map(country => country.full_name_english));
+            setCountries(event1.data.map(country => country.full_name_english))
+            if (event1.data.length > 0) {
+              setSelectedCountry(event1.data[0].full_name_english)
+            }
+            setIsLoading(false);
+            // setCountries(event.data.)
+            // props.navigate( "HomeStackNavigator");
+          }
+          else {
+            // Alert("Error")
+            setIsLoading(false);
+            toast(event1.data);
+
+          }
+        }));
+        //------------------------------------------------------------------
+        // setIsLoading(false);
       }
       else {
         // Alert("Error")
+        setIsLoading(false);
+        toast(event.data);
       }
     }));
-    // get all countries
-    dispatch(Action.GetCountries((event) => {
-      console.log("result of country", event)
-      if (event.ok) {
-        console.log('countries',event.data.map(country=>country.full_name_english));
-        setCountries(event.data.map(country=>country.full_name_english))
-        if(event.data.length > 0)
-        {
-          setSelectedCountry(event.data[0].full_name_english)
-        }
-        setIsLoading(false);
-        // setCountries(event.data.)
-        // props.navigate( "HomeStackNavigator");
-      }
-      else {
-        // Alert("Error")
-        setIsLoading(false);
-      }
-    }));
+
   }
 
-  const save = () =>{
-    AsyncStorage.setItem('Nationality',JSON.stringify({country:selectedCountry,currency:selectedCurrency}))
-    AsyncStorage.setItem('Lang',JSON.stringify({lang:language}))
-    props.navigation.navigate("LoginScreen")
+  const save = () => {
+    AsyncStorage.setItem('Nationality', JSON.stringify({ country: selectedCountry, currency: selectedCurrency }))
+    AsyncStorage.setItem('Lang', JSON.stringify({ lang: language }));
+    // Globals.Language.setState(language);
+    Globals.Language = language;
+    // console.log("This language setted",Globals.Language);
+    props.navigation.navigate("HomeStackNavigator");
+
   }
   return (
     <>
@@ -121,7 +137,7 @@ const WelcomeScreen = props => {
           <Text style={Style.TitleStyle}>{I18n.t("chooseCountry")}</Text>
           <View style={{ width: '100%', marginTop: 20, paddingHorizontal: 10 }}>
 
-          <DropdownMenu textStyle={{width:'90%'}} menuStyle={{width:width-40}} arrowStyle={{width:'10%'}}  selectedItem={selectedCountry} setSelectedItem={(item,index)=> setSelectedCountry(item)}  data={Countries}></DropdownMenu>
+            <DropdownMenu textStyle={{ width: '90%' }} menuStyle={{ width: width - 40 }} arrowStyle={{ width: '10%' }} selectedItem={selectedCountry} setSelectedItem={(item, index) => setSelectedCountry(item)} data={Countries}></DropdownMenu>
             {/* Currency Part */}
           </View>
 
@@ -129,9 +145,9 @@ const WelcomeScreen = props => {
           <View style={{ width: '100%', marginTop: 20, paddingHorizontal: 10 }}>
 
             {/* <CountryCurrencyPicker type='currency'></CountryCurrencyPicker> */}
-            <DropdownMenu textStyle={{width:'90%'}} menuStyle={{width:width-40}} arrowStyle={{width:'10%'}}  selectedItem={selectedCurrency} setSelectedItem={(item,index)=> setSelectedCurrency(item)}  data={Currencies}></DropdownMenu>
+            <DropdownMenu textStyle={{ width: '90%' }} menuStyle={{ width: width - 40 }} arrowStyle={{ width: '10%' }} selectedItem={selectedCurrency} setSelectedItem={(item, index) => setSelectedCurrency(item)} data={Currencies}></DropdownMenu>
           </View>
-          <TouchableOpacity style={{ width: '100%', paddingHorizontal: 10, marginTop: 60 }} onPress={() =>save()}>
+          <TouchableOpacity style={{ width: '100%', paddingHorizontal: 10, marginTop: 60 }} onPress={() => save()}>
             <BlockButton backColor={Colors.primary} style={{ width: '100%' }} value='Save'></BlockButton>
           </TouchableOpacity>
         </View>

@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  AsyncStorage,
 } from 'react-native';
 import Style from './style';
 import ImagesPaths from '../../constants/ImagesPaths';
@@ -46,6 +47,8 @@ const SignupScreen = props => {
   const [selectedMonth, setSelectedMonth] = useState(months[0]);
   const [selectedDay, setSelectedDay] = useState(1);
   // const [chosenDate,setChosenDate] = useState({day:0,month:0,year:0})
+
+  let Globals = require('../../constants/Globals');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -115,7 +118,7 @@ const SignupScreen = props => {
         break;
       }
       case 'password': {
-        let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if (reg.test(text) === false) {
           setPassword({ value: text, IsValid: false, ErrorMsg: I18n.t('PasswordValidation') })
         }
@@ -189,37 +192,62 @@ const SignupScreen = props => {
   const onSubmit = () => {
 
     setIsLoading(true);
-    let padStr = "00";
-    dispatch(Action.SignUp(
-      {
-        "customer": {
-          "id": 0,
-          "group_id": 0,
-          "created_at": moment().format('YYYY-MM-DD hh:mm:ss').toString(),
-          "dob": selectedYear.toString() + '-' + selectedMonth.toString() + '-' + selectedDay.toString(),
-          "email": email.value,
-          "firstname": firstName.value,
-          "lastname": lastName.value,
-          "extension_attributes": { "is_subscribed": true },
-          "addresses": [
-            {
-              "id": 0,
-              "telephone": mobile.value
-            }
-          ]
-        },
-        "password": passowrd.value
-      },
-      (event) => {
-        console.log(event);
-        setIsLoading(false);
-        console.log("Signup event",event)
+    // get Language
+    // AsyncStorage.getItem('Lang')
+    //   .then((item) => {
+    //     if (item != undefined) {
+    //       item = JSON.parse(item);
+    //       console.log("Lang", item.lang)
 
-        if (event.ok)
-          props.navigation.navigate('VerificationCodeScreen')
-        else
-          toast(event.data);
-      }))
+
+          dispatch(Action.ValidateEmail({ customerEmail: email.value, websiteId: Globals.Language == 'en' ? 0 : 1 }, (event1) => {
+            console.log("ValidateEmail", event1);
+            if (event1.ok) {
+
+              let padStr = "00";
+              dispatch(Action.SignUp(
+                {
+                  "customer": {
+                    "id": 0,
+                    "group_id": 0,
+                    "created_at": moment().format('YYYY-MM-DD hh:mm:ss').toString(),
+                    "dob": selectedYear.toString() + '-' + selectedMonth.toString() + '-' + selectedDay.toString(),
+                    "email": email.value,
+                    "firstname": firstName.value,
+                    "lastname": lastName.value,
+                    "extension_attributes": { "is_subscribed": true },
+                    "addresses": [
+                      {
+                        "id": 0,
+                        "telephone": mobile.value
+                      }
+                    ]
+                  },
+                  "password": passowrd.value
+                },
+                (event) => {
+                  console.log(event);
+                  setIsLoading(false);
+                  console.log("Signup event", event)
+
+                  if (event.ok)
+                    props.navigation.replace('HomeStackNavigator')
+                  else
+                    toast(event.data);
+                }));
+
+            }
+
+            else
+            {
+              setIsLoading(false);
+              toast(event1.data)
+            }
+          }));
+        // }
+
+      // })
+      // .done();
   }
 
   return (

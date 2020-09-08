@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground, Dimensions, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ImageBackground, Dimensions, ScrollView, AsyncStorage } from 'react-native';
 import Colors from '../constants/Colors';
 import { IconButton } from 'react-native-paper';
 import Style from '../screens/SplashScreen/style';
 import I18n from '../i18n';
+import ModalView from './ModalView';
+import LoadingModal from './LoadingModel';
 const { width, height } = Dimensions.get('window');
 
 
@@ -67,29 +69,49 @@ const SideBar = (props) => {
         {
             active: false,
             TitleBtn: I18n.t("Logout"),
-            ScreenName: "Home",
+            ScreenName: "Logout",
         },
 
 
     ]);
 
-    const selectItem = (item) => {
-        let index = menuItems.findIndex(i => i.TitleBtn == item.TitleBtn);
-        let index2 = menuItems.findIndex(i => i.active == true);
-        let list = [...menuItems];
-        console.log('index',index);
-        if(index != index2)
-        {
-            list[index].active = true;
-            list[index2].active = false;
-            setMenuItems([...list]);
-            props.navigation.navigate(item.ScreenName);
-        }
+    const [IsModalVisible, setIsModalVisible] = useState(false);
+    const [isLoading,setIsLoading] = useState(false);
 
+    const onPressOk = async () => {
+        setIsModalVisible(false);
+        setIsLoading(true);
+        await AsyncStorage.clear();
+        setIsLoading(false);
+    }
+
+
+    const selectItem = (item) => {
+        if (item.ScreenName == "Logout") {
+            setIsModalVisible(true);
+            console.log("Logout");
+            // AsyncStorage.setItem('Lang', JSON.stringify({ lang: "en" }));
+        }
+        else {
+            let index = menuItems.findIndex(i => i.TitleBtn == item.TitleBtn);
+            let index2 = menuItems.findIndex(i => i.active == true);
+            let list = [...menuItems];
+            console.log('index', index);
+            if (index != index2) {
+                list[index].active = true;
+                list[index2].active = false;
+                setMenuItems([...list]);
+                props.navigation.navigate(item.ScreenName);
+            }
+        }
     };
 
     return (
-        <View style={Styles.container}>
+        <>
+            <LoadingModal LoadingModalVisiblty={isLoading} />
+
+            <View style={Styles.container}>
+
                 <View style={Styles.upperPart}>
                     <View style={Styles.blackBox} />
                     <View style={Styles.grayBox} />
@@ -110,14 +132,16 @@ const SideBar = (props) => {
                 <ScrollView style={Styles.lowerPart}>
                     {menuItems.map((item, index) => {
                         return (
-                            <TouchableOpacity onPress={() => selectItem(item)} style={[Styles.itemStyle, { borderBottomWidth: index != menuItems.length - 1 ? 1 : 0}]}>
-                                <Text style={[Styles.itemTextStyle, {color: item.active ? Colors.darkgray : Colors.lightgray }]}>{item.TitleBtn}</Text>
+                            <TouchableOpacity onPress={() => selectItem(item)} style={[Styles.itemStyle, { borderBottomWidth: index != menuItems.length - 1 ? 1 : 0 }]}>
+                                <Text style={[Styles.itemTextStyle, { color: item.active ? Colors.darkgray : Colors.lightgray }]}>{item.TitleBtn}</Text>
                             </TouchableOpacity>
                         );
                     })}
                 </ScrollView>
-        </View>
 
+                <ModalView Isvisible={IsModalVisible} message={I18n.t("LogoutWarningMessage")} OkTitle={I18n.t("Yes")} CancelTitle={I18n.t("No")} setModalVisible={() => { setIsModalVisible(false) }} warningMessage onPressOkBtn={onPressOk} onPressCancelBtn={() => setIsModalVisible(false)}></ModalView>
+            </View>
+        </>
     );
 }
 

@@ -143,5 +143,8 @@ export default {
     InvalidEmail:'Invalid Email',
     InvalidNumber:'Invalid Mobile Number',
     PasswordValidation:'Please enter a password with minimum eight characters, at least one uppercase letter, one lowercase letter and one number',
-    PasswordNotMatch:'Password does not match'
+    PasswordNotMatch:'Password does not match',
+    LogoutWarningMessage: 'Are you sure you want to Logout?',
+    Yes: "Yes",
+    No: "No"
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
 import Style from './style'
 import ImagesPaths from '../../constants/ImagesPaths';
 // import *as AuthAction from '../../store/Actions/Auth'
@@ -11,6 +11,10 @@ import Colors from '../../constants/Colors';
 import MainItem from '../../components/MainItem';
 import CategoryBar from '../../components/CategoryBar';
 import AdsItem from '../../components/AdsItem';
+import LoadingModel from '../../components/LoadingModel';
+import *as Action from '../../store/Actions/Product';
+import { toast } from '../../constants/Toaster';
+import { useDispatch } from 'react-redux';
 
 const { height, width } = Dimensions.get('window');
 
@@ -114,13 +118,55 @@ const HomeScreen = props => {
         }
     ])
 
+    const dispatch = useDispatch();
+    const [isLoading,setIsLoading] = useState(true);
 
     const handlePressItem = (item) => {
         props.navigation.navigate('ProductStackNavigator');
     }
 
+
+    useEffect(()=>{
+        // AsyncStorage.getItem("User")
+        // .then((item) => {
+        //   if(item != undefined)
+        //   {
+        //   item = JSON.parse(item);
+          
+            
+        //   }
+        //   else{
+
+        //   }
+        // })
+        // .done();
+        AsyncStorage.getItem("Nationality")
+            .then((item) => {
+                if (item != undefined) {
+                    item = JSON.parse(item);
+                    console.log("Currency", item.currency)
+                    // in url we must add the required data: storeId&currencyCode
+                    dispatch(Action.GetAllProduct('?searchCriteria%5BfilterGroups%5D%5B0%5D%5Bfilters%5D%5B0%5D%5Bfield%5D=size&storeId=6&currencyCode=' + item.currency, (event) => {
+                        console.log("Home", event);
+                        if (event.ok) {
+                            setIsLoading(false);
+                        }
+                        else {
+                            setIsLoading(false);
+                            toast(event.data);
+                        }
+                    }))
+                    return true;
+                }
+            })
+            .done();
+       
+    },[])
+
     return (
         <View style={Style.container}>
+            <LoadingModel LoadingModalVisiblty={isLoading} />
+
             <Header style={{ height: 70 }} title='Home' leftIcon='menu' rightIcon='general' 
             HandleBack={() => props.navigation.openDrawer()}
             onPressNotification={()=> props.navigation.navigate('Notifications')}

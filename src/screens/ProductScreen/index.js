@@ -21,6 +21,9 @@ import DetailsComponent from './DetailsComponent';
 import ReviewsComponent from './ReviewsComponent';
 import { IconButton } from 'react-native-paper';
 // import Animated from 'react-native-reanimated';
+import { useDispatch } from 'react-redux';
+import *as Action from '../../store/Actions/Product';
+import { toast } from '../../constants/Toaster';
 
 const {height, width} = Dimensions.get('window');
 
@@ -98,6 +101,22 @@ const IconColor = scrollY.interpolate({
   extrapolate: 'clamp',
   useNativeDriver: true
 });
+
+const dispatch = useDispatch();
+
+const onAddToCart = () => {
+  console.log("Entered Guest")
+  dispatch(Action.CreateGuestCard((event1) => {
+    console.log("Token", event1);
+    if (event1.ok) {
+      console.log(event1.data);
+    }
+    else
+    {
+      toast(event1.data);
+    }
+  }))
+}
 
   return (
     <View style={Style.container}>
@@ -179,7 +198,7 @@ const IconColor = scrollY.interpolate({
         <TouchableOpacity style={{ backgroundColor: Colors.primary,borderRadius: 5,justifyContent:'center',alignItems: 'center' }}>
           <IconButton icon="heart-outline" size={25} />
         </TouchableOpacity>
-        <TouchableOpacity style={{ width: '85%', justifyContent: 'center' ,alignItems: 'center' }}>
+        <TouchableOpacity onPress={onAddToCart} style={{ width: '85%', justifyContent: 'center' ,alignItems: 'center' }}>
           <BlockButton
             fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }}
             backColor={Colors.primary}

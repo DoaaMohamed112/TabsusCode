@@ -25,8 +25,16 @@ const Style = StyleSheet.create({
   inputTextStyle: {
       width: '100%',
       height:50,
-      marginBottom: 20
+      // marginBottom: 20
   },
+  textStyle:{
+    marginTop: 20
+},
+errorStyle: {
+    fontSize: 12,
+    color: Colors.error,
+    marginTop: 10
+},
 });
 
 export default Style;

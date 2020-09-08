@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList, Dimensions,TouchableOpacity, Text , SafeAreaView} from 'react-native'
+import { View, FlatList, Dimensions,TouchableOpacity, Text , SafeAreaView, AsyncStorage} from 'react-native'
 import Header from '../../components/Header'
 import Style from './style'
 import CartItem from '../../components/CartItem'
@@ -11,6 +11,21 @@ const {height, width} = Dimensions.get('window');
 
 const CartScreen = props => {
     const dummyList = [1, 2, 4, 1, 2, 6,8];
+
+    const onPressCheckout = () => {
+        AsyncStorage.getItem('User')
+        .then((item) => {
+            if (item != undefined) {
+                item = JSON.parse(item);
+                console.log("User", item)
+                props.navigation.navigate('CheckoutScreen');
+            }
+            else {
+                props.navigation.navigate('AuthStackNavigator',{screen: 'LoginScreen'});
+            }
+        })
+        .done();
+    }
 
     return (
         <View style={Style.container}>
@@ -39,7 +54,7 @@ const CartScreen = props => {
                         <Text style={Style.priceStyle}>EG 20</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={() => props.navigation.navigate('CheckoutScreen')}>
+                <TouchableOpacity style={{ width: '100%', marginTop: 20 }} onPress={onPressCheckout}>
                     <BlockButton fontStyle={{ fontSize: FontSizes.subtitle, fontWeight: 'bold' }} backColor={Colors.primary} style={{ width: '100%' }} value='Checkout'></BlockButton>
                 </TouchableOpacity>
             </View>

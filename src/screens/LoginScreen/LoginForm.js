@@ -29,8 +29,9 @@ const LoginForm = props => {
   const dispatch = useDispatch();
 
   const changePasswod = event => {
-    let reg =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-        console.log(event);
+    let reg =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+              //  "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+        // console.log(event);
         if(reg.test(event) === false) 
         {
             setPassword({value: event, IsValid: false, ErrorMsg: I18n.t('PasswordValidation')})
@@ -76,8 +77,19 @@ const LoginForm = props => {
     console.log("Login",event);
     if(event.ok)
     {
-      setIsLoading(false);
-      props.nav.navigate('VerificationCodeScreen');
+      dispatch(Action.GetUserData((event2)=>{
+        if(event2.ok)
+        {
+          setIsLoading(false);
+          props.nav.navigate('HomeStackNavigator');
+        }
+        else
+        {
+          setIsLoading(false);
+          toast(event2.data);
+        }
+       
+      }))
     }
     else{
       setIsLoading(false);

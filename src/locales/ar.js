@@ -139,5 +139,8 @@ export default {
   InvalidEmail:'البريد الإلكتروني غير صحيح',
   InvalidNumber:'رقم الهاتف غير صحيح',
   PasswordValidation:'ادخل رمز سري مكون من علي الاقل ثمان رموز, علي الاقل حرف كبير وحرف صغير ورقم',
-  PasswordNotMatch:'الرمز السري غير متطابق'
+  PasswordNotMatch:'الرمز السري غير متطابق',
+  LogoutWarningMessage: 'هل انت متأكد انك تريد تسجيل الخروج؟',
+  Yes: 'نعم',
+  No: 'لا'
 };
